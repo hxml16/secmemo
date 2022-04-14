@@ -1,0 +1,77 @@
+PODS:
+  - Permission/Camera (3.1.2):
+    - Permission/Core
+  - Permission/Core (3.1.2)
+  - Permission/Photos (3.1.2):
+    - Permission/Core
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxCoreLocation (1.5.1):
+    - RxCoreLocation/Core (= 1.5.1)
+  - RxCoreLocation/Core (1.5.1):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxKeyboard (2.0.0):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxPermission/Camera (1.0.0):
+    - Permission/Camera
+    - RxPermission/Core
+  - RxPermission/Core (1.0.0):
+    - Permission/Core
+    - RxSwift
+  - RxPermission/Photos (1.0.0):
+    - Permission/Photos
+    - RxPermission/Core
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - SwiftKeychainWrapper (4.0.1)
+  - SwiftLint (0.46.5)
+  - Swinject (2.7.1)
+  - SwinjectAutoregistration (2.8.1):
+    - Swinject (= 2.7.1)
+
+DEPENDENCIES:
+  - RxCocoa
+  - RxCoreLocation (~> 1.5.1)
+  - RxKeyboard
+  - RxPermission/Camera
+  - RxPermission/Photos
+  - RxSwift
+  - SwiftKeychainWrapper
+  - SwiftLint
+  - Swinject
+  - SwinjectAutoregistration
+
+SPEC REPOS:
+  trunk:
+    - Permission
+    - RxCocoa
+    - RxCoreLocation
+    - RxKeyboard
+    - RxPermission
+    - RxRelay
+    - RxSwift
+    - SwiftKeychainWrapper
+    - SwiftLint
+    - Swinject
+    - SwinjectAutoregistration
+
+SPEC CHECKSUMS:
+  Permission: 4821359fb4d4367fb59aa16df38fbba5722ac842
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxCoreLocation: a78f4cbf32a4c6c47ecccbe22d41ff93b7e8c099
+  RxKeyboard: 4f5863f43b4ff0cbb2a20b94688d6b80c8a43c14
+  RxPermission: acca72f2f9b75cfb5c90e34030ab774f4088bccb
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
+  SwiftLint: 2c16e8fa99dac2e440dc0c70ea74d2532048f6cf
+  Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
+  SwinjectAutoregistration: e83e362da3ca9c64a68290e89efbc40e378dff12
+
+PODFILE CHECKSUM: 9f996cbfe9be440b8dd1fd84e983edfacaa4aac1
+
+COCOAPODS: 1.11.2

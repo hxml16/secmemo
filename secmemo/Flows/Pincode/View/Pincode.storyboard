@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pincode View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="PincodeViewController" id="Y6W-OH-hqX" customClass="PincodeViewController" customModule="secmemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter pincode" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d40-8o-EvV">
+                                <rect key="frame" x="32" y="76" width="350" height="83"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ozj-7R-hnA" userLabel="DotsContainerAligner">
+                                <rect key="frame" x="0.0" y="159" width="414" height="100"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U2g-9O-rWL" userLabel="DotsConatiner">
+                                        <rect key="frame" x="157" y="42" width="100" height="16"/>
+                                        <subviews>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LzL-SX-eof" userLabel="Dot1" customClass="CircleView" customModule="secmemo" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="LzL-SX-eof" secondAttribute="height" id="UkT-xl-ccQ"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                                                        <color key="value" name="CustomPrimaryTextColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view clipsSubviews="YES" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YqZ-zn-eKF" userLabel="Dot2" customClass="CircleView" customModule="secmemo" customModuleProvider="target">
+                                                <rect key="frame" x="28" y="0.0" width="16" height="16"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="YqZ-zn-eKF" secondAttribute="height" id="eev-OR-vNJ"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                                                        <color key="value" name="CustomPrimaryTextColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view clipsSubviews="YES" tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Fr-Xa-QCf" userLabel="Dot3" customClass="CircleView" customModule="secmemo" customModuleProvider="target">
+                                                <rect key="frame" x="56" y="0.0" width="16" height="16"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="6Fr-Xa-QCf" secondAttribute="height" id="taa-ar-hSb"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                                                        <color key="value" name="CustomPrimaryTextColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view clipsSubviews="YES" tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdY-55-EcA" userLabel="Dot4" customClass="CircleView" customModule="secmemo" customModuleProvider="target">
+                                                <rect key="frame" x="84" y="0.0" width="16" height="16"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="fdY-55-EcA" secondAttribute="height" id="sxZ-kQ-lug"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                                                        <color key="value" name="CustomPrimaryTextColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="fdY-55-EcA" firstAttribute="centerY" secondItem="LzL-SX-eof" secondAttribute="centerY" id="3Fb-QR-P8Y"/>
+                                            <constraint firstAttribute="height" constant="16" id="5UW-0C-2y1"/>
+                                            <constraint firstItem="fdY-55-EcA" firstAttribute="width" secondItem="LzL-SX-eof" secondAttribute="width" id="8VI-Gx-ZXW"/>
+                                            <constraint firstItem="YqZ-zn-eKF" firstAttribute="leading" secondItem="LzL-SX-eof" secondAttribute="trailing" constant="12" id="FhA-dz-7dK"/>
+                                            <constraint firstItem="LzL-SX-eof" firstAttribute="height" secondItem="U2g-9O-rWL" secondAttribute="height" id="Gze-Hw-Ho7"/>
+                                            <constraint firstItem="YqZ-zn-eKF" firstAttribute="height" secondItem="LzL-SX-eof" secondAttribute="height" id="IfS-kT-LQ0"/>
+                                            <constraint firstItem="6Fr-Xa-QCf" firstAttribute="leading" secondItem="YqZ-zn-eKF" secondAttribute="trailing" constant="12" id="MGq-Sa-hHU"/>
+                                            <constraint firstItem="6Fr-Xa-QCf" firstAttribute="width" secondItem="6Fr-Xa-QCf" secondAttribute="height" id="O7s-ue-Wfr"/>
+                                            <constraint firstItem="6Fr-Xa-QCf" firstAttribute="width" secondItem="LzL-SX-eof" secondAttribute="width" id="SdX-T2-Ehm"/>
+                                            <constraint firstItem="LzL-SX-eof" firstAttribute="leading" secondItem="U2g-9O-rWL" secondAttribute="leading" id="TlF-YH-sSE"/>
+                                            <constraint firstItem="fdY-55-EcA" firstAttribute="height" secondItem="LzL-SX-eof" secondAttribute="height" id="Z0Z-5O-Yum"/>
+                                            <constraint firstItem="6Fr-Xa-QCf" firstAttribute="height" secondItem="LzL-SX-eof" secondAttribute="height" id="bfs-4j-PBh"/>
+                                            <constraint firstItem="LzL-SX-eof" firstAttribute="top" secondItem="U2g-9O-rWL" secondAttribute="top" id="boP-eC-rhx"/>
+                                            <constraint firstItem="6Fr-Xa-QCf" firstAttribute="centerY" secondItem="LzL-SX-eof" secondAttribute="centerY" id="es3-ir-EXS"/>
+                                            <constraint firstItem="6Fr-Xa-QCf" firstAttribute="width" secondItem="6Fr-Xa-QCf" secondAttribute="height" id="gVP-Wr-3Pj"/>
+                                            <constraint firstItem="YqZ-zn-eKF" firstAttribute="width" secondItem="YqZ-zn-eKF" secondAttribute="height" id="hRh-hY-jod"/>
+                                            <constraint firstItem="YqZ-zn-eKF" firstAttribute="centerY" secondItem="LzL-SX-eof" secondAttribute="centerY" id="kHJ-d2-2nG"/>
+                                            <constraint firstAttribute="trailing" secondItem="fdY-55-EcA" secondAttribute="trailing" id="rL5-Dc-afV"/>
+                                            <constraint firstItem="fdY-55-EcA" firstAttribute="leading" secondItem="6Fr-Xa-QCf" secondAttribute="trailing" constant="12" id="t0Q-g9-QRe"/>
+                                            <constraint firstItem="YqZ-zn-eKF" firstAttribute="width" secondItem="LzL-SX-eof" secondAttribute="width" id="tyk-xP-P23"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="U2g-9O-rWL" firstAttribute="centerY" secondItem="Ozj-7R-hnA" secondAttribute="centerY" id="IOq-Cc-UOV"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="QZc-at-Nx2"/>
+                                    <constraint firstItem="U2g-9O-rWL" firstAttribute="centerX" secondItem="Ozj-7R-hnA" secondAttribute="centerX" id="RG1-im-Jg2"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5V-4L-PzN" userLabel="ButtonsContainer">
+                                <rect key="frame" x="41.5" y="259" width="331" height="442"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5K4-6l-7rW" userLabel="Placeholder1">
+                                        <rect key="frame" x="0.0" y="0.0" width="110.5" height="110.5"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNi-nc-ya0" customClass="CircleButton" customModule="secmemo" customModuleProvider="target">
+                                                <rect key="frame" x="16.5" y="17" width="77" height="77"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="QNi-nc-ya0" secondAttribute="height" id="o0E-YC-4a7"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="1">
+                                                    <color key="titleColor" name="CustomPrimaryTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                                                        <color key="value" name="CustomPrimaryTextColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                        <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="QNi-nc-ya0" firstAttribute="centerY" secondItem="5K4-6l-7rW" secondAttribute="centerY" id="J1y-Os-xrj"/>
+                                            <constraint firstItem="QNi-nc-ya0" firstAttribute="width" secondItem="5K4-6l-7rW" secondAttribute="width" multiplier="0.7" id="TSm-KT-aSI"/>
+                                            <constraint firstItem="QNi-nc-ya0" firstAttribute="centerX" secondItem="5K4-6l-7rW" secondAttribute="centerX" id="nxU-6b-YT8"/>
+                                            <constraint firstAttribute="width" secondItem="5K4-6l-7rW" secondAttribute="height" id="uIP-Gm-qi2"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54t-Ii-6El" userLabel="Placeholder2">
+                                        <rect key="frame" x="110.5" y="0.0" width="110" height="110.5"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Bm-Wk-5Fd" customClass="CircleButton" customModule="secmemo" customModuleProvider="target">
+                                                <rect key="frame" x="16.5" y="17" width="77" height="77"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="6Bm-Wk-5Fd" secondAttribute="height" id="bs1-bo-ALZ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="2">
+                                                    <color key="titleColor" name="CustomPrimaryTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                                                        <color key="value" name="CustomPrimaryTextColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                        <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="6Bm-Wk-5Fd" firstAttribute="width" secondItem="54t-Ii-6El" secondAttribute="width" multiplier="0.7" id="T76-Lj-gsr"/>
+                                            <constraint firstAttribute="width" secondItem="54t-Ii-6El" secondAttribute="height" id="aSB-UI-HuO"/>
+                                            <constraint firstItem="6Bm-Wk-5Fd" firstAttribute="centerY" secondItem="54t-Ii-6El" secondAttribute="centerY" id="ckQ-L7-nsP"/>
+                                            <constraint firstItem="6Bm-Wk-5Fd" firstAttribute="centerX" secondItem="54t-Ii-6El" secondAttribute="centerX" id="rZJ-fd-DKA"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8I6-Wt-V6O" userLabel="Placeholder3">
+                                        <rect key="frame" x="220.5" y="0.0" width="110.5" height="110.5"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyD-la-eTl" customClass="CircleButton" customModule="secmemo" customModuleProvider="target">
+                                                <rect key="frame" x="17" y="17" width="77" height="77"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="yyD-la-eTl" secondAttribute="height" id="4tF-eB-ufk"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="3">
+                                                    <color key="titleColor" name="CustomPrimaryTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                                                        <color key="value" name="CustomPrimaryTextColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                        <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="yyD-la-eTl" firstAttribute="centerY" secondItem="8I6-Wt-V6O" secondAttribute="centerY" id="5ia-kg-l14"/>
+                                            <constraint firstItem="yyD-la-eTl" firstAttribute="width" secondItem="8I6-Wt-V6O" secondAttribute="width" multiplier="0.7" id="Bkh-0d-8x6"/>
+                                            <constraint firstAttribute="width" secondItem="8I6-Wt-V6O" secondAttribute="height" id="QrD-qC-UZ4"/>
+                                            <constraint firstItem="yyD-la-eTl" firstAttribute="centerX" secondItem="8I6-Wt-V6O" secondAttribute="centerX" id="tx6-3H-Gtb"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kuN-fI-aOU" userLabel="Placeholder4">
+                                        <rect key="frame" x="0.0" y="110.5" width="110.5" height="110.5"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDq-Ic-0KU" customClass="CircleButton" customModule="secmemo" customModuleProvider="target">
+                                                <rect key="frame" x="16.5" y="16.5" width="77" height="77.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="jDq-Ic-0KU" secondAttribute="height" id="zLP-mA-h9r"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="4">
+                                                    <color key="titleColor" name="CustomPrimaryTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                                                        <color key="value" name="CustomPrimaryTextColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                        <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="jDq-Ic-0KU" firstAttribute="centerY" secondItem="kuN-fI-aOU" secondAttribute="centerY" id="gxH-Vh-I21"/>
+                                            <constraint firstAttribute="width" secondItem="kuN-fI-aOU" secondAttribute="height" id="iXB-DD-YIa"/>
+                                            <constraint firstItem="jDq-Ic-0KU" firstAttribute="centerX" secondItem="kuN-fI-aOU" secondAttribute="centerX" id="sOi-LG-rr1"/>
+                                            <constraint firstItem="jDq-Ic-0KU" firstAttribute="width" secondItem="kuN-fI-aOU" secondAttribute="width" multiplier="0.7" id="sSQ-Fi-Z0Y"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfE-l8-Scc" userLabel="Placeholder5">
+                                        <rect key="frame" x="110.5" y="110.5" width="110" height="110.5"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8p-6M-4F5" customClass="CircleButton" customModule="secmemo" customModuleProvider="target">
+                                                <rect key="frame" x="16.5" y="16.5" width="77" height="77.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="n8p-6M-4F5" secondAttribute="height" id="wzd-9g-urf"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="5">
+                                                    <color key="titleColor" name="CustomPrimaryTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                                                        <color key="value" name="CustomPrimaryTextColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                        <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="n8p-6M-4F5" firstAttribute="centerX" secondItem="pfE-l8-Scc" secondAttribute="centerX" id="02V-le-HoD"/>
+                                            <constraint firstItem="n8p-6M-4F5" firstAttribute="width" secondItem="pfE-l8-Scc" secondAttribute="width" multiplier="0.7" id="9Ap-Ci-qEJ"/>
+                                            <constraint firstAttribute="width" secondItem="pfE-l8-Scc" secondAttribute="height" id="HfV-gB-MNw"/>
+                                            <constraint firstItem="n8p-6M-4F5" firstAttribute="centerY" secondItem="pfE-l8-Scc" secondAttribute="centerY" id="XKr-fv-mlK"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqB-r2-Zqh" userLabel="Placeholder6">
+                                        <rect key="frame" x="220.5" y="110.5" width="110.5" height="110.5"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhT-UU-MxT" customClass="CircleButton" customModule="secmemo" customModuleProvider="target">
+                                                <rect key="frame" x="17" y="16.5" width="77" height="77.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="fhT-UU-MxT" secondAttribute="height" id="wHN-oJ-4jg"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="6">
+                                                    <color key="titleColor" name="CustomPrimaryTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                                                        <color key="value" name="CustomPrimaryTextColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                        <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="fhT-UU-MxT" firstAttribute="centerX" secondItem="eqB-r2-Zqh" secondAttribute="centerX" id="1rC-y7-sE5"/>
+                                            <constraint firstItem="fhT-UU-MxT" firstAttribute="width" secondItem="eqB-r2-Zqh" secondAttribute="width" multiplier="0.7" id="586-0f-6Db"/>
+                                            <constraint firstAttribute="width" secondItem="eqB-r2-Zqh" secondAttribute="height" id="YYt-w2-ynG"/>
+                                            <constraint firstItem="fhT-UU-MxT" firstAttribute="centerY" secondItem="eqB-r2-Zqh" secondAttribute="centerY" id="rc9-RS-D3Y"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n52-D3-PYw" userLabel="Placeholder7">
+                                        <rect key="frame" x="0.0" y="221" width="110.5" height="110.5"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zsf-mG-sg5" customClass="CircleButton" customModule="secmemo" customModuleProvider="target">
+                                                <rect key="frame" x="16.5" y="16.5" width="77" height="77.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Zsf-mG-sg5" secondAttribute="height" id="XnY-ki-AaB"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="7">
+                                                    <color key="titleColor" name="CustomPrimaryTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                                                        <color key="value" name="CustomPrimaryTextColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                        <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Zsf-mG-sg5" firstAttribute="centerX" secondItem="n52-D3-PYw" secondAttribute="centerX" id="EIs-PO-YMX"/>
+                                            <constraint firstItem="Zsf-mG-sg5" firstAttribute="centerY" secondItem="n52-D3-PYw" secondAttribute="centerY" id="MaI-7O-aVC"/>
+                                            <constraint firstAttribute="width" secondItem="n52-D3-PYw" secondAttribute="height" id="gkm-1S-XJX"/>
+                                            <constraint firstItem="Zsf-mG-sg5" firstAttribute="width" secondItem="n52-D3-PYw" secondAttribute="width" multiplier="0.7" id="qMK-4z-jha"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sxl-vH-zL2" userLabel="Placeholder8">
+                                        <rect key="frame" x="110.5" y="221" width="110" height="110.5"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXa-Va-gUs" customClass="CircleButton" customModule="secmemo" customModuleProvider="target">
+                                                <rect key="frame" x="16.5" y="16.5" width="77" height="77.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="qXa-Va-gUs" secondAttribute="height" id="ZDz-48-fm3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="8">
+                                                    <color key="titleColor" name="CustomPrimaryTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                                                        <color key="value" name="CustomPrimaryTextColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                        <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="qXa-Va-gUs" firstAttribute="centerY" secondItem="sxl-vH-zL2" secondAttribute="centerY" id="ASy-JR-7UR"/>
+                                            <constraint firstItem="qXa-Va-gUs" firstAttribute="centerX" secondItem="sxl-vH-zL2" secondAttribute="centerX" id="G4a-YW-Jd9"/>
+                                            <constraint firstItem="qXa-Va-gUs" firstAttribute="width" secondItem="sxl-vH-zL2" secondAttribute="width" multiplier="0.7" id="GFa-6e-lm2"/>
+                                            <constraint firstAttribute="width" secondItem="sxl-vH-zL2" secondAttribute="height" id="sEd-3w-yCa"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qrs-OC-Cfo" userLabel="Placeholder9">
+                                        <rect key="frame" x="220.5" y="221" width="110.5" height="110.5"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9e-Uc-wRM" customClass="CircleButton" customModule="secmemo" customModuleProvider="target">
+                                                <rect key="frame" x="17" y="16.5" width="77" height="77.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Q9e-Uc-wRM" secondAttribute="height" id="BUV-bq-EBM"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="9">
+                                                    <color key="titleColor" name="CustomPrimaryTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                                                        <color key="value" name="CustomPrimaryTextColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                        <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Q9e-Uc-wRM" firstAttribute="centerX" secondItem="qrs-OC-Cfo" secondAttribute="centerX" id="0QC-JH-eW8"/>
+                                            <constraint firstAttribute="width" secondItem="qrs-OC-Cfo" secondAttribute="height" id="bJ4-od-xkZ"/>
+                                            <constraint firstItem="Q9e-Uc-wRM" firstAttribute="centerY" secondItem="qrs-OC-Cfo" secondAttribute="centerY" id="hlb-0b-Sq3"/>
+                                            <constraint firstItem="Q9e-Uc-wRM" firstAttribute="width" secondItem="qrs-OC-Cfo" secondAttribute="width" multiplier="0.7" id="n4I-Yd-CBx"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V69-CU-ZAF" userLabel="Placeholder0">
+                                        <rect key="frame" x="110.5" y="331.5" width="110" height="110.5"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebv-ox-bSC" customClass="CircleButton" customModule="secmemo" customModuleProvider="target">
+                                                <rect key="frame" x="16.5" y="16.5" width="77" height="77"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="ebv-ox-bSC" secondAttribute="height" id="PO0-Nv-dXO"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="0">
+                                                    <color key="titleColor" name="CustomPrimaryTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                                                        <color key="value" name="CustomPrimaryTextColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                        <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="V69-CU-ZAF" secondAttribute="height" id="AsE-QW-BHH"/>
+                                            <constraint firstItem="ebv-ox-bSC" firstAttribute="centerY" secondItem="V69-CU-ZAF" secondAttribute="centerY" id="IVm-57-NAt"/>
+                                            <constraint firstItem="ebv-ox-bSC" firstAttribute="width" secondItem="V69-CU-ZAF" secondAttribute="width" multiplier="0.7" id="RCn-eX-C6S"/>
+                                            <constraint firstItem="ebv-ox-bSC" firstAttribute="centerX" secondItem="V69-CU-ZAF" secondAttribute="centerX" id="Rkg-qc-ewN"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D0u-QF-sMz" userLabel="PlaceholderDel">
+                                        <rect key="frame" x="220.5" y="331.5" width="110.5" height="110.5"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gpV-4X-nJv" customClass="CircleButton" customModule="secmemo" customModuleProvider="target">
+                                                <rect key="frame" x="17" y="16.5" width="77" height="77"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="gpV-4X-nJv" secondAttribute="height" id="GtZ-E2-yuT"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="⌫">
+                                                    <color key="titleColor" name="CustomPrimaryTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layerBorderColor">
+                                                        <color key="value" name="CustomPrimaryTextColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layerBorderWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                        <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="D0u-QF-sMz" secondAttribute="height" id="MP9-gg-U7H"/>
+                                            <constraint firstItem="gpV-4X-nJv" firstAttribute="width" secondItem="D0u-QF-sMz" secondAttribute="width" multiplier="0.7" id="PB9-KX-55L"/>
+                                            <constraint firstItem="gpV-4X-nJv" firstAttribute="centerY" secondItem="D0u-QF-sMz" secondAttribute="centerY" id="Y55-zE-iZC"/>
+                                            <constraint firstItem="gpV-4X-nJv" firstAttribute="centerX" secondItem="D0u-QF-sMz" secondAttribute="centerX" id="q5c-M8-dJ9"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="qrs-OC-Cfo" firstAttribute="centerX" secondItem="8I6-Wt-V6O" secondAttribute="centerX" id="5bt-sW-v9J"/>
+                                    <constraint firstItem="qrs-OC-Cfo" firstAttribute="width" secondItem="5K4-6l-7rW" secondAttribute="width" id="7fc-9X-cN2"/>
+                                    <constraint firstItem="V69-CU-ZAF" firstAttribute="top" secondItem="sxl-vH-zL2" secondAttribute="bottom" id="91w-Vb-36U"/>
+                                    <constraint firstItem="54t-Ii-6El" firstAttribute="centerX" secondItem="B5V-4L-PzN" secondAttribute="centerX" id="9Qc-4x-Tqf"/>
+                                    <constraint firstItem="n52-D3-PYw" firstAttribute="width" secondItem="5K4-6l-7rW" secondAttribute="width" id="CdM-Lw-BM4"/>
+                                    <constraint firstAttribute="bottom" secondItem="D0u-QF-sMz" secondAttribute="bottom" id="E6D-UJ-c4t"/>
+                                    <constraint firstItem="n52-D3-PYw" firstAttribute="centerX" secondItem="5K4-6l-7rW" secondAttribute="centerX" id="GeR-6g-gMO"/>
+                                    <constraint firstItem="54t-Ii-6El" firstAttribute="width" secondItem="54t-Ii-6El" secondAttribute="height" id="J1D-XX-TDo"/>
+                                    <constraint firstItem="8I6-Wt-V6O" firstAttribute="width" secondItem="5K4-6l-7rW" secondAttribute="width" id="Jpr-lR-tFR"/>
+                                    <constraint firstItem="5K4-6l-7rW" firstAttribute="width" secondItem="B5V-4L-PzN" secondAttribute="width" multiplier="0.333333" id="L9h-0o-udc"/>
+                                    <constraint firstItem="sxl-vH-zL2" firstAttribute="width" secondItem="5K4-6l-7rW" secondAttribute="width" id="MRN-QB-xen"/>
+                                    <constraint firstItem="eqB-r2-Zqh" firstAttribute="trailing" secondItem="8I6-Wt-V6O" secondAttribute="trailing" id="O7d-uq-ZCB"/>
+                                    <constraint firstItem="kuN-fI-aOU" firstAttribute="centerX" secondItem="5K4-6l-7rW" secondAttribute="centerX" id="ODF-f5-Uff"/>
+                                    <constraint firstItem="pfE-l8-Scc" firstAttribute="centerX" secondItem="54t-Ii-6El" secondAttribute="centerX" id="OVy-2G-Qrj"/>
+                                    <constraint firstItem="eqB-r2-Zqh" firstAttribute="centerY" secondItem="kuN-fI-aOU" secondAttribute="centerY" id="Ox8-cl-Irs"/>
+                                    <constraint firstAttribute="trailing" secondItem="8I6-Wt-V6O" secondAttribute="trailing" id="QlS-oh-6cL"/>
+                                    <constraint firstItem="V69-CU-ZAF" firstAttribute="centerX" secondItem="sxl-vH-zL2" secondAttribute="centerX" id="Qwq-eC-bsO"/>
+                                    <constraint firstItem="5K4-6l-7rW" firstAttribute="top" secondItem="B5V-4L-PzN" secondAttribute="top" id="RC1-xV-oKf"/>
+                                    <constraint firstItem="kuN-fI-aOU" firstAttribute="width" secondItem="5K4-6l-7rW" secondAttribute="width" id="SMx-gh-zSP"/>
+                                    <constraint firstItem="sxl-vH-zL2" firstAttribute="centerY" secondItem="n52-D3-PYw" secondAttribute="centerY" id="XX1-BC-vw2"/>
+                                    <constraint firstItem="pfE-l8-Scc" firstAttribute="centerY" secondItem="kuN-fI-aOU" secondAttribute="centerY" id="YAG-dz-MK4"/>
+                                    <constraint firstItem="qrs-OC-Cfo" firstAttribute="centerY" secondItem="n52-D3-PYw" secondAttribute="centerY" id="Yek-2q-Qs4"/>
+                                    <constraint firstItem="n52-D3-PYw" firstAttribute="top" secondItem="kuN-fI-aOU" secondAttribute="bottom" id="Zqq-MB-Uho"/>
+                                    <constraint firstItem="pfE-l8-Scc" firstAttribute="width" secondItem="5K4-6l-7rW" secondAttribute="width" id="dWc-Uc-p53"/>
+                                    <constraint firstItem="kuN-fI-aOU" firstAttribute="top" secondItem="5K4-6l-7rW" secondAttribute="bottom" id="ffG-NC-Qw8"/>
+                                    <constraint firstItem="54t-Ii-6El" firstAttribute="width" secondItem="5K4-6l-7rW" secondAttribute="width" id="gIv-QV-bd5"/>
+                                    <constraint firstItem="54t-Ii-6El" firstAttribute="centerY" secondItem="5K4-6l-7rW" secondAttribute="centerY" id="jFV-s1-wNA"/>
+                                    <constraint firstItem="54t-Ii-6El" firstAttribute="height" secondItem="5K4-6l-7rW" secondAttribute="height" id="jco-ag-XK6"/>
+                                    <constraint firstItem="D0u-QF-sMz" firstAttribute="centerY" secondItem="V69-CU-ZAF" secondAttribute="centerY" id="lQa-tY-MCm"/>
+                                    <constraint firstItem="D0u-QF-sMz" firstAttribute="centerX" secondItem="qrs-OC-Cfo" secondAttribute="centerX" id="pAC-I6-WvS"/>
+                                    <constraint firstItem="V69-CU-ZAF" firstAttribute="width" secondItem="5K4-6l-7rW" secondAttribute="width" id="rR9-xw-bNz"/>
+                                    <constraint firstItem="eqB-r2-Zqh" firstAttribute="width" secondItem="5K4-6l-7rW" secondAttribute="width" id="sOy-o1-qrv"/>
+                                    <constraint firstItem="5K4-6l-7rW" firstAttribute="leading" secondItem="B5V-4L-PzN" secondAttribute="leading" id="tO2-ZZ-Zt4"/>
+                                    <constraint firstItem="D0u-QF-sMz" firstAttribute="width" secondItem="5K4-6l-7rW" secondAttribute="width" id="toC-s2-O87"/>
+                                    <constraint firstItem="sxl-vH-zL2" firstAttribute="centerX" secondItem="54t-Ii-6El" secondAttribute="centerX" id="vIF-Rr-QW6"/>
+                                    <constraint firstItem="8I6-Wt-V6O" firstAttribute="centerY" secondItem="5K4-6l-7rW" secondAttribute="centerY" id="vzm-yX-dd6"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="380" id="wbX-dU-UpW"/>
+                                    <constraint firstItem="8I6-Wt-V6O" firstAttribute="height" secondItem="5K4-6l-7rW" secondAttribute="height" id="wlt-db-h4K"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFe-3x-5oN">
+                                <rect key="frame" x="32" y="796" width="56" height="34"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" name="CustomPrimaryTextColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="lzButtonTitle" value="common.cancel"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ozj-7R-hnA" firstAttribute="top" secondItem="d40-8o-EvV" secondAttribute="bottom" id="5zy-dB-5bZ"/>
+                            <constraint firstItem="B5V-4L-PzN" firstAttribute="top" secondItem="Ozj-7R-hnA" secondAttribute="bottom" id="7x8-KO-JiY"/>
+                            <constraint firstItem="B5V-4L-PzN" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.8" priority="750" id="8zE-iT-q6z"/>
+                            <constraint firstItem="d40-8o-EvV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="32" id="C1h-rf-AoC"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="d40-8o-EvV" secondAttribute="trailing" constant="32" id="EGy-jR-zBy"/>
+                            <constraint firstItem="d40-8o-EvV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="R8d-t6-nX2"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ozj-7R-hnA" secondAttribute="trailing" id="Sic-Xt-bSW"/>
+                            <constraint firstItem="Ozj-7R-hnA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Vsp-AD-s4E"/>
+                            <constraint firstItem="B5V-4L-PzN" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="32" id="XQ3-6a-rXG"/>
+                            <constraint firstItem="nFe-3x-5oN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="gVk-Yi-bd7"/>
+                            <constraint firstItem="B5V-4L-PzN" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="nnA-8E-shR"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="nFe-3x-5oN" secondAttribute="bottom" constant="32" id="oY8-SN-MHD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="nFe-3x-5oN" id="Zpk-gt-y2r"/>
+                        <outlet property="deleteButton" destination="gpV-4X-nJv" id="dEI-WE-fLg"/>
+                        <outlet property="dotsContainer" destination="U2g-9O-rWL" id="YEQ-Sd-KIU"/>
+                        <outlet property="dotsContainerCenterConstraint" destination="RG1-im-Jg2" id="SFa-KX-by3"/>
+                        <outlet property="titleLabel" destination="d40-8o-EvV" id="Mhg-2F-M96"/>
+                        <outletCollection property="digitButtons" destination="QNi-nc-ya0" collectionClass="NSMutableArray" id="czQ-iu-FuJ"/>
+                        <outletCollection property="digitButtons" destination="6Bm-Wk-5Fd" collectionClass="NSMutableArray" id="MTN-4A-FrR"/>
+                        <outletCollection property="digitButtons" destination="yyD-la-eTl" collectionClass="NSMutableArray" id="y4Q-Pv-w0i"/>
+                        <outletCollection property="digitButtons" destination="jDq-Ic-0KU" collectionClass="NSMutableArray" id="kFH-DK-tJY"/>
+                        <outletCollection property="digitButtons" destination="n8p-6M-4F5" collectionClass="NSMutableArray" id="xkA-71-8vM"/>
+                        <outletCollection property="digitButtons" destination="fhT-UU-MxT" collectionClass="NSMutableArray" id="G4k-Ht-jKn"/>
+                        <outletCollection property="digitButtons" destination="Zsf-mG-sg5" collectionClass="NSMutableArray" id="feh-Y8-4GW"/>
+                        <outletCollection property="digitButtons" destination="qXa-Va-gUs" collectionClass="NSMutableArray" id="J5k-gs-uUL"/>
+                        <outletCollection property="digitButtons" destination="Q9e-Uc-wRM" collectionClass="NSMutableArray" id="yX1-eu-9CZ"/>
+                        <outletCollection property="digitButtons" destination="ebv-ox-bSC" collectionClass="NSMutableArray" id="8hC-gf-uZ7"/>
+                        <outletCollection property="dots" destination="LzL-SX-eof" collectionClass="NSMutableArray" id="H0V-57-QGa"/>
+                        <outletCollection property="dots" destination="YqZ-zn-eKF" collectionClass="NSMutableArray" id="8fK-mQ-QH7"/>
+                        <outletCollection property="dots" destination="6Fr-Xa-QCf" collectionClass="NSMutableArray" id="IBM-mP-wq0"/>
+                        <outletCollection property="dots" destination="fdY-55-EcA" collectionClass="NSMutableArray" id="dJl-Jt-wOh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="86.956521739130437" y="93.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="CustomButtonHighlightedBackgroundColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.15000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CustomPrimaryTextColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

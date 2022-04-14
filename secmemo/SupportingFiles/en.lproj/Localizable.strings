@@ -1,0 +1,71 @@
+/* 
+  Localizable.strings
+  secmemo
+
+  Created by heximal on 10.02.2022.
+  
+*/
+"common.cancel" = "Cancel";
+"common.ok" = "OK";
+"common.error" = "Error";
+"common.success" = "Success";
+"common.alert.settings" = "Settings";
+"common.delete" = "Delete";
+
+"error.unknown" = "Unknown error";
+"error.initStorageFailed" = "Failed to initialize data storage. Unable to continue";
+"error.memoStorageFailed" = "Failed to initialize data storage for this memo. Unable to continue.";
+"error.locationServiceUnavailable" = "Geolocation service is unavailable. Please enable it in the app settings";
+"error.locationInvalid" = "Invalid you provided is invalid. Please follow a proper format for latitude and longitude.";
+
+"signUp.welcomeLabelTitle" = "Welcome";
+"signUp.securityCodeLabelTitle" = "Security pincode";
+"signUp.emergencyCodeLabelTitle" = "Emergency pincode";
+"signUp.securityCodeDescription" = "This app allows you to create and keep your sensitive notes protected by a security pincode.\nSo before start using the app you need to setup this pincode.";
+"signUp.emergencyCodeDescription" = "Optionally you can setup an emergency pincode.\nYou can use it when you need to destroy urgently all data stored in the app.\nYou may skip this step and setup this pincode later in the App settings.";
+"signUp.emergencyCodeAgreementText" = "I understand the purpose of the emergency code";
+"signUp.securityCodeCreateButton" = "SETUP SECURITY PINCODE";
+"signUp.emergencyCodeCreateButton" = "SETUP EMERGENCY PINCODE";
+"signUp.emergencyCodeSkipButton" = "Skip";
+
+"pinCode.unlockTitle" = "Enter pincode";
+"pinCode.setupSecurityPincodeTitle" = "Setup security pincode";
+"pinCode.setupEmergencyPincodeTitle" = "Setup emergency pincode";
+"pinCode.repeatSecurityPincodeTitle" = "Repeat security pincode";
+"pinCode.repeatEmergencyPincodeTitle" = "Repeat emergency pincode";
+"pinCode.changeSecurityPincodeTitle" = "Enter security pincode to change pincode";
+"pinCode.changeEmergencyPincodeTitle" = "Enter security pincode to change pincode";
+
+"pinCode.pincodesMismatchTitle" = "Typed pincodes mismatch. Try again.";
+"pinCode.pincodesCreatedTitle" = "Pincode successfully created.\nDon't forget it!";
+"pinCode.pincodesMatch" = "Pincodes match! Please choose some other emergency pincode";
+
+"memos.navigationBarTitle" = "Memos";
+"memos.deleteItemConfirmText" = "Item \"%@\" will be completely deleted";
+"memos.noMemosYet" = "You haven't added any memos yet.";
+
+"memoEdit.navigationBarTitle" = "Memo";
+"memoEdit.newMemoTitle" = "Memo #%@";
+"memoEdit.addItemsLabelTitle" = "Add any text, photo or geolocation";
+"memoEdit.addTextButtonTitle" = "Text";
+"memoEdit.addFromCameraButtonTitle" = "Camera";
+"memoEdit.addFromPhotosButtonTitle" = "Photos";
+"memoEdit.addLocationButtonTitle" = "Location";
+"memoEdit.textViewPlaceHolderText" = "Type or paste your text here";
+"memoEdit.locationTextFieldPlaceHolderText" = "Type or paste GPS coordinates here";
+"memoEdit.replaceCurrentLocation" = "Previous location value will be replaced";
+"memoEdit.confirmEntryDeletion" = "This line will be delteted";
+"memoEdit.confirmImageDeletion" = "This image will be deleted";
+"memoEdit.replaceButtonTitle" = "Replace";
+
+"chooseMapApp.alertTitle" = "Choose application to view the location";
+"chooseMapApp.copyItemTitle" = "Copy";
+
+"settings.navigationBarTitle" = "Settings";
+"settings.pincodeSettingsDescription" = "Security pincode is used to unlock the app and access its data";
+"settings.emergencyPincodeSettingsDescription" = "Emergency pincode is used for imediate deletion of data and then unlock the app. Use it carefully, confirmation is not asked!";
+"settings.disableSecurityPincodeConfirmTitle" = "Disabling security pincode makes your data unprotected. Emergency pincode will also be disabled";
+"settings.disableEmergencyPincodeConfirmTitle" = "You won't be able to emergency remove all data if you disable emergency pincode";
+"settings.disableButtonTitle" = "Disable";
+"settings.clearAllDataButtonTitle" = "Clear all data";
+"settings.clearAllDataConfirmTitle" = "All memos will be deleted";

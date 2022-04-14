@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign Up View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="SignUpViewController" id="Y6W-OH-hqX" customClass="SignUpViewController" customModule="secmemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ey6-pa-004" userLabel="Page1">
+                                <rect key="frame" x="-200" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpG-5S-Gku" userLabel="SetupSecurityPincode">
+                                        <rect key="frame" x="47" y="323.5" width="320" height="171"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Security pincode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VsE-Te-ceJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="169" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="signUp.securityCodeLabelTitle"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Security code description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiz-jE-S4h">
+                                                <rect key="frame" x="0.0" y="42.5" width="320" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="signUp.securityCodeDescription"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPr-0z-JKH" customClass="SMButton" customModule="secmemo" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="127" width="320" height="44"/>
+                                                <color key="backgroundColor" name="CustomPositiveButtonBackground"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="A3Z-Ip-92s"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Setup security code">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layerCornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adjustsFontSizeToFitWidth" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="lzButtonTitle" value="signUp.securityCodeCreateButton"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="cPr-0z-JKH" firstAttribute="top" secondItem="iiz-jE-S4h" secondAttribute="bottom" constant="64" id="JJK-hd-gMP"/>
+                                            <constraint firstItem="iiz-jE-S4h" firstAttribute="leading" secondItem="tpG-5S-Gku" secondAttribute="leading" id="Lyq-p5-48c"/>
+                                            <constraint firstItem="VsE-Te-ceJ" firstAttribute="leading" secondItem="tpG-5S-Gku" secondAttribute="leading" id="Qpb-M8-A5p"/>
+                                            <constraint firstItem="cPr-0z-JKH" firstAttribute="leading" secondItem="tpG-5S-Gku" secondAttribute="leading" id="ZLa-mr-cJL"/>
+                                            <constraint firstAttribute="trailing" secondItem="cPr-0z-JKH" secondAttribute="trailing" id="e2U-7j-PjZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="iiz-jE-S4h" secondAttribute="trailing" id="gfL-WL-9YR"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="512" id="p11-kk-aYu"/>
+                                            <constraint firstItem="VsE-Te-ceJ" firstAttribute="top" secondItem="tpG-5S-Gku" secondAttribute="top" id="qpH-ob-CrA"/>
+                                            <constraint firstItem="iiz-jE-S4h" firstAttribute="top" secondItem="VsE-Te-ceJ" secondAttribute="bottom" constant="16" id="ym0-3s-BHx"/>
+                                            <constraint firstAttribute="bottom" secondItem="cPr-0z-JKH" secondAttribute="bottom" id="zTX-gO-hUI"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="tpG-5S-Gku" firstAttribute="centerY" secondItem="ey6-pa-004" secondAttribute="centerY" id="B7v-BQ-6Nm"/>
+                                    <constraint firstItem="tpG-5S-Gku" firstAttribute="centerX" secondItem="ey6-pa-004" secondAttribute="centerX" id="E5e-FQ-4k3"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Hq-oG-f64" userLabel="Page2">
+                                <rect key="frame" x="214" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DLs-XI-Yz7" userLabel="EmergencyecurityPincode">
+                                        <rect key="frame" x="47" y="270.5" width="320" height="277.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emergency pincode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWN-I9-Kkw">
+                                                <rect key="frame" x="0.0" y="0.0" width="182" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="signUp.emergencyCodeLabelTitle"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emergency code description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nqh-D5-1bR">
+                                                <rect key="frame" x="0.0" y="40" width="320" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="signUp.emergencyCodeDescription"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oND-4M-BDs" userLabel="AgreementContainer">
+                                                <rect key="frame" x="0.0" y="108.5" width="320" height="41"/>
+                                                <subviews>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vvD-Bz-5bV">
+                                                        <rect key="frame" x="267" y="0.0" width="51" height="31"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="49" id="7S0-GT-YNZ"/>
+                                                        </constraints>
+                                                        <color key="onTintColor" name="CustomPositiveButtonBackground"/>
+                                                    </switch>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I understand the purpose of the emergency code" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="489-SX-WCg">
+                                                        <rect key="frame" x="0.0" y="0.0" width="251" height="41"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="signUp.emergencyCodeAgreementText"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="489-SX-WCg" firstAttribute="leading" secondItem="oND-4M-BDs" secondAttribute="leading" id="6vS-rm-E9S"/>
+                                                    <constraint firstItem="489-SX-WCg" firstAttribute="top" secondItem="oND-4M-BDs" secondAttribute="top" id="8Ji-6j-vn0"/>
+                                                    <constraint firstItem="vvD-Bz-5bV" firstAttribute="leading" secondItem="489-SX-WCg" secondAttribute="trailing" constant="16" id="BMS-Sd-oKO"/>
+                                                    <constraint firstAttribute="bottom" secondItem="489-SX-WCg" secondAttribute="bottom" id="KeN-fI-8aU"/>
+                                                    <constraint firstAttribute="trailing" secondItem="vvD-Bz-5bV" secondAttribute="trailing" constant="4" id="dTN-Kt-NLs"/>
+                                                    <constraint firstItem="vvD-Bz-5bV" firstAttribute="top" secondItem="oND-4M-BDs" secondAttribute="top" id="gop-Ie-N6n"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wjn-bY-Zj2" customClass="SMButton" customModule="secmemo" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="173.5" width="320" height="44"/>
+                                                <color key="backgroundColor" name="CustomDestructiveButtonBackground"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="RBl-Rw-bq9"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Setup emergency code">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="lzButtonTitle" value="signUp.emergencyCodeCreateButton"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layerCornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adjustsFontSizeToFitWidth" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mC5-6k-Da7" customClass="SMButton" customModule="secmemo" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="233.5" width="320" height="44"/>
+                                                <color key="backgroundColor" name="CustomNeutralButtonBackground"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="GNw-a9-S5S"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Skip">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="lzButtonTitle" value="signUp.emergencyCodeSkipButton"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layerCornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adjustsFontSizeToFitWidth" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Nqh-D5-1bR" firstAttribute="top" secondItem="LWN-I9-Kkw" secondAttribute="bottom" constant="16" id="0op-wu-ChD"/>
+                                            <constraint firstItem="Wjn-bY-Zj2" firstAttribute="leading" secondItem="DLs-XI-Yz7" secondAttribute="leading" id="8mX-jh-f1z"/>
+                                            <constraint firstItem="oND-4M-BDs" firstAttribute="top" secondItem="Nqh-D5-1bR" secondAttribute="bottom" constant="48" id="OjQ-sK-QWU"/>
+                                            <constraint firstItem="oND-4M-BDs" firstAttribute="leading" secondItem="DLs-XI-Yz7" secondAttribute="leading" id="TQm-w6-FUt"/>
+                                            <constraint firstItem="Wjn-bY-Zj2" firstAttribute="top" secondItem="oND-4M-BDs" secondAttribute="bottom" constant="24" id="WN6-fc-erf"/>
+                                            <constraint firstItem="mC5-6k-Da7" firstAttribute="leading" secondItem="DLs-XI-Yz7" secondAttribute="leading" id="ZXy-pY-taf"/>
+                                            <constraint firstItem="LWN-I9-Kkw" firstAttribute="leading" secondItem="DLs-XI-Yz7" secondAttribute="leading" id="b4U-Xa-yxQ"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="512" id="g0P-9O-rgM"/>
+                                            <constraint firstItem="Nqh-D5-1bR" firstAttribute="leading" secondItem="DLs-XI-Yz7" secondAttribute="leading" id="gpp-Fx-dEw"/>
+                                            <constraint firstAttribute="trailing" secondItem="oND-4M-BDs" secondAttribute="trailing" id="iQU-Xm-2h1"/>
+                                            <constraint firstItem="LWN-I9-Kkw" firstAttribute="top" secondItem="DLs-XI-Yz7" secondAttribute="top" id="kYc-CH-yOQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wjn-bY-Zj2" secondAttribute="trailing" id="mYA-Xf-q4c"/>
+                                            <constraint firstAttribute="bottom" secondItem="mC5-6k-Da7" secondAttribute="bottom" id="pcj-y8-SXr"/>
+                                            <constraint firstAttribute="trailing" secondItem="mC5-6k-Da7" secondAttribute="trailing" id="pe0-n1-4BQ"/>
+                                            <constraint firstItem="mC5-6k-Da7" firstAttribute="top" secondItem="Wjn-bY-Zj2" secondAttribute="bottom" constant="16" id="s1g-rh-4rx"/>
+                                            <constraint firstAttribute="trailing" secondItem="Nqh-D5-1bR" secondAttribute="trailing" id="zMO-gV-xwV"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="DLs-XI-Yz7" firstAttribute="centerX" secondItem="9Hq-oG-f64" secondAttribute="centerX" priority="750" id="ggt-Fv-Hkz"/>
+                                    <constraint firstItem="DLs-XI-Yz7" firstAttribute="centerY" secondItem="9Hq-oG-f64" secondAttribute="centerY" id="p8B-NP-xYu"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxI-ag-tLt">
+                                <rect key="frame" x="47" y="76" width="320" height="31.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="nP4-UQ-se3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="signUp.welcomeLabelTitle"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="HAG-KG-nMB">
+                                <rect key="frame" x="158.5" y="826" width="97.5" height="26"/>
+                                <color key="pageIndicatorTintColor" name="CustomPageControlTintColor"/>
+                                <color key="currentPageIndicatorTintColor" name="CustomPageControlCurrentPageTintColor"/>
+                            </pageControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ey6-pa-004" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="5rS-B3-u5L"/>
+                            <constraint firstItem="9Hq-oG-f64" firstAttribute="height" secondItem="ey6-pa-004" secondAttribute="height" id="6PI-Iq-n03"/>
+                            <constraint firstItem="ey6-pa-004" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" id="7sJ-ZM-wJg"/>
+                            <constraint firstItem="dxI-ag-tLt" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="9oP-qV-u9m"/>
+                            <constraint firstItem="9Hq-oG-f64" firstAttribute="leading" secondItem="ey6-pa-004" secondAttribute="trailing" id="MsY-IX-UTZ"/>
+                            <constraint firstItem="dxI-ag-tLt" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="32" id="R1p-D5-hc1"/>
+                            <constraint firstItem="ey6-pa-004" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="-200" id="RAG-ej-iho"/>
+                            <constraint firstItem="DLs-XI-Yz7" firstAttribute="width" secondItem="dxI-ag-tLt" secondAttribute="width" id="SQR-Ll-MnC"/>
+                            <constraint firstItem="9Hq-oG-f64" firstAttribute="bottom" secondItem="ey6-pa-004" secondAttribute="bottom" id="SZw-vs-RiR"/>
+                            <constraint firstItem="9Hq-oG-f64" firstAttribute="top" secondItem="ey6-pa-004" secondAttribute="top" id="TfU-kN-7Io"/>
+                            <constraint firstItem="HAG-KG-nMB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="cZG-6u-Q4b"/>
+                            <constraint firstItem="ey6-pa-004" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="ejo-Hu-agJ"/>
+                            <constraint firstItem="9Hq-oG-f64" firstAttribute="width" secondItem="ey6-pa-004" secondAttribute="width" id="i8w-J1-G0I"/>
+                            <constraint firstItem="tpG-5S-Gku" firstAttribute="width" secondItem="dxI-ag-tLt" secondAttribute="width" id="k3W-yS-xVP"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="HAG-KG-nMB" secondAttribute="bottom" constant="10" id="yGv-2j-8P9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emergencyAgreementSwitch" destination="vvD-Bz-5bV" id="DtC-Vi-ZaV"/>
+                        <outlet property="pageControl" destination="HAG-KG-nMB" id="b8V-pp-YJc"/>
+                        <outlet property="pageOneLeadingConstraint" destination="RAG-ej-iho" id="71s-e8-JII"/>
+                        <outlet property="setupEmergencyCodeButton" destination="Wjn-bY-Zj2" id="DdU-yn-81q"/>
+                        <outlet property="setupSecurtityCodeButton" destination="cPr-0z-JKH" id="Uaj-9h-CRx"/>
+                        <outlet property="skipEmergencyCodeButton" destination="mC5-6k-Da7" id="Cic-Ka-Mcj"/>
+                        <outlet property="welcomeLabelWidthConstraint" destination="nP4-UQ-se3" id="gyk-Ol-KWf"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="86.956521739130437" y="93.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="CustomDestructiveButtonBackground">
+            <color red="1" green="0.27799999713897705" blue="0.093999996781349182" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="CustomNeutralButtonBackground">
+            <color red="0.31400001049041748" green="0.31400001049041748" blue="0.31400001049041748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CustomPageControlCurrentPageTintColor">
+            <color red="0.31400001049041748" green="0.31400001049041748" blue="0.31400001049041748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CustomPageControlTintColor">
+            <color red="0.62699997425079346" green="0.62699997425079346" blue="0.62699997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CustomPositiveButtonBackground">
+            <color red="0.14300000667572021" green="0.57800000905990601" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

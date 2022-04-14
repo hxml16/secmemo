@@ -1,0 +1,70 @@
+/* 
+  Localizable.strings
+  secmemo
+
+  Created by heximal on 10.02.2022.
+  
+*/
+"common.cancel" = "Отмена";
+"common.ok" = "OK";
+"common.error" = "Ошибка";
+"common.success" = "Успех";
+"common.alert.settings" = "Настройки";
+"common.delete" = "Удалить";
+
+"error.unknown" = "Неизвестная ошибка";
+"error.initStorageFailed" = "Невозможно ининциализировать хранилище данных. Работа приостановлена.";
+"error.memoStorageFailed" = "Не удалось инициализировать хранилище для данной записи. Работа приостановлена.";
+"error.locationServiceUnavailable" = "Служба геолокации недоступна. Пожалуйста, влючите ее в настройках";
+"error.locationInvalid" = "Вы ввели неверное значение. Пожалуйста, используйте правильный формат для широты и долготы";
+
+"signUp.welcomeLabelTitle" = "Приветствую";
+"signUp.securityCodeLabelTitle" = "Пинкод безопасности";
+"signUp.emergencyCodeLabelTitle" = "Аварийный пинкод";
+"signUp.securityCodeDescription" = "Данное приложение предназначено для надежного хранения ваших заметок путем защиты пинкодом безопасности.\nДля начала работы необходимо создать этот пинкод";
+"signUp.emergencyCodeDescription" = "Дополнительно вы можете создать аварйиный пинкод.\nЕсли использовать данный код для входа, все записи будут уничтожены\nМожно пропустить сейчас этот шаг и настроить аварийный пинкод позже в настройках приложения";
+"signUp.securityCodeCreateButton" = "  СОЗДАТЬ ПИНКОД БЕЗОПАСНОСТИ  ";
+"signUp.emergencyCodeAgreementText" = "Я понимаю, для чего нужен аварийный пинкод";
+"signUp.emergencyCodeCreateButton" = "  СОЗДАТЬ АВАРИЙНЫЙ ПИНКОД  ";
+"signUp.emergencyCodeSkipButton" = "Пропустить";
+
+"pinCode.unlockTitle" = "Введите пинкод";
+"pinCode.setupSecurityPincodeTitle" = "Задайте код безопасности";
+"pinCode.setupEmergencyPincodeTitle" = "Задайте аварийный код";
+"pinCode.repeatSecurityPincodeTitle" = "Повторите код безопасности";
+"pinCode.repeatEmergencyPincodeTitle" = "Повторите аварийный код";
+"pinCode.pincodesMismatchTitle" = "Введенные пинкоды не совпадают. Попробуйте еще раз";
+"pinCode.pincodesCreatedTitle" = "Пинкод успешно создан.\nНе забывайте его";
+"pinCode.pincodesMatch" = "Пинкоды совпадают! Пожалуйста, придумайте другой аварийный пинкод";
+"pinCode.changeSecurityPincodeTitle" = "Для смены пинкода, введите текущий пинкод безопасности";
+"pinCode.changeEmergencyPincodeTitle" = "Для смены пинкода, введите текущий пинкод безопасности";
+
+"memos.navigationBarTitle" = "Заметки";
+"memos.deleteItemConfirmText" = "Запись\n\"%@\"\nбудет бeзвозвратно удалена.";
+"memos.noMemosYet" = "Вы пока не добавили ни одной записи.";
+
+"memoEdit.navigationBarTitle" = "Заметка";
+"memoEdit.newMemoTitle" = "Запись #%@";
+"memoEdit.addItemsLabelTitle" = "Добавляйте тексты, изображения и геолокации";
+"memoEdit.addTextButtonTitle" = "Текст";
+"memoEdit.addFromCameraButtonTitle" = "Камера";
+"memoEdit.addFromPhotosButtonTitle" = "Фото";
+"memoEdit.addLocationButtonTitle" = "Локация";
+"memoEdit.textViewPlaceHolderText" = "Введите или вставьте текст";
+"memoEdit.locationTextFieldPlaceHolderText" = "Введите или вставьте GPS координаты";
+"memoEdit.replaceCurrentLocation" = "Предыдущее значение геолокации будет изменено";
+"memoEdit.confirmEntryDeletion" = "Данная строка будет удалена";
+"memoEdit.confirmImageDeletion" = "Данное изображение будет удалено";
+"memoEdit.replaceButtonTitle" = "Заменить";
+
+"chooseMapApp.alertTitle" = "Выберите приложения для просомтра геолокации";
+"chooseMapApp.copyItemTitle" = "Копировать";
+
+"settings.navigationBarTitle" = "Настройки";
+"settings.pincodeSettingsDescription" = "Пинкод безопасности используется для разблокировки приложения и доступа к данным";
+"settings.emergencyPincodeSettingsDescription" = "Аварийный пинкод используется для мгновенного удаления всех данных с последущей разблокировкой. Используете его с осторожностью, подтверждение не спрашивается!";
+"settings.disableSecurityPincodeConfirmTitle" = "Деактивация пинкода безопасности сделает ваши данные незащищенными. Аварийный код будет также деактивирован";
+"settings.disableEmergencyPincodeConfirmTitle" = "Аварийное удаление данных будет невозможно, если деактивировать аварийный пинкод";
+"settings.disableButtonTitle" = "Деактивировать";
+"settings.clearAllDataButtonTitle" = "Очистить все данные";
+"settings.clearAllDataConfirmTitle" = "Все заметки будут удалены";

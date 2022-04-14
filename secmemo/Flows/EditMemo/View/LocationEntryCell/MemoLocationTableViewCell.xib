@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemoLocationTableViewCell" rowHeight="160" id="RxW-B7-cNk" customClass="MemoLocationTableViewCell" customModule="secmemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RxW-B7-cNk" id="bFw-mW-LxI">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="J1p-9d-vnO">
+                        <rect key="frame" x="16" y="12" width="288" height="160"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T9z-SX-vvL">
+                                <rect key="frame" x="0.0" y="0.0" width="288" height="160"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZpA-b0-gOt" userLabel="ValidationState" customClass="CoordValidationView" customModule="secmemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="40" width="80" height="80"/>
+                                        <subviews>
+                                            <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SeR-qe-ahO" customClass="CircleButton" customModule="secmemo" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                <color key="backgroundColor" name="CustomDestructiveButtonBackground"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="!">
+                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
+                                                    <color key="baseForegroundColor" name="CustomDestructiveButtonTextColor"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationEntry" translatesAutoresizingMaskIntoConstraints="NO" id="yjA-T6-oRA">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                <color key="tintColor" name="CustomTextFieldPlaceholderTextColor"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationEntry" translatesAutoresizingMaskIntoConstraints="NO" id="QvC-m2-yGp">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                <color key="tintColor" name="CustomPrimaryTextColor"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4v-Lf-h3G">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="QvC-m2-yGp" firstAttribute="leading" secondItem="ZpA-b0-gOt" secondAttribute="leading" id="10U-MX-n2M"/>
+                                            <constraint firstItem="u4v-Lf-h3G" firstAttribute="leading" secondItem="ZpA-b0-gOt" secondAttribute="leading" id="13O-Wu-mLS"/>
+                                            <constraint firstAttribute="bottom" secondItem="yjA-T6-oRA" secondAttribute="bottom" id="2tT-AH-3YR"/>
+                                            <constraint firstAttribute="bottom" secondItem="u4v-Lf-h3G" secondAttribute="bottom" id="4Mt-Cc-JiX"/>
+                                            <constraint firstAttribute="trailing" secondItem="yjA-T6-oRA" secondAttribute="trailing" id="4zx-yK-WQi"/>
+                                            <constraint firstAttribute="trailing" secondItem="QvC-m2-yGp" secondAttribute="trailing" id="6ck-dE-mKG"/>
+                                            <constraint firstAttribute="trailing" secondItem="SeR-qe-ahO" secondAttribute="trailing" id="6jJ-fq-Lou"/>
+                                            <constraint firstItem="yjA-T6-oRA" firstAttribute="top" secondItem="ZpA-b0-gOt" secondAttribute="top" id="HcB-Nf-8Xx"/>
+                                            <constraint firstItem="SeR-qe-ahO" firstAttribute="leading" secondItem="ZpA-b0-gOt" secondAttribute="leading" id="HmU-Jm-VcS"/>
+                                            <constraint firstAttribute="bottom" secondItem="QvC-m2-yGp" secondAttribute="bottom" id="IRS-mg-LKf"/>
+                                            <constraint firstAttribute="width" secondItem="ZpA-b0-gOt" secondAttribute="height" id="RNg-Uf-cBF"/>
+                                            <constraint firstItem="SeR-qe-ahO" firstAttribute="top" secondItem="ZpA-b0-gOt" secondAttribute="top" id="Sfa-MH-Re2"/>
+                                            <constraint firstItem="yjA-T6-oRA" firstAttribute="leading" secondItem="ZpA-b0-gOt" secondAttribute="leading" id="T4A-Gc-OIM"/>
+                                            <constraint firstAttribute="trailing" secondItem="u4v-Lf-h3G" secondAttribute="trailing" id="YpZ-iz-JQw"/>
+                                            <constraint firstItem="QvC-m2-yGp" firstAttribute="top" secondItem="ZpA-b0-gOt" secondAttribute="top" id="aFc-Lh-63p"/>
+                                            <constraint firstAttribute="bottom" secondItem="SeR-qe-ahO" secondAttribute="bottom" id="d2I-EC-ayG"/>
+                                            <constraint firstItem="u4v-Lf-h3G" firstAttribute="top" secondItem="ZpA-b0-gOt" secondAttribute="top" id="mfW-mv-qam"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="invalidButton" destination="SeR-qe-ahO" id="ZYk-TI-85L"/>
+                                            <outlet property="locationPlaceholderIcon" destination="yjA-T6-oRA" id="n6H-Nv-dgB"/>
+                                            <outlet property="locationValidatedIcon" destination="QvC-m2-yGp" id="RCY-so-h57"/>
+                                            <outlet property="openLocationButton" destination="u4v-Lf-h3G" id="Gis-JQ-hGg"/>
+                                        </connections>
+                                    </view>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lhG-yl-HEh" customClass="TextField" customModule="secmemo" customModuleProvider="target">
+                                        <rect key="frame" x="84" y="0.0" width="68" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="43B-T6-hlX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="lzPlaceholder" value="memoEdit.locationTextFieldPlaceHolderText"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderTextColor">
+                                                <color key="value" name="CustomTextFieldPlaceholderTextColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmg-2z-8w3" userLabel="TextButton" customClass="CircleButton" customModule="secmemo" customModuleProvider="target">
+                                        <rect key="frame" x="160" y="16" width="128" height="128"/>
+                                        <color key="backgroundColor" name="CustomButtonBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="xmg-2z-8w3" secondAttribute="height" multiplier="1:1" id="DDS-Sg-G2D"/>
+                                            <constraint firstAttribute="width" secondItem="xmg-2z-8w3" secondAttribute="height" id="Yyy-vt-1qb"/>
+                                        </constraints>
+                                        <color key="tintColor" name="CustomPrimaryTextColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="location" catalog="system">
+                                            <color key="titleColor" name="CustomPrimaryTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAq-73-fL8" customClass="CircleButtonActivityIndicator" customModule="secmemo" customModuleProvider="target">
+                                        <rect key="frame" x="160" y="16" width="128" height="128"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="xmg-2z-8w3" firstAttribute="centerY" secondItem="T9z-SX-vvL" secondAttribute="centerY" id="4pB-qh-j5r"/>
+                                    <constraint firstItem="ZpA-b0-gOt" firstAttribute="height" secondItem="T9z-SX-vvL" secondAttribute="height" multiplier="0.5" id="5fv-Lf-nnA"/>
+                                    <constraint firstAttribute="trailing" secondItem="xmg-2z-8w3" secondAttribute="trailing" id="6La-yh-d24"/>
+                                    <constraint firstItem="ZpA-b0-gOt" firstAttribute="leading" secondItem="T9z-SX-vvL" secondAttribute="leading" id="CXh-Ki-oIz"/>
+                                    <constraint firstItem="aAq-73-fL8" firstAttribute="width" secondItem="xmg-2z-8w3" secondAttribute="width" id="Di4-al-eKg"/>
+                                    <constraint firstItem="aAq-73-fL8" firstAttribute="centerY" secondItem="xmg-2z-8w3" secondAttribute="centerY" id="Fht-fo-fME"/>
+                                    <constraint firstItem="lhG-yl-HEh" firstAttribute="leading" secondItem="ZpA-b0-gOt" secondAttribute="trailing" constant="4" id="HK0-Ko-WCd"/>
+                                    <constraint firstItem="ZpA-b0-gOt" firstAttribute="centerY" secondItem="T9z-SX-vvL" secondAttribute="centerY" id="TI6-eX-f1I"/>
+                                    <constraint firstItem="aAq-73-fL8" firstAttribute="centerX" secondItem="xmg-2z-8w3" secondAttribute="centerX" id="YkB-Pk-kmg"/>
+                                    <constraint firstItem="lhG-yl-HEh" firstAttribute="top" secondItem="T9z-SX-vvL" secondAttribute="top" id="aKq-KX-YuB"/>
+                                    <constraint firstItem="xmg-2z-8w3" firstAttribute="height" secondItem="T9z-SX-vvL" secondAttribute="height" multiplier="0.8" id="gi3-st-X5X"/>
+                                    <constraint firstItem="aAq-73-fL8" firstAttribute="height" secondItem="xmg-2z-8w3" secondAttribute="height" id="kuT-gp-pok"/>
+                                    <constraint firstAttribute="bottom" secondItem="lhG-yl-HEh" secondAttribute="bottom" id="weS-uf-oEd"/>
+                                    <constraint firstItem="xmg-2z-8w3" firstAttribute="leading" secondItem="lhG-yl-HEh" secondAttribute="trailing" constant="8" id="yPr-s4-Ibg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                    </stackView>
+                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f8i-f2-l7i" userLabel="Splitter">
+                        <rect key="frame" x="16" y="183" width="288" height="1"/>
+                        <color key="backgroundColor" name="CustomMemoEntrySplitterColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Kx4-M8-Nfl"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="f8i-f2-l7i" firstAttribute="leading" secondItem="bFw-mW-LxI" secondAttribute="leading" constant="16" id="9Zj-zB-nCX"/>
+                    <constraint firstAttribute="bottom" secondItem="f8i-f2-l7i" secondAttribute="bottom" id="AkZ-bP-G2n"/>
+                    <constraint firstAttribute="trailing" secondItem="J1p-9d-vnO" secondAttribute="trailing" constant="16" id="VkY-iX-HKd"/>
+                    <constraint firstAttribute="bottom" secondItem="J1p-9d-vnO" secondAttribute="bottom" constant="12" id="lJY-Sn-s1D"/>
+                    <constraint firstAttribute="trailing" secondItem="f8i-f2-l7i" secondAttribute="trailing" constant="16" id="q5E-Zf-aNx"/>
+                    <constraint firstItem="J1p-9d-vnO" firstAttribute="leading" secondItem="bFw-mW-LxI" secondAttribute="leading" constant="16" id="ruz-oX-NkP"/>
+                    <constraint firstItem="J1p-9d-vnO" firstAttribute="top" secondItem="bFw-mW-LxI" secondAttribute="top" constant="12" id="zke-lP-YFN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="activityIndicator" destination="aAq-73-fL8" id="3P9-A4-HlD"/>
+                <outlet property="locationTextField" destination="lhG-yl-HEh" id="X49-NU-YAs"/>
+                <outlet property="myLocationButton" destination="xmg-2z-8w3" id="grx-YI-ddg"/>
+                <outlet property="validationView" destination="ZpA-b0-gOt" id="fCc-4X-trW"/>
+            </connections>
+            <point key="canvasLocation" x="462.31884057971018" y="164.73214285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="location" catalog="system" width="128" height="118"/>
+        <image name="locationEntry" width="42.666667938232422" height="42.666667938232422"/>
+        <namedColor name="CustomButtonBackgroundColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.10000000149011612" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CustomButtonHighlightedBackgroundColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.15000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CustomDestructiveButtonBackground">
+            <color red="1" green="0.27799999713897705" blue="0.093999996781349182" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="CustomDestructiveButtonTextColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CustomMemoEntrySplitterColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.30000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CustomPrimaryTextColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CustomTextFieldPlaceholderTextColor">
+            <color red="0.23999999463558197" green="0.23999999463558197" blue="0.23999999463558197" alpha="0.30000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
