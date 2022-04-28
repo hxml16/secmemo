@@ -18,6 +18,7 @@ class MemosViewController: UIViewController, Storyboarded {
     static var storyboard = AppStoryboard.memos
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var addMemoButton: UIButton!
 
     private let disposeBag = DisposeBag()
     var viewModel: MemosViewModel?
@@ -31,9 +32,9 @@ class MemosViewController: UIViewController, Storyboarded {
         setupBindings()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        viewModel?.rebuildDataSource()        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel?.rebuildDataSource()
     }
 }
 
@@ -41,17 +42,37 @@ class MemosViewController: UIViewController, Storyboarded {
 extension MemosViewController {
     private func setupBindings() {
         guard let viewModel = viewModel else { return }
-        self.navigationItem.rightBarButtonItem?.rx.tap.subscribe(onNext: {
-            viewModel.requestNewDocument()
+        viewModel.resetRowSelectedIndex()
+        self.navigationItem.rightBarButtonItem?.rx.tap.subscribe(onNext: { [weak self] in
+            self?.requestNewDocument()
         }).disposed(by: disposeBag)
         
         self.navigationItem.leftBarButtonItem?.rx.tap.subscribe(onNext: {
             viewModel.requestSettigns()
-            }).disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
         
+        addMemoButton.rx.tap.subscribe(onNext: { [weak self] in
+            self?.requestNewDocument()
+        }).disposed(by: disposeBag)
+
         viewModel.status
             .bind(to: statusLabel.rx.text)
             .disposed(by: disposeBag)
+        
+        viewModel.addMemoControlVisible
+            .bind(to: addMemoButton.rx.visible)
+            .disposed(by: disposeBag)                
+
+        if UIDevice.isPad {
+            viewModel.rowIndexSelected
+                .subscribe(onNext: {[weak self] rowIndex in
+                    if rowIndex >= 0 {
+                        self?.tableView.selectRow(at: IndexPath(row: rowIndex, section: 0), animated: false, scrollPosition: .top)
+                    }
+                })
+                .disposed(by: disposeBag)
+        }
+
         bindTableView()
     }
     
@@ -61,6 +82,9 @@ extension MemosViewController {
         
         viewModel?.items.bind(to: tableView.rx.items(cellIdentifier: MemosTableCellsFactory.Constants.memoTableViewCellIdentifier, cellType: MemoTableViewCell.self)) { (row, memoHeader, cell) in
             cell.memoHeader = memoHeader
+            if UIDevice.isPad {
+                cell.selectionStyle = .gray
+            }
         }.disposed(by: disposeBag)
         
         tableView.rx.modelSelected(MemoHeader.self).subscribe(onNext: { [weak self] memoHeader in
@@ -73,8 +97,13 @@ extension MemosViewController {
             })
             .disposed(by: disposeBag)
     }
+    
+    private func requestNewDocument() {
+        viewModel?.requestNewDocument()
+    }
 }
 
+//MARK: UITableViewDelegate
 extension MemosViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return Constants.estimatedRowHeight

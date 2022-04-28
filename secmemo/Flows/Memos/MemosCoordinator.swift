@@ -7,10 +7,13 @@
 
 import Foundation
 import RxSwift
+import UIKit
 
 //MARK: Declarations and coordinator methods
 class MemosCoordinator: BaseCoordinator {
     var viewModel: MemosViewModel?
+    var window: UIWindow?
+    private lazy var editMemoViewModel = EditMemoViewModel(memo: Memo.empty)
     private let disposeBag = DisposeBag()
     private var dataProvider: DataProvider
     private var settingsService: SettingsService
@@ -21,24 +24,14 @@ class MemosCoordinator: BaseCoordinator {
     }
     
     override func start() {
-        let viewController = MemosViewController.instantiate()
-        viewController.viewModel = viewModel
-        
-        navigationController.isNavigationBarHidden = false
-        navigationController.viewControllers = [viewController]
         setupBindinds()
+        startMemos()
     }
 }
 
 //MARK: Bindings
 extension MemosCoordinator {
     private func setupBindinds() {
-        viewModel?.didRequestNewDocument
-            .subscribe(onNext: { [weak self] in
-                self?.startNewMemo()
-            })
-            .disposed(by: disposeBag)
-
         viewModel?.didRequestEditDocument
             .subscribe(onNext: { [weak self] memo in
                 self?.startEditMemo(memo: memo)
@@ -67,32 +60,62 @@ extension MemosCoordinator {
  
 //MARK: Routing
 extension MemosCoordinator {
-    private func startNewMemo() {
-        if let newMemo = dataProvider.generateNewMemo() {
-            newMemo.save()
-            startMemo(memo: newMemo)
+    private func startMemos() {
+        guard let window = window else {
+            return
         }
+        var viewControllerToPresent: UIViewController?
+        let memosViewController = MemosViewController.instantiate()
+        memosViewController.viewModel = viewModel
+        if UIDevice.isPad {
+            let splitViewController = MemosMasterDetailsViewController.instantiate()
+            let memoViewController = memoController(viewModel: editMemoViewModel)
+            let memosNavigationController = UINavigationController(rootViewController:memosViewController)
+            let memoNavigationController = UINavigationController(rootViewController:memoViewController)
+                
+            splitViewController.viewControllers = [memosNavigationController, memoNavigationController]
+            viewControllerToPresent = splitViewController
+        } else {
+            navigationController.viewControllers = [memosViewController]
+            navigationController.isNavigationBarHidden = false
+            viewControllerToPresent = navigationController
+        }
+        ViewControllerUtils.setRootViewController(
+            window: window,
+            viewController: viewControllerToPresent!,
+            withAnimation: false)
     }
-
+    
     private func startEditMemo(memo: Memo) {
         startMemo(memo: memo)
     }
 
     private func startMemo(memo: Memo) {
+        if UIDevice.isPad {
+            editMemoViewModel.applyNewMemo(memo: memo)
+        } else {
+            let viewModel = EditMemoViewModel(memo: memo)
+            let viewController = memoController(viewModel: viewModel)
+            navigationController.pushViewController(viewController, animated: true)
+        }
+    }
+    
+    private func memoController(viewModel: EditMemoViewModel) -> EditMemoViewController {
         let viewController = EditMemoViewController.instantiate()
-        viewController.viewModel = EditMemoViewModel(memo: memo)
+        viewController.viewModel = viewModel
         viewController.viewModel?.onImageViewerRequested
             .subscribe(onNext: { [weak self] imageCollection in
                 self?.startImageViewer(imageCollection: imageCollection)
             })
             .disposed(by: disposeBag)
-        navigationController.pushViewController(viewController, animated: true)
+        return viewController
     }
 
     private func startSettings() {
         removeChildCoordinators()
         
         let coordinator = AppDelegate.container.resolve(SettingsCoordinator.self)!
+        coordinator.window = window
         start(coordinator: coordinator)
     }
     
@@ -101,7 +124,7 @@ extension MemosCoordinator {
         viewController.viewModel = ImageViewerViewModel(imageCollection: imageCollection)
         viewController.modalPresentationStyle = .overCurrentContext
         viewController.modalTransitionStyle = .crossDissolve
-        navigationController.topViewController?.present(viewController, animated: true)
+        window?.rootViewController?.present(viewController, animated: true)
     }
 }
 

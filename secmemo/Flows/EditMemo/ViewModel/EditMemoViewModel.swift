@@ -10,44 +10,59 @@ import RxSwift
 import RxPermission
 import Permission
 import RxCocoa
+import UIKit
 
 class EditMemoViewModel {
     var onImageViewerRequested = PublishSubject<MemoImageEntryDataSource>()
     let dataSource = BehaviorRelay<[MemoEntry]>(value: [])
     var focusOnEntry: MemoEntry?
-    var currentResopnder: UIResponder?
+    var currentResponder: UIResponder?
     let entriesCount = BehaviorSubject<Int>(value: 0)
     let memoTitle = BehaviorSubject<String>(value: "")
+    let bottomButtonsAvailable = BehaviorSubject<Bool>(value: UIDevice.isPhone)
     let memoTitlePlaceholder = BehaviorSubject<String>(value: "")
     let didRequestPhotoLibrary = PublishSubject<Void>()
     let didRequestCamera = PublishSubject<Void>()
     let didRequestDismission = PublishSubject<Void>()
-    var memoChanged = false
+    let memoApplied = BehaviorSubject<Bool>(value: false)
 
-    var entries: [MemoEntry] {
-        set {
-            memo.entries = newValue
-        }
-        
-        get {
-            return memo.entries
-        }
-    }
     private let disposeBag = DisposeBag()
 
     let dataProvider = AppDelegate.container.resolve(DataProvider.self)!
-    let memo: Memo
+    var memo: Memo
     
     init(memo: Memo) {
         self.memo = memo
+        initMemoIfRequired()
+    }
+    
+    func applyNewMemo(memo: Memo) {
+        save()
+        self.memo = memo
+        initMemoIfRequired()
+    }
+    
+    func emptyfyMemo() {
+        self.memo = Memo.empty
+    }
+    
+    private func initMemoIfRequired() {
+        if memo.id < 0 {
+            memoApplied.onNext(false)
+            return
+        }
+        memo.isChanged = false
+        // Show bottom controls only for iPhone devices
+        memoApplied.onNext(true)
         acceptDataSource(memo.entries)
         memoTitle.onNext(memo.title)
+        bottomButtonsAvailable.onNext(UIDevice.isPhone)
         let defaultTitle = String(format: "memoEdit.newMemoTitle".localized, String(memo.id))
         memoTitlePlaceholder.onNext(defaultTitle)
     }
     
     func makeCurrentResponderFirst() {
-        if let responder = currentResopnder {
+        if let responder = currentResponder {
             responder.paste(UIPasteboard.general.string)
         }
     }
@@ -62,18 +77,15 @@ class EditMemoViewModel {
 
     func addPhotoEntry(image: UIImage) {
         let imageEntry = MemoImageEntry.imageEntry(with: image, memo: memo)
-        if entries.count > 0, let imageCollection = entries.last as? MemoImageCollectionEntry {
+        if memo.entriesCount > 0, let imageCollection = memo.lastEntry as? MemoImageCollectionEntry {
             imageCollection.addEntry(imageEntry: imageEntry)
         } else {
             let imageCollection = memo.generateNewMemoEntry(with: .imageCollection) as! MemoImageCollectionEntry
             imageCollection.addEntry(imageEntry: imageEntry)
-            entries.append(imageCollection)
+            memo.addEntry(entry: imageCollection)
         }
         imageEntry.save()
-        var newEntries = [MemoEntry]()
-        newEntries.append(contentsOf: entries)
-        applyNewEntries(newEntries: newEntries)
-        memoChanged = true
+        applyNewEntries()
     }
     
     func removeMemo() {
@@ -115,12 +127,9 @@ class EditMemoViewModel {
     }
 
     func addMemoEntry(entry: MemoEntry) {
-        var newEntries = [MemoEntry]()
-        newEntries.append(contentsOf: entries)
+        memo.addEntry(entry: entry)
         focusOnEntry = entry
-        newEntries.append(focusOnEntry!)
-        applyNewEntries(newEntries: newEntries)
-        memoChanged = true
+        applyNewEntries()
     }
     
     func removeImageEntry(imageEntry: MemoImageEntry) {
@@ -131,8 +140,8 @@ class EditMemoViewModel {
     }
 
     func removeEntry(at index: Int) {
-        if index < entries.count {
-            let entry = entries[index]
+        if index < memo.entriesCount {
+            let entry = memo.entries[index]
             showOkCancelAlert(message: "memoEdit.confirmEntryDeletion".localized, okTitle: "common.delete".localized, inController: nil) {
                 self.removeEntry(entry: entry)
             } cancelComplete: {
@@ -141,16 +150,13 @@ class EditMemoViewModel {
     }
 
     func removeEntry(entry: MemoEntry) {
-        var newEntries = [MemoEntry]()
         memo.removeEntry(entry: entry)
-        entries = memo.entries
-        newEntries.append(contentsOf: entries)
-        applyNewEntries(newEntries: newEntries)
-        memoChanged = true
+        applyNewEntries()
     }
 
-    private func applyNewEntries(newEntries: [MemoEntry]) {
-        entries = newEntries
+    private func applyNewEntries() {
+        var newEntries = [MemoEntry]()
+        newEntries.append(contentsOf: memo.entries)
         acceptDataSource(newEntries)
         entriesCount.onNext(newEntries.count)
     }
@@ -161,11 +167,10 @@ class EditMemoViewModel {
     
     func applyMemoTitle(title: String?) {
         if let title = title {
-            memo.header?.title = title
+            memo.title = title
         } else {
-            memo.header?.title = ""
+            memo.title = ""
         }
-        memoChanged = true
     }
     
     func preloadEntryData(entry: MemoEntry) {
@@ -173,8 +178,8 @@ class EditMemoViewModel {
     }
 
     func save() {
-        if memoChanged {
-            memo.save()
+        if self.memo.isChanged {
+            self.memo.save()
         }
     }
 }

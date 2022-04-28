@@ -48,7 +48,7 @@
                             </view>
                         </subviews>
                     </stackView>
-                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f8i-f2-l7i" userLabel="Splitter">
+                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f8i-f2-l7i" userLabel="Splitter">
                         <rect key="frame" x="16" y="111" width="288" height="1"/>
                         <color key="backgroundColor" name="CustomMemoEntrySplitterColor"/>
                         <constraints>

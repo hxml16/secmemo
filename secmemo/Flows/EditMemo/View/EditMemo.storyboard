@@ -87,7 +87,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <view alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mat-kr-NwH" userLabel="Splitter">
+                                                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mat-kr-NwH" userLabel="Splitter">
                                                     <rect key="frame" x="16" y="63" width="382" height="1"/>
                                                     <color key="backgroundColor" name="CustomMemoEntrySplitterColor"/>
                                                     <constraints>
@@ -408,6 +408,8 @@
                         <outlet property="pasteKeyboardButton" destination="KXD-vf-uB4" id="SkV-fr-hIs"/>
                         <outlet property="tableView" destination="feJ-0R-uKR" id="snw-tB-oUa"/>
                         <outlet property="tableViewBottomConstraint" destination="flb-yy-fxM" id="bs8-VY-w2m"/>
+                        <outletCollection property="uiBottomControlViews" destination="XvD-aR-kgQ" collectionClass="NSMutableArray" id="0CK-v0-RNQ"/>
+                        <outletCollection property="uiBottomControlViews" destination="Lwr-Fn-Rwd" collectionClass="NSMutableArray" id="CVa-AI-7Ow"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
