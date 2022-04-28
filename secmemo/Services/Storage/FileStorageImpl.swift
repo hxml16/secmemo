@@ -58,7 +58,7 @@ class FileStorageImpl: DataStorage {
             try data.write(to: pathUrl)
             return true
         } catch {
-            print("Error: Unable to write file at \(path): \(error)")
+            print("Error:    Unable to write file at \(path): \(error)")
         }
         return false
     }

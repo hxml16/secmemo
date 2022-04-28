@@ -11,6 +11,7 @@ import RxSwift
 class DataProviderImpl: DataProvider {
     let errorSubject = PublishSubject<Error>()
     let dataChangedSubject = PublishSubject<Void>()
+    var onMemoHeaderChanged = PublishSubject<MemoHeader>()
     private var allMemoHeaders = [MemoHeader]()
     private var dataStorage: DataStorage
     private var dataDir: String
