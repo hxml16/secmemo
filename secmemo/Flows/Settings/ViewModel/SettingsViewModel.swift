@@ -66,9 +66,12 @@ class SettingsViewModel {
     private func disableSecurityPincode() {
         onConfirmAlertRequested?("settings.disableSecurityPincodeConfirmTitle".localized, "settings.disableButtonTitle".localized, {
             // OK case
+            self.settingsService.securityPincode = nil
             self.settingsService.securityPincodeEnabled = false
             self.securityPincodeEnabled.onNext(false)            
+
             self.settingsService.emergencyPincodeEnabled = false
+            self.settingsService.emergencyPincode = nil
             self.emergencyPincodeEnabled.onNext(false)
         }) {
             // Cancel case
@@ -83,6 +86,7 @@ class SettingsViewModel {
     private func disableEmergencyPincode() {
         onConfirmAlertRequested?("settings.disableEmergencyPincodeConfirmTitle".localized, "settings.disableButtonTitle".localized, {
             // OK case
+            self.settingsService.emergencyPincode = nil
             self.settingsService.emergencyPincodeEnabled = false
             self.emergencyPincodeEnabled.onNext(false)
         }) {

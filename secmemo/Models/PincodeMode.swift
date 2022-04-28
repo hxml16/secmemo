@@ -38,6 +38,9 @@ extension PincodeMode {
             case .none:
                 return ""
         }
-
+    }
+    
+    var isChangeMode: Bool {
+        return self == .changeSecurity || self == .changeEmergency
     }
 }
