@@ -28,4 +28,8 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return newImage ?? self
     }
+    
+    static var broken: UIImage? {
+        return UIImage(named: "brokenImage")
+    }
 }
