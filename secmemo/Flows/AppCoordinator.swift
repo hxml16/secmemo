@@ -7,6 +7,7 @@
 
 import Foundation
 import RxSwift
+import UIKit
 
 //MARK: Declarations and coordinator methods
 class AppCoordinator: BaseCoordinator {
@@ -52,6 +53,14 @@ extension AppCoordinator {
             .subscribe(onNext: { [weak self] in
                 self?.showPincode(pincodeMode: .unlock, hostViewController: self?.topCoordinatorTopViewController, pincodeObserver: nil) })
             .disposed(by: disposeBag)
+
+        sessionService.didUnlock
+            .subscribe(onNext: { [weak self] in
+                if let navigationController = self?.window.rootViewController as? UINavigationController {
+                    navigationController.isNavigationBarHidden = false
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -66,14 +75,7 @@ extension AppCoordinator {
             })
             .disposed(by: disposeBag)
         coordinator.viewModel = viewModel
-        if let hostNavigationController = hostViewController?.navigationController {
-            coordinator.navigationController = hostNavigationController
-        } else {
-            ViewControllerUtils.setRootViewController(
-                window: window,
-                viewController: coordinator.navigationController,
-                withAnimation: true)
-        }
+        coordinator.window = window
         coordinator.start()
     }
      
@@ -107,15 +109,10 @@ extension AppCoordinator {
     
     private func showMemos() {
         removeChildCoordinators()
-        
         let coordinator = AppDelegate.container.resolve(MemosCoordinator.self)!
         coordinator.viewModel = memosViewModel
+        coordinator.window = window
         start(coordinator: coordinator)
-        
-        ViewControllerUtils.setRootViewController(
-            window: window,
-            viewController: coordinator.navigationController,
-            withAnimation: true)
     }
 }
 

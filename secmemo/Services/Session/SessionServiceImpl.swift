@@ -14,20 +14,30 @@ class SessionServiceImpl: SessionService {
     private var dataProvider: DataProvider
     let didSignOut = PublishSubject<Void>()
     let didSignIn = PublishSubject<Void>()
+    
     let didLock = PublishSubject<Void>()
+    let willLock = PublishSubject<Void>()
+    let didUnlock = PublishSubject<Void>()
     let didCleanupData = PublishSubject<Void>()
     var sessionUnlocked = false
+    var firstSessionUnlock = true
 
     func lockSessionIfRequired() {
         if settingsService.securityPincodeEnabled {
             sessionUnlocked = false
+            willLock.onNext(Void())
             didLock.onNext(Void())
         }
     }
 
     func unlockSessionIfRequired() {
         if settingsService.securityPincodeEnabled && !sessionUnlocked {
-            didSignIn.onNext(Void())
+            if firstSessionUnlock {
+                didSignIn.onNext(Void())
+                firstSessionUnlock = false
+            } else {
+                didUnlock.onNext(Void())
+            }
             sessionUnlocked = true
         }
         if !settingsService.securityPincodeEnabled {
@@ -79,6 +89,7 @@ class SessionServiceImpl: SessionService {
     func didInputEmergencyPincode(confirmed: (Bool) -> ()) {
         let emergencyPincodeConfirmed = settingsService.emergencyPincodeEnabled
         if emergencyPincodeConfirmed {
+            firstSessionUnlock = true
             dataProvider.cleanupAllData()
             didCleanupData.onNext(Void())
         }

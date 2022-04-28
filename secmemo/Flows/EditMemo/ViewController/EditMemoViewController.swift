@@ -14,7 +14,6 @@ import CoreLocation
 
 //MARK: Declarations and life cycle
 class EditMemoViewController: UIViewController, Storyboarded {
-    @IBOutlet weak var keyboardAccessoryView: UIView!
     @IBOutlet weak var addButtonsContainer: UIView!
     @IBOutlet weak var addButtonsTitlesContainer: UIView!
     @IBOutlet weak var headerTextViewWrapper: UIView!
@@ -35,13 +34,13 @@ class EditMemoViewController: UIViewController, Storyboarded {
     @IBOutlet weak var addButtonsContainerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var entryEditDescriptionLabelHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var keybaordHeaderHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var uiBottomControlViews: [UIView]!
 
     static var storyboard = AppStoryboard.editMemo
 
     private let disposeBag = DisposeBag()
     var viewModel: EditMemoViewModel?
     var skipped = false
-    let entries = [MemoEntry]()
     var initialTableViewBottomOffset: CGFloat = 0
     var initialAddButtonsTitlesBottomOffset: CGFloat = 0
     var initialAddButtonsContainerHeight: CGFloat = 0
@@ -59,7 +58,7 @@ class EditMemoViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         setupUI()
         executeWithDelay {
-            self.setUpBindings()
+            self.setupBindings()
         }
     }
     
@@ -71,7 +70,32 @@ class EditMemoViewController: UIViewController, Storyboarded {
 
 //MARK: UI
 extension EditMemoViewController {
+    var uiVisible: Bool {
+        get {
+            return tableView.visible
+        }
+        
+        set {
+            self.title = newValue ? "memoEdit.navigationBarTitle".localized : ""
+            tableView.visible = newValue
+            bottomControlsVisible = newValue
+        }
+    }
+
+    var bottomControlsVisible: Bool {
+        get {
+            return uiBottomControlViews.count > 0 ? uiBottomControlViews[0].visible : false
+        }
+        
+        set {
+            for v in uiBottomControlViews {
+                v.visible = newValue
+            }
+        }
+    }
+
     private func setupUI() {
+        uiVisible = false
         tableView.tableHeaderView = headerTextViewWrapper
         tableView.tableFooterView = addButtonsContainer
         tableView.keyboardDismissMode = .onDrag
@@ -96,7 +120,7 @@ extension EditMemoViewController {
 
 //MARK: Bindings
 extension EditMemoViewController {
-    private func setUpBindings() {
+    private func setupBindings() {
         bindViewModelMembers()
         bindControls()
         bindOnscreenKeyboard()
@@ -108,6 +132,7 @@ extension EditMemoViewController {
         let sessionService = AppDelegate.container.resolve(SessionService.self)!
         sessionService.didCleanupData
             .subscribe(onNext: { [weak self] in
+                self?.viewModel?.emptyfyMemo()
                 self?.viewModel = nil
                 self?.navigationController?.popViewController(animated: false)
         })
@@ -126,8 +151,8 @@ extension EditMemoViewController {
         viewModel?.didRequestPhotoLibrary
             .subscribe(onNext: { [weak self] in
                 if let strongSelf = self {
-                    strongSelf.imagePicker.pickPhotoFromLibrary(inController: strongSelf) { pickedImage in
-                        strongSelf.viewModel?.addPhotoEntry(image: pickedImage)
+                    strongSelf.imagePicker.pickPhotoFromLibrary(inController: strongSelf) { [weak self] pickedImage in
+                        self?.viewModel?.addPhotoEntry(image: pickedImage)
                     }
                 }
             })
@@ -136,8 +161,8 @@ extension EditMemoViewController {
         viewModel?.didRequestCamera
             .subscribe(onNext: { [weak self] in
                 if let strongSelf = self {
-                    strongSelf.imagePicker.pickPhotoFromCamera(inController: strongSelf) { pickedImage in
-                        strongSelf.viewModel?.addPhotoEntry(image: pickedImage)
+                    strongSelf.imagePicker.pickPhotoFromCamera(inController: strongSelf) { [weak self] pickedImage in
+                        self?.viewModel?.addPhotoEntry(image: pickedImage)
                     }
                 }
             })
@@ -146,6 +171,18 @@ extension EditMemoViewController {
         viewModel?.didRequestDismission
             .subscribe(onNext: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
+
+        viewModel?.memoApplied
+            .subscribe(onNext: { [weak self] applied in
+                self?.uiVisible = applied
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel?.bottomButtonsAvailable
+            .subscribe(onNext: { [weak self] applied in
+                self?.bottomControlsVisible = applied
             })
             .disposed(by: disposeBag)
     }
@@ -205,7 +242,7 @@ extension EditMemoViewController {
 
         headerTextView.rx.text
             .subscribe(onNext: { [weak self] text in
-            self?.headerTextViewPlaceholder.isHidden = text != ""
+            self?.headerTextViewPlaceholder.visible = text == ""
         }).disposed(by: disposeBag)
 
         headerTextView.rx.text
@@ -237,8 +274,12 @@ extension EditMemoViewController {
             switch memoEntry.type {
                 case .location:
                     let locationCell = EditMemoTableCellsFactory.locationCell(tableView: tableView, row: row, item: memoEntry as! MemoLocationEntry)
-                    locationCell.onLocationUnavailable = self?.locationUnavailable
-                    locationCell.onInvalidLocation = self?.locationInvalid
+                    locationCell.onLocationUnavailable = {
+                        self?.locationUnavailable()
+                    }
+                    locationCell.onInvalidLocation = {
+                        self?.locationInvalid()
+                    }
                     locationCell.onOpenLocation = { locationEntry, sourceView in
                         self?.openLocation(locationEntry: locationEntry, sourceView: sourceView)
                     }
@@ -251,10 +292,10 @@ extension EditMemoViewController {
                     tableCell = textCell
                     if memoEntry === self?.viewModel?.focusOnEntry {
                         executeWithDelay {
-                            self?.viewModel?.currentResopnder = textCell.textView
+                            self?.viewModel?.currentResponder = textCell.textView
                             textCell.focusTextView()
                         }
-                        self?.bindOnBecomeFirstReponsder(responder: textCell.textView)
+                        self?.bindOnBecomeFirstResponder(responder: textCell.textView)
                         self?.viewModel?.focusOnEntry = nil
                     }
                 
@@ -293,13 +334,13 @@ extension EditMemoViewController {
             }
         }).disposed(by: disposeBag)
         
-        bindOnBecomeFirstReponsder(responder: headerTextView)
+        bindOnBecomeFirstResponder(responder: headerTextView)
     }
     
-    private func bindOnBecomeFirstReponsder(responder: UITextView?) {
+    private func bindOnBecomeFirstResponder(responder: UITextView?) {
         responder?.rx.didBeginEditing
             .subscribe(onNext: { [weak self] in
-                self?.viewModel?.currentResopnder = responder
+                self?.viewModel?.currentResponder = responder
             })
             .disposed(by: disposeBag)
     }
@@ -308,31 +349,18 @@ extension EditMemoViewController {
         responder?.rx.controlEvent([.editingDidBegin])
             .asObservable()
             .subscribe(onNext: { [weak self] _ in
-                self?.viewModel?.currentResopnder = responder
+                self?.viewModel?.currentResponder = responder
             })
             .disposed(by: disposeBag)
     }
 }
 
-//MARK: Melper methods
+//MARK: Helper methods
 extension EditMemoViewController {
     private func openLocation(locationEntry: MemoLocationEntry, sourceView: UIView) {
         view.endEditing(true)
         guard let coordinate = locationEntry.coordinate else { return }
-        let application = UIApplication.shared
-        let coordinateString = coordinate.formattedValue
-        let coordinateStringReversed = "\(coordinate.longitude),\(coordinate.latitude)"
-        let encodedTitle = ""
-        let handlers = [
-            ("Apple Maps", "http://maps.apple.com/?q=\(encodedTitle)&ll=\(coordinateString)"),
-            ("Google Maps", "comgooglemaps://?q=\(coordinateString)"),
-            ("Maps.me", "mapswithme://map?v=1&ll=\(coordinateString)"),
-            ("Yandex Maps", "yandexmaps://maps.yandex.com/?ll=\(coordinateStringReversed)"),
-            ("Waze", "waze://?ll=\(coordinateString)"),
-            ("Citymapper", "citymapper://directions?endcoord=\(coordinate)&endname=\(coordinateString)")
-        ]
-            .compactMap { (name, address) in URL(string: address).map { (name, $0) } }
-            .filter { (_, url) in application.canOpenURL(url) }
+
 
         let alert = UIAlertController(title: "chooseMapApp.alertTitle".localized, message: nil, preferredStyle: .actionSheet)
         if let presenter = alert.popoverPresentationController {
@@ -341,13 +369,14 @@ extension EditMemoViewController {
                 presenter.sourceRect = globalBounds
             }
         }
+        let handlers = LocationUtils.listOfAvailableMapApps(coordinate: coordinate)
         handlers.forEach { (name, url) in
             alert.addAction(UIAlertAction(title: name, style: .default) { _ in
-                application.open(url, options: [:])
+                UIApplication.shared.open(url, options: [:])
             })
         }
         alert.addAction(UIAlertAction(title: "chooseMapApp.copyItemTitle".localized, style: .default) { _ in
-            UIPasteboard.general.string = coordinateString
+            UIPasteboard.general.string = coordinate.formattedValue
         })
         alert.addAction(UIAlertAction(title: "common.cancel".localized, style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)        

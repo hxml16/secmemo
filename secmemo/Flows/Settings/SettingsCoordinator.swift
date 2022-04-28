@@ -10,6 +10,7 @@ import RxSwift
 
 class SettingsCoordinator: BaseCoordinator {
     var viewModel: SettingsViewModel?
+    weak var window: UIWindow?
     
     private var settingsService: SettingsService
     private var sessionService: SessionService
@@ -34,7 +35,7 @@ class SettingsCoordinator: BaseCoordinator {
         
         navigationController.viewControllers = [viewController]
         navigationController.modalPresentationStyle = .fullScreen
-        parentCoordinator?.navigationController.topViewController?.present(navigationController, animated: true, completion: nil)
+        window?.rootViewController?.present(navigationController, animated: true)
     }
 }
 

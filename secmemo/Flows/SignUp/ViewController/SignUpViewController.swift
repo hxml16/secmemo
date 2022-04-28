@@ -43,7 +43,9 @@ class SignUpViewController: UIViewController, Storyboarded {
     
     override func viewWillAppear(_ animated: Bool) {
        super.viewWillAppear(animated)
-        AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
+        if UIDevice.isPhone {
+            AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
+        }
     }
 
    override func viewWillDisappear(_ animated: Bool) {

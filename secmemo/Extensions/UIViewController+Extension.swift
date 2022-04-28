@@ -18,11 +18,15 @@ extension UIViewController {
     }
     
     func presentOnTop(_ viewController: UIViewController, animated: Bool) {
+        topViewController().present(viewController, animated: animated)
+    }
+    
+    func topViewController() -> UIViewController {
         var topViewController = self
         while let presentedViewController = topViewController.presentedViewController {
             topViewController = presentedViewController
         }
-        topViewController.present(viewController, animated: animated)
+        return topViewController
     }
 }
 

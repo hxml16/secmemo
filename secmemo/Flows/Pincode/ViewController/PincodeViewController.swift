@@ -11,9 +11,6 @@ import RxCocoa
 
 //MARK: Declarations and life cycle
 class PincodeViewController: UIViewController, Storyboarded {
-    deinit {
-        print("deinit PincodeViewController")
-    }
     struct Constants {
         static let quakeShiftsSequence: [CGFloat] = [-30, 30, -20, 20, -10, 10, 0]
         static let dotsZoomInScale: CGFloat = 0.7
@@ -44,7 +41,9 @@ class PincodeViewController: UIViewController, Storyboarded {
         
     override func viewWillAppear(_ animated: Bool) {
        super.viewWillAppear(animated)
-        AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
+        if UIDevice.isPhone {
+            AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
+        }
     }
 
    override func viewWillDisappear(_ animated: Bool) {
@@ -133,6 +132,19 @@ extension PincodeViewController {
                 if pincodeApplied {
                     self?.dismiss(animated: true, completion: nil)
                 }
+            })
+            .disposed(by: disposeBag)
+        
+        let sessionService = AppDelegate.container.resolve(SessionService.self)
+        sessionService?.didUnlock
+            .subscribe(onNext: { [weak self] in
+                self?.dismiss(animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
+
+        viewModel.didRequestImmediateDismission
+            .subscribe(onNext: { [weak self] in
+                self?.dismiss(animated: false, completion: nil)
             })
             .disposed(by: disposeBag)
     }

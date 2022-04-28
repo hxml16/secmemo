@@ -13,7 +13,6 @@
         <!--Sign Up View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="SignUpViewController" id="Y6W-OH-hqX" customClass="SignUpViewController" customModule="secmemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -202,7 +201,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxI-ag-tLt">
-                                <rect key="frame" x="47" y="76" width="320" height="31.5"/>
+                                <rect key="frame" x="47" y="250.5" width="320" height="31.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="nP4-UQ-se3"/>
                                 </constraints>
@@ -226,8 +225,8 @@
                             <constraint firstItem="9Hq-oG-f64" firstAttribute="height" secondItem="ey6-pa-004" secondAttribute="height" id="6PI-Iq-n03"/>
                             <constraint firstItem="ey6-pa-004" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" id="7sJ-ZM-wJg"/>
                             <constraint firstItem="dxI-ag-tLt" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="9oP-qV-u9m"/>
+                            <constraint firstItem="dxI-ag-tLt" firstAttribute="top" secondItem="DLs-XI-Yz7" secondAttribute="top" constant="-64" id="Iad-MG-Qil"/>
                             <constraint firstItem="9Hq-oG-f64" firstAttribute="leading" secondItem="ey6-pa-004" secondAttribute="trailing" id="MsY-IX-UTZ"/>
-                            <constraint firstItem="dxI-ag-tLt" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="32" id="R1p-D5-hc1"/>
                             <constraint firstItem="ey6-pa-004" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="-200" id="RAG-ej-iho"/>
                             <constraint firstItem="DLs-XI-Yz7" firstAttribute="width" secondItem="dxI-ag-tLt" secondAttribute="width" id="SQR-Ll-MnC"/>
                             <constraint firstItem="9Hq-oG-f64" firstAttribute="bottom" secondItem="ey6-pa-004" secondAttribute="bottom" id="SZw-vs-RiR"/>
@@ -249,6 +248,7 @@
                         <outlet property="welcomeLabelWidthConstraint" destination="nP4-UQ-se3" id="gyk-Ol-KWf"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="86.956521739130437" y="93.75"/>
         </scene>

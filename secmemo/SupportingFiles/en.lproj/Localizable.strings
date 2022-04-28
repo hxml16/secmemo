@@ -16,7 +16,7 @@
 "error.initStorageFailed" = "Failed to initialize data storage. Unable to continue";
 "error.memoStorageFailed" = "Failed to initialize data storage for this memo. Unable to continue.";
 "error.locationServiceUnavailable" = "Geolocation service is unavailable. Please enable it in the app settings";
-"error.locationInvalid" = "Invalid you provided is invalid. Please follow a proper format for latitude and longitude.";
+"error.locationInvalid" = "Location you provided is invalid. Please follow a proper format for latitude and longitude.";
 
 "signUp.welcomeLabelTitle" = "Welcome";
 "signUp.securityCodeLabelTitle" = "Security pincode";
@@ -38,11 +38,12 @@
 
 "pinCode.pincodesMismatchTitle" = "Typed pincodes mismatch. Try again.";
 "pinCode.pincodesCreatedTitle" = "Pincode successfully created.\nDon't forget it!";
-"pinCode.pincodesMatch" = "Pincodes match! Please choose some other emergency pincode";
+"pinCode.pincodesMatch" = "Pincodes match! Please choose some other pincode";
 
 "memos.navigationBarTitle" = "Memos";
 "memos.deleteItemConfirmText" = "Item \"%@\" will be completely deleted";
 "memos.noMemosYet" = "You haven't added any memos yet.";
+"memos.addMemoButtonTitle" = "Add memo";
 
 "memoEdit.navigationBarTitle" = "Memo";
 "memoEdit.newMemoTitle" = "Memo #%@";
@@ -58,7 +59,7 @@
 "memoEdit.confirmImageDeletion" = "This image will be deleted";
 "memoEdit.replaceButtonTitle" = "Replace";
 
-"chooseMapApp.alertTitle" = "Choose application to view the location";
+"chooseMapApp.alertTitle" = "Choose an application to view the location";
 "chooseMapApp.copyItemTitle" = "Copy";
 
 "settings.navigationBarTitle" = "Settings";

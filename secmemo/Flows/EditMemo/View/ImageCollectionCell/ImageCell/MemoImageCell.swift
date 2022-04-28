@@ -11,23 +11,21 @@ import RxSwift
 
 class MemoImageCell: UICollectionViewCell {
     @IBOutlet weak var thumnbailImage: UIImageView!
-    @IBOutlet weak var deleteButotn: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
 
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     var onDeleteRequested: ((MemoImageEntry) -> ())?
-    var entry: MemoImageEntry? {
+    
+    weak var entry: MemoImageEntry? {
         didSet {
             updateUI()
+            setupBindings()
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setupBindings()
-    }
-    
     private func setupBindings() {
-        deleteButotn.rx.tap
+        disposeBag = DisposeBag()
+        deleteButton.rx.tap
             .bind { [weak self] in
                 if let entry = self?.entry {
                     self?.onDeleteRequested?(entry)
@@ -42,7 +40,7 @@ class MemoImageCell: UICollectionViewCell {
             if let image = image {
                 self.thumnbailImage.image = image
             } else {
-                self.thumnbailImage.image = UIImage(named: "brokenImage")
+                self.thumnbailImage.image = UIImage.broken
             }
         })
     }    

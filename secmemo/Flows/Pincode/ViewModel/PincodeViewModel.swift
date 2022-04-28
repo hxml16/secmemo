@@ -18,7 +18,8 @@ class PincodeViewModel {
     private var pincodeMode = PincodeMode.unlock
     private var sessionService: SessionService
     private var pinPadEnabled = true
-    
+    private let disposeBag = DisposeBag()
+
     let didValidatePincode = PublishSubject<Bool>()
     let dotsBackground = [
         clearColorBehviourSubject(),
@@ -30,15 +31,37 @@ class PincodeViewModel {
     let didCreatePincode = PublishSubject<Void>()
     let didCompletePincodeInputWithResult = PublishSubject<Bool>()
     let didCompletePincodeInput = PublishSubject<Void>()
+    let didRequestImmediateDismission = PublishSubject<Void>()
     let pincodeTitle = BehaviorSubject<String>(value: "")
     let errorMessageToAlert = PublishSubject<String>()
     let cancelButtonAvailable = BehaviorSubject<Bool>(value: false)
+    var changeMode = false
 
     init (pincodeMode: PincodeMode, sessionService: SessionService) {
         self.pincodeMode = pincodeMode
         self.sessionService = sessionService
+        self.changeMode = pincodeMode.isChangeMode
         cancelButtonAvailable.onNext(pincodeMode != .unlock)
         updateTitle()
+        setupBindings()
+    }
+    
+    private func setupBindings() {
+        sessionService.willLock
+            .subscribe ( onNext: { [weak self]  in
+                if self?.pincodeMode != .unlock {
+                    self?.didRequestImmediateDismission.onNext(Void())
+                } else {
+                    self?.clearTypedPincode()
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func clearTypedPincode() {
+        typingPincode = ""
+        typedPincode = ""
+        updateDotsState()
     }
     
     func deleteLastSymbol() {
@@ -67,7 +90,7 @@ class PincodeViewModel {
             
             case .changeSecurity, .changeEmergency:
                 switchPincodeToSetup()
-
+            
             default:
                 break
         }
@@ -115,9 +138,22 @@ class PincodeViewModel {
                 typedPincode = typingPincode
                 validatePincodeUnlock()
                 
-            case .setupSecurity, .setupEmergency:
-                switchPincodeToRepeat()
-                
+            case .setupSecurity:
+                if typingPincodeMatchesEmergencyPincode() {
+                    requestPincodesMatchAlert()
+                    clearTypedPincode()
+                } else {
+                    switchPincodeToRepeat()
+                }
+
+            case .setupEmergency:
+                if typingPincodeMatchesSecurityPincode() {
+                    requestPincodesMatchAlert()
+                    clearTypedPincode()
+                } else {
+                    switchPincodeToRepeat()
+                }
+
             case .repeatSecurity, .repeatEmergency:
                 validatePincodeRepeat()
             default:
@@ -125,11 +161,27 @@ class PincodeViewModel {
         }
     }
     
+    private func typedPincodeMatchesSecurityPincode() -> Bool {
+        return typedPincode == sessionService.securityPincode
+    }
+    
+    private func typedPincodeMatchesEmergencyPincode() -> Bool {
+        return typedPincode == sessionService.emergencyPincode
+    }
+    
+    private func typingPincodeMatchesSecurityPincode() -> Bool {
+        return typingPincode == sessionService.securityPincode
+    }
+    
+    private func typingPincodeMatchesEmergencyPincode() -> Bool {
+        return typingPincode == sessionService.emergencyPincode
+    }
+    
     private func validatePincodeUnlock() {
-        let securityPincodeValid = typedPincode == sessionService.securityPincode
-        let emergencyPincodeValid = typedPincode == sessionService.emergencyPincode
+        let securityPincodeValid = typedPincodeMatchesSecurityPincode()
+        let emergencyPincodeValid = typedPincodeMatchesEmergencyPincode()
         var pincodeValid = securityPincodeValid || emergencyPincodeValid
-        if emergencyPincodeValid {
+        if emergencyPincodeValid && !changeMode {
             sessionService.didInputEmergencyPincode { emergencyPincodeConfirmed in
                 pincodeValid = emergencyPincodeConfirmed
             }
@@ -161,6 +213,10 @@ class PincodeViewModel {
         didCreatePincode.onNext(Void())
     }
     
+    private func requestPincodesMatchAlert() {
+        errorMessageToAlert.onNext("pinCode.pincodesMatch".localized)
+    }
+    
     private func pincodesMatch(_ pincode1: String?, _ pincode2: String?) -> Bool {
         return pincode1 == pincode2
     }
@@ -175,6 +231,7 @@ class PincodeViewModel {
             
             case .repeatEmergency, .changeEmergency:
                 pincodeMode = .setupEmergency
+            
             default:
                 break
         }
@@ -189,14 +246,16 @@ class PincodeViewModel {
         switch pincodeMode {
             case .setupSecurity:
                 pincodeMode = .repeatSecurity
+            
             case .setupEmergency:
-            if pincodesMatch(sessionService.securityPincode, typedPincode) {
-                errorMessageToAlert.onNext("pinCode.pincodesMatch".localized)
-                typedPincode = ""
-                updateDotsState()
-                return
-            }
+                if pincodesMatch(sessionService.securityPincode, typedPincode) {
+                    requestPincodesMatchAlert()
+                    typedPincode = ""
+                    updateDotsState()
+                    return
+                }
                 pincodeMode = .repeatEmergency
+            
             default:
                 break
         }

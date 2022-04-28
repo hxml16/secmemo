@@ -18,7 +18,8 @@ class DataProviderMock: DataProvider {
     var isAvailable = true
     var onError = PublishSubject<Error>()
     var onDataChanged = PublishSubject<Void>()
-    
+    var onMemoHeaderChanged = PublishSubject<MemoHeader>()
+
     var memoCount: Int {
         return 0
     }

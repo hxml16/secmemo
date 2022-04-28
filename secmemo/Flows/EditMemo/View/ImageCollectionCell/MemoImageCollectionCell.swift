@@ -53,10 +53,9 @@ class MemoImageCollectionCell: UITableViewCell {
             .disposed(by: disposeBag)
         
         dataSource
-            .bind(to: collectionView.rx.items) {
+            .bind(to: collectionView.rx.items) { [weak self]
               (collectionView: UICollectionView, row: Int, memoEntry: MemoImageEntry) in
                 let imageCell = EditMemoTableCellsFactory.imageCell(collectionView: collectionView, row: row, item: memoEntry)
-                imageCell.entry = memoEntry
                 imageCell.onDeleteRequested = { [weak self] imageEntry in
                     self?.onDeleteRequested?(imageEntry)
                 }

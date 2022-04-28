@@ -103,6 +103,11 @@
 		DDA663632800A7F90024610E /* ImageViewerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA663312800A7F80024610E /* ImageViewerViewCell.swift */; };
 		DDA663642800A7F90024610E /* ImageViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA663332800A7F80024610E /* ImageViewerViewController.swift */; };
 		DDA663652800A7F90024610E /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA663352800A7F80024610E /* BaseCoordinator.swift */; };
+		DDA9A9AA280F16FF002167F1 /* MemosMasterDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9A9A4280F16FF002167F1 /* MemosMasterDetailsViewModel.swift */; };
+		DDA9A9AB280F16FF002167F1 /* MemosMasterDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9A9A5280F16FF002167F1 /* MemosMasterDetailsCoordinator.swift */; };
+		DDA9A9AC280F16FF002167F1 /* MemosMasterDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDA9A9A7280F16FF002167F1 /* MemosMasterDetails.storyboard */; };
+		DDA9A9AD280F16FF002167F1 /* MemosMasterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9A9A9280F16FF002167F1 /* MemosMasterDetailsViewController.swift */; };
+		DDA9A9AF280F70A8002167F1 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9A9AE280F70A8002167F1 /* UIDevice+Extension.swift */; };
 		DDE8861D27B2D867005DA709 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8861C27B2D867005DA709 /* AppDelegate.swift */; };
 		DDE8863E27B2D86B005DA709 /* secmemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8863D27B2D86B005DA709 /* secmemoUITests.swift */; };
 		DDE8864027B2D86B005DA709 /* secmemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8863F27B2D86B005DA709 /* secmemoUITestsLaunchTests.swift */; };
@@ -264,6 +269,11 @@
 		DDA663312800A7F80024610E /* ImageViewerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerViewCell.swift; sourceTree = "<group>"; };
 		DDA663332800A7F80024610E /* ImageViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerViewController.swift; sourceTree = "<group>"; };
 		DDA663352800A7F80024610E /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		DDA9A9A4280F16FF002167F1 /* MemosMasterDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemosMasterDetailsViewModel.swift; sourceTree = "<group>"; };
+		DDA9A9A5280F16FF002167F1 /* MemosMasterDetailsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemosMasterDetailsCoordinator.swift; sourceTree = "<group>"; };
+		DDA9A9A7280F16FF002167F1 /* MemosMasterDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MemosMasterDetails.storyboard; sourceTree = "<group>"; };
+		DDA9A9A9280F16FF002167F1 /* MemosMasterDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemosMasterDetailsViewController.swift; sourceTree = "<group>"; };
+		DDA9A9AE280F70A8002167F1 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		DDE8861927B2D867005DA709 /* secmemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = secmemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE8861C27B2D867005DA709 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDE8862F27B2D86B005DA709 /* secmemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = secmemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -454,6 +464,7 @@
 				DDA663012800A7F80024610E /* Empty */,
 				DDA6632A2800A7F80024610E /* ImageViewer */,
 				DDA662F52800A7F80024610E /* Memos */,
+				DDA9A9A2280F16FF002167F1 /* MemosMasterDetails */,
 				DDA662EC2800A7F80024610E /* Pincode */,
 				DDA662E42800A7F80024610E /* Settings */,
 				DDA663222800A7F80024610E /* SignUp */,
@@ -502,8 +513,8 @@
 			children = (
 				DDA662ED2800A7F80024610E /* ViewModel */,
 				DDA662EF2800A7F80024610E /* View */,
-				DDA662F12800A7F80024610E /* PincodeCoordinator.swift */,
 				DDA662F22800A7F80024610E /* ViewController */,
+				DDA662F12800A7F80024610E /* PincodeCoordinator.swift */,
 			);
 			path = Pincode;
 			sourceTree = "<group>";
@@ -773,6 +784,41 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		DDA9A9A2280F16FF002167F1 /* MemosMasterDetails */ = {
+			isa = PBXGroup;
+			children = (
+				DDA9A9A3280F16FF002167F1 /* ViewModel */,
+				DDA9A9A6280F16FF002167F1 /* View */,
+				DDA9A9A8280F16FF002167F1 /* ViewController */,
+				DDA9A9A5280F16FF002167F1 /* MemosMasterDetailsCoordinator.swift */,
+			);
+			path = MemosMasterDetails;
+			sourceTree = "<group>";
+		};
+		DDA9A9A3280F16FF002167F1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DDA9A9A4280F16FF002167F1 /* MemosMasterDetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DDA9A9A6280F16FF002167F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDA9A9A7280F16FF002167F1 /* MemosMasterDetails.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDA9A9A8280F16FF002167F1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DDA9A9A9280F16FF002167F1 /* MemosMasterDetailsViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		DDE8861027B2D867005DA709 = {
 			isa = PBXGroup;
 			children = (
@@ -854,14 +900,14 @@
 				DD4D85CC27BEA8310066344F /* Memo.swift */,
 				DDF7DB9827D7FECA00B7C5AD /* MemoEntryFactory.swift */,
 				DDF7DB8A27D4F05400B7C5AD /* MemoHeader.swift */,
+				DD4D85D627BF21FB0066344F /* MemoEntryType.swift */,
 				DD4D85CE27BEA8810066344F /* MemoEntry.swift */,
 				DDA3251527E52AA50071AE81 /* MemoDataEntry.swift */,
 				DD4D85D027BEA9530066344F /* MemoTextEntry.swift */,
-				DD4D85D627BF21FB0066344F /* MemoEntryType.swift */,
 				DD4D85D227BEAA030066344F /* MemoImageEntry.swift */,
+				DD4D85D427BEAA380066344F /* MemoLocationEntry.swift */,
 				DD0BAAD427DE0E6900882FBD /* MemoImageCollectionEntry.swift */,
 				DDA3252827E68C8F0071AE81 /* MemoImageEntryDataSource.swift */,
-				DD4D85D427BEAA380066344F /* MemoLocationEntry.swift */,
 				DDE8866627B33C75005DA709 /* AppStoryboard.swift */,
 				DDE886C727B5D684005DA709 /* PincodeMode.swift */,
 			);
@@ -888,6 +934,7 @@
 				DDF7DB9427D575FB00B7C5AD /* Int+Extension.swift */,
 				DDF7DB8C27D4F3B300B7C5AD /* Dictionary+Json.swift */,
 				DD16FB2927CC4A1000534DA2 /* UIColor+Extension.swift */,
+				DDA9A9AE280F70A8002167F1 /* UIDevice+Extension.swift */,
 				DDE8867D27B42075005DA709 /* UIImage+Helper.swift */,
 				DD16FB3227CEBFAD00534DA2 /* CLLocationCoordinate2D+Format.swift */,
 				DDE886CB27B68278005DA709 /* UIViewController+Extension.swift */,
@@ -1075,6 +1122,7 @@
 			files = (
 				DDA663542800A7F90024610E /* MemoLocationTableViewCell.xib in Resources */,
 				DDE8869D27B5387C005DA709 /* Colors.xcassets in Resources */,
+				DDA9A9AC280F16FF002167F1 /* MemosMasterDetails.storyboard in Resources */,
 				DDE886A627B53997005DA709 /* Localizable.strings in Resources */,
 				DDA6634F2800A7F90024610E /* MemoImageCell.xib in Resources */,
 				DDA6634D2800A7F90024610E /* EditMemo.storyboard in Resources */,
@@ -1226,6 +1274,7 @@
 				DDA6635A2800A7F90024610E /* EditMemoViewController.swift in Sources */,
 				DD16FB3127CEA9D000534DA2 /* CircleButtonActivityIndicator.swift in Sources */,
 				DDA663632800A7F90024610E /* ImageViewerViewCell.swift in Sources */,
+				DDA9A9AD280F16FF002167F1 /* MemosMasterDetailsViewController.swift in Sources */,
 				DDE886C827B5D684005DA709 /* PincodeMode.swift in Sources */,
 				DD83AD5027B91CBC00882471 /* KeyChainStorage.swift in Sources */,
 				DDA6634E2800A7F90024610E /* MemoImageCell.swift in Sources */,
@@ -1276,9 +1325,11 @@
 				DDA662E22800A3D30024610E /* AppUtility.swift in Sources */,
 				DD16FB2A27CC4A1000534DA2 /* UIColor+Extension.swift in Sources */,
 				DDE886AB27B5962A005DA709 /* SMButton.swift in Sources */,
+				DDA9A9AA280F16FF002167F1 /* MemosMasterDetailsViewModel.swift in Sources */,
 				DDF7DB8F27D4FF9400B7C5AD /* String+Json.swift in Sources */,
 				DDA6634A2800A7F90024610E /* EditMemoViewModel.swift in Sources */,
 				DD4D85D527BEAA380066344F /* MemoLocationEntry.swift in Sources */,
+				DDA9A9AF280F70A8002167F1 /* UIDevice+Extension.swift in Sources */,
 				DDA3251627E52AA50071AE81 /* MemoDataEntry.swift in Sources */,
 				DDA6635F2800A7F90024610E /* ImageViewerViewModel.swift in Sources */,
 				DDA663582800A7F90024610E /* MemoTextEntryTableViewCell.swift in Sources */,
@@ -1316,6 +1367,7 @@
 				DD16FB3527CECCE800534DA2 /* SystemUtils.swift in Sources */,
 				DDE8868B27B47E6C005DA709 /* SettingsConstants.swift in Sources */,
 				DDE8866A27B33D2B005DA709 /* Storyboarded.swift in Sources */,
+				DDA9A9AB280F16FF002167F1 /* MemosMasterDetailsCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1500,7 +1552,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = MLQ8BKSTJN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = secmemo/SupportingFiles/Info.plist;
@@ -1519,7 +1571,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pikeit.secmemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1535,7 +1587,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = MLQ8BKSTJN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = secmemo/SupportingFiles/Info.plist;
@@ -1554,7 +1606,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pikeit.secmemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

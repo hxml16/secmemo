@@ -68,7 +68,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <size key="customSize" width="163" height="153"/>
             <connections>
-                <outlet property="deleteButotn" destination="RxQ-Gx-ByF" id="gyt-dM-G4M"/>
+                <outlet property="deleteButton" destination="RxQ-Gx-ByF" id="d3O-5A-Rrf"/>
                 <outlet property="thumnbailImage" destination="tAd-bh-abU" id="tRu-nr-gzg"/>
             </connections>
             <point key="canvasLocation" x="219.56521739130437" y="144.30803571428569"/>

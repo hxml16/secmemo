@@ -11,6 +11,7 @@ typealias EntryDataDictionary = [String: Any]
 
 class MemoEntry: DataEntity {
     var memoId: Int = -1
+    var isChanged = false
     var dataLoaded: Bool {
         false
     }

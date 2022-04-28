@@ -12,6 +12,7 @@ protocol DataProvider {
     var isAvailable: Bool { get }
     var onError: PublishSubject<Error> { get }
     var onDataChanged: PublishSubject<Void> { get }
+    var onMemoHeaderChanged: PublishSubject<MemoHeader> { get }
     var memoCount: Int { get }
 
     func preloadMemoEntry(entry: MemoEntry?)

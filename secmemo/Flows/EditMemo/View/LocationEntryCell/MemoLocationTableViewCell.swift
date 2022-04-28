@@ -23,13 +23,8 @@ class MemoLocationTableViewCell: UITableViewCell {
     var onLocationUnavailable: (() -> ())?
     var onOpenLocation: ((MemoLocationEntry, UIView) -> ())?
     var onInvalidLocation: (() -> ())?
-    let viewModel = AppDelegate.container.resolve(MemoLocationTableViewCellViewModel.self)!
+    private let viewModel = MemoLocationTableViewCellViewModel()
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setupBindings()
-    }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
         setupBindings()
@@ -38,16 +33,17 @@ class MemoLocationTableViewCell: UITableViewCell {
     var entry: MemoLocationEntry? {
         didSet {            
             updateUI()
+            setupBindings()
         }
     }
     
     private func updateUI() {
-        disposeBag = DisposeBag()
-        setupBindings()
+//        disposeBag = DisposeBag()
         updateLocationTextField()
     }
     
     private func setupBindings() {
+        disposeBag = DisposeBag()
         myLocationButton.rx.tap
             .bind { [weak self] in
                 self?.fetchCurrentLocationViaIsSetCheck()
@@ -65,25 +61,25 @@ class MemoLocationTableViewCell: UITableViewCell {
                 }
             })
             .disposed(by: disposeBag)
-        
+
         viewModel.validationState
             .subscribe(onNext: { [weak self] state in
                 self?.validationView.validationState = state
             })
             .disposed(by: disposeBag)
-        
+
         viewModel.validatedCoordinate
             .subscribe(onNext: { [weak self] coordinate in
                 self?.locationTextField.text = coordinate.formattedValue
             })
             .disposed(by: disposeBag)
-        
-        validationView.onInvalidAlertRequested = {
-            self.onInvalidLocation?()
+
+        validationView.onInvalidAlertRequested = { [weak self] in
+            self?.onInvalidLocation?()
         }
-        
-        validationView.onOpenLocationRequested = {
-            self.openLocation()
+
+        validationView.onOpenLocationRequested = { [weak self] in
+            self?.openLocation()
         }
     }
     

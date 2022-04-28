@@ -41,8 +41,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UWX-nh-YaW">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UWX-nh-YaW">
+                                <rect key="frame" x="24" y="88" width="390" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error status" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ho-Rs-kMD">
@@ -51,6 +51,18 @@
                                 <color key="textColor" name="CustomTextFieldPlaceholderTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhj-1V-r8C">
+                                <rect key="frame" x="143.5" y="484" width="127" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <inset key="contentEdgeInsets" minX="24" minY="0.0" maxX="24" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Add memo">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="lzButtonTitle" value="memos.addMemoButtonTitle"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -58,13 +70,15 @@
                             <constraint firstItem="9ho-Rs-kMD" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="DQc-WI-wlg"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="UWX-nh-YaW" secondAttribute="trailing" id="DjF-91-nmQ"/>
                             <constraint firstItem="pzY-vK-L2i" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="DzH-UI-7zW"/>
+                            <constraint firstItem="Dhj-1V-r8C" firstAttribute="top" secondItem="9ho-Rs-kMD" secondAttribute="bottom" constant="24" id="GcF-LN-Z5j"/>
                             <constraint firstItem="pzY-vK-L2i" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="GjY-JC-xhy"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="UWX-nh-YaW" secondAttribute="bottom" id="Gwa-4u-XKc"/>
-                            <constraint firstItem="UWX-nh-YaW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="RiP-ac-T4u"/>
+                            <constraint firstItem="UWX-nh-YaW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="RiP-ac-T4u"/>
                             <constraint firstItem="UWX-nh-YaW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Sw0-nI-30r"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9ho-Rs-kMD" secondAttribute="trailing" constant="16" id="TyF-Dv-dk2"/>
                             <constraint firstItem="9ho-Rs-kMD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="UDY-6Z-1pz"/>
                             <constraint firstItem="9ho-Rs-kMD" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="uZR-8M-iOm"/>
+                            <constraint firstItem="Dhj-1V-r8C" firstAttribute="centerX" secondItem="9ho-Rs-kMD" secondAttribute="centerX" id="yla-ks-4Ls"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="y0n-Ob-Xih">
@@ -96,6 +110,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="lzTitle" value="memos.navigationBarTitle"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="addMemoButton" destination="Dhj-1V-r8C" id="oI9-4y-nFB"/>
                         <outlet property="statusLabel" destination="9ho-Rs-kMD" id="kpG-Pl-rxw"/>
                         <outlet property="tableView" destination="UWX-nh-YaW" id="tFy-Ri-t8O"/>
                     </connections>
@@ -111,6 +126,9 @@
         <namedColor name="CustomTextFieldPlaceholderTextColor">
             <color red="0.23999999463558197" green="0.23999999463558197" blue="0.23999999463558197" alpha="0.30000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

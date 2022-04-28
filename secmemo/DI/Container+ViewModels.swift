@@ -13,7 +13,6 @@ extension Container {
     func registerViewModels() {
         autoregister(SignUpViewModel.self, initializer: SignUpViewModel.init)  
         autoregister(MemosViewModel.self, initializer: MemosViewModel.init)
-        autoregister(MemoLocationTableViewCellViewModel.self, initializer: MemoLocationTableViewCellViewModel.init)
         autoregister(SettingsViewModel.self, initializer: SettingsViewModel.init)
     }
 }

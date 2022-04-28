@@ -35,13 +35,14 @@
 "pinCode.repeatEmergencyPincodeTitle" = "Повторите аварийный код";
 "pinCode.pincodesMismatchTitle" = "Введенные пинкоды не совпадают. Попробуйте еще раз";
 "pinCode.pincodesCreatedTitle" = "Пинкод успешно создан.\nНе забывайте его";
-"pinCode.pincodesMatch" = "Пинкоды совпадают! Пожалуйста, придумайте другой аварийный пинкод";
+"pinCode.pincodesMatch" = "Пинкоды совпадают! Пожалуйста, придумайте другой пинкод";
 "pinCode.changeSecurityPincodeTitle" = "Для смены пинкода, введите текущий пинкод безопасности";
 "pinCode.changeEmergencyPincodeTitle" = "Для смены пинкода, введите текущий пинкод безопасности";
 
 "memos.navigationBarTitle" = "Заметки";
 "memos.deleteItemConfirmText" = "Запись\n\"%@\"\nбудет бeзвозвратно удалена.";
 "memos.noMemosYet" = "Вы пока не добавили ни одной записи.";
+"memos.addMemoButtonTitle" = "Добавить заметку";
 
 "memoEdit.navigationBarTitle" = "Заметка";
 "memoEdit.newMemoTitle" = "Запись #%@";
