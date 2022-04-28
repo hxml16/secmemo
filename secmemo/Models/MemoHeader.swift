@@ -6,12 +6,24 @@
 //
 
 import Foundation
+import RxSwift
 
 class MemoHeader: DataEntity {
     var id: Int
-    var title: String
+    var title: String {
+        didSet {
+            let dataProvider = AppDelegate.container.resolve(DataProvider.self)!
+            dataProvider.onMemoHeaderChanged.onNext(self)
+        }
+    }
     var createdAt: Int = 0
     var updatedAt: Int = 0
+
+    let titleSubject = BehaviorSubject<String>(value: "")
+    var titleOnInit: String?
+    var isChanged: Bool {
+        return title != titleOnInit
+    }
 
     override var dict: [String: Any] {
         var temp = super.dict
@@ -39,6 +51,7 @@ class MemoHeader: DataEntity {
     init(id: Int, title: String) {
         self.id = id
         self.title = title
+        self.titleOnInit = title
     }
     
     func initTimeStamps() {

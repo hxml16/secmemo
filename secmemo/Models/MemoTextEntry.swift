@@ -9,7 +9,7 @@ import Foundation
 
 class MemoTextEntry: MemoEntry {
     override var dataLoaded: Bool {
-        return text != nil
+        return _text != nil
     }
 
     override var type: MemoEntryType  {
@@ -18,7 +18,7 @@ class MemoTextEntry: MemoEntry {
     
     override var data: Data {
         get {
-            if let text = text, let textData = text.data(using: .utf8) {
+            if let text = _text, let textData = text.data(using: .utf8) {
                 return textData
             }
             return super.data
@@ -26,10 +26,20 @@ class MemoTextEntry: MemoEntry {
         
         set {
             if let newText = String(data: newValue, encoding: .utf8) {
-                self.text = newText
+                _text = newText
             }
         }
     }
-    
-    var text: String?
+
+    private var _text: String?
+    var text: String? {
+        set {
+            isChanged = _text != newValue
+            _text = newValue
+        }
+        
+        get {
+            return _text
+        }
+    }
 }

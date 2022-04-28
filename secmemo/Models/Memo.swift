@@ -10,12 +10,34 @@ import Foundation
 class Memo: DataEntity {
     var header: MemoHeader?
     var entries = [MemoEntry]()
+    var entriesCollectionChanged = false
+    var isChanged: Bool {
+        get {
+            return
+                entries.filter { entry in return entry.isChanged }.count > 0 ||
+                entriesCollectionChanged ||
+                header?.isChanged == true
+        }
+        
+        set {
+            for entry in entries {
+                entry.isChanged = newValue
+            }
+            entriesCollectionChanged = newValue
+        }
+    }
 
     var title: String {
-        if let header = header {
-            return header.title
+        get {
+            if let header = header {
+                return header.title
+            }
+            return ""
         }
-        return ""
+        
+        set {
+            header?.title = newValue
+        }
     }
     
     var id: Int {
@@ -52,6 +74,14 @@ class Memo: DataEntity {
     var entriesCount: Int {
         return entries.count
     }
+    
+    var lastEntry: MemoEntry? {
+        return entries.last
+    }
+    
+    func reinitTimestamps() {
+        header?.initTimeStamps()
+    }
 
     override var dict: [String: Any] {
         var temp = super.dict
@@ -64,6 +94,10 @@ class Memo: DataEntity {
         }
         temp["entries"] = entryDicts
         return temp
+    }
+
+    static var empty: Memo {
+        return memo(id: -1, title: "")
     }
 
     static func memo(id: Int, title: String) -> Memo {
@@ -123,6 +157,11 @@ class Memo: DataEntity {
         return memoEntry
     }
     
+    func addEntry(entry: MemoEntry) {
+        entriesCollectionChanged = true
+        entries.append(entry)
+    }
+    
     func removeEntry(entry: MemoEntry) {
         if let entryIndex = entries.firstIndex(where: { existingEntry in
             existingEntry.hash == entry.hash
@@ -146,5 +185,6 @@ class Memo: DataEntity {
             }
         }
         entry.remove()
+        entriesCollectionChanged = true
     }
 }

@@ -17,7 +17,6 @@ class MemoImageEntry: MemoEntry {
     private var _originalImageEntry: MemoDataEntry?
     private var _thumbnailImageEntry: MemoDataEntry?
     
-
     var originalImage: UIImage? {
         return _originalImage
     }
@@ -48,6 +47,7 @@ class MemoImageEntry: MemoEntry {
 
     static func imageEntry(with image: UIImage, memo: Memo) -> MemoImageEntry {
         let entry = MemoImageEntry()
+        entry.isChanged = true
         entry.memoId = memo.id
         entry._originalImage = image
         entry._thumbnailImage = image.scale(to: Constants.imageEntryThumbnailSize)

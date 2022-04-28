@@ -12,6 +12,7 @@ enum AppStoryboard: String {
     case pincode = "Pincode"
     case signUp = "SignUp"
     case memos = "Memos"
+    case memosMasterDetails = "MemosMasterDetails"
     case memo = "Memo"
     case imageViewer = "ImageViewer"
     case editMemo = "EditMemo"

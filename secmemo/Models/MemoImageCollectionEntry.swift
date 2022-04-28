@@ -48,6 +48,7 @@ class MemoImageCollectionEntry: MemoEntry {
     }
     
     func addEntry(imageEntry: MemoImageEntry) {
+        isChanged = true
         entries.append(imageEntry)
     }
 
@@ -55,6 +56,7 @@ class MemoImageCollectionEntry: MemoEntry {
         if let entryIndex = entries.firstIndex(where: { memoImageEntry in
             memoImageEntry.hash == imageEntry.hash
         }) {
+            isChanged = true
             entries.remove(at: entryIndex)
         }
     }
