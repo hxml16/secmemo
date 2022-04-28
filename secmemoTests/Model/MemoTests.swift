@@ -23,6 +23,22 @@ class MemoTests: XCTestCase {
             XCTAssert(false, "memo.header expected to be not nil")
         }
     }
+    
+    func testAddRemoveMemoEntry() {
+        let memoDict = generateTestMemoDict()
+        if let memo = Memo.memo(from: memoDict) {
+            XCTAssertNotNil(memo.header)
+            XCTAssertGreaterThan(memo.entriesCount, 0)
+            let memoEntry = MemoEntryFactory.memoEntry(with: .text)
+            memo.addEntry(entry: memoEntry)
+            XCTAssert(memoEntry === memo.lastEntry)
+            let entriesCountBeforeRemove = memo.entriesCount
+            memo.removeEntry(entry: memoEntry)
+            XCTAssertEqual(memo.entriesCount, entriesCountBeforeRemove - 1 )
+        } else {
+            XCTAssert(false, "memo expected to be not nil")
+        }
+    }
 
     // Checks if Memo entity instantiates
     // properly from deserialized dictionary
