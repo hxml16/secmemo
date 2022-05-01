@@ -17,6 +17,7 @@
 "error.memoStorageFailed" = "Failed to initialize data storage for this memo. Unable to continue.";
 "error.locationServiceUnavailable" = "Geolocation service is unavailable. Please enable it in the app settings";
 "error.locationInvalid" = "Location you provided is invalid. Please follow a proper format for latitude and longitude.";
+"error.linkInvalid" = "Link you provided is invalid. Please follow a proper URL format";
 
 "signUp.welcomeLabelTitle" = "Welcome";
 "signUp.securityCodeLabelTitle" = "Security pincode";
@@ -49,18 +50,24 @@
 "memoEdit.newMemoTitle" = "Memo #%@";
 "memoEdit.addItemsLabelTitle" = "Add any text, photo or geolocation";
 "memoEdit.addTextButtonTitle" = "Text";
-"memoEdit.addFromCameraButtonTitle" = "Camera";
-"memoEdit.addFromPhotosButtonTitle" = "Photos";
+"memoEdit.addFromImageButtonTitle" = "Image";
+"memoEdit.addFromLinkButtonTitle" = "Link";
 "memoEdit.addLocationButtonTitle" = "Location";
 "memoEdit.textViewPlaceHolderText" = "Type or paste your text here";
 "memoEdit.locationTextFieldPlaceHolderText" = "Type or paste GPS coordinates here";
+"memoEdit.linkTextFieldPlaceHolderText" = "Type or paste hyperlink here";
 "memoEdit.replaceCurrentLocation" = "Previous location value will be replaced";
 "memoEdit.confirmEntryDeletion" = "This line will be delteted";
 "memoEdit.confirmImageDeletion" = "This image will be deleted";
 "memoEdit.replaceButtonTitle" = "Replace";
+"memoEdit.alertChooseHyperlinkTitle" = "Choose";
+"memoEdit.alertChooseLocationAppTitle" = "Choose an application to view the location";
+"memoEdit.alertOpenHyperlink" = "Open in browser";
+"memoEdit.alertCopyItemTitle" = "Copy";
+"memoEdit.alertChooseImagePickMethodTitle" = "Choose image source";
+"memoEdit.addFromCameraButtonTitle" = "From camera";
+"memoEdit.addFromPhotosButtonTitle" = "From gallery";
 
-"chooseMapApp.alertTitle" = "Choose an application to view the location";
-"chooseMapApp.copyItemTitle" = "Copy";
 
 "settings.navigationBarTitle" = "Settings";
 "settings.pincodeSettingsDescription" = "Security pincode is used to unlock the app and access its data";

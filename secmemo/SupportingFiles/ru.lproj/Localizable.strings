@@ -17,6 +17,7 @@
 "error.memoStorageFailed" = "Не удалось инициализировать хранилище для данной записи. Работа приостановлена.";
 "error.locationServiceUnavailable" = "Служба геолокации недоступна. Пожалуйста, влючите ее в настройках";
 "error.locationInvalid" = "Вы ввели неверное значение. Пожалуйста, используйте правильный формат для широты и долготы";
+"error.linkInvalid" = "Вы ввели неверное значение. Пожалуйста, используйте правильный формат URL";
 
 "signUp.welcomeLabelTitle" = "Приветствую";
 "signUp.securityCodeLabelTitle" = "Пинкод безопасности";
@@ -48,18 +49,26 @@
 "memoEdit.newMemoTitle" = "Запись #%@";
 "memoEdit.addItemsLabelTitle" = "Добавляйте тексты, изображения и геолокации";
 "memoEdit.addTextButtonTitle" = "Текст";
-"memoEdit.addFromCameraButtonTitle" = "Камера";
-"memoEdit.addFromPhotosButtonTitle" = "Фото";
+"memoEdit.addFromCameraButtonTitle" = "С камеры";
+"memoEdit.addFromPhotosButtonTitle" = "Из фотоленты";
+"memoEdit.addFromImageButtonTitle" = "Фото";
+"memoEdit.addFromLinkButtonTitle" = "Ссылка";
 "memoEdit.addLocationButtonTitle" = "Локация";
 "memoEdit.textViewPlaceHolderText" = "Введите или вставьте текст";
 "memoEdit.locationTextFieldPlaceHolderText" = "Введите или вставьте GPS координаты";
+"memoEdit.linkTextFieldPlaceHolderText" = "Введите или вставьте гиперссылку";
 "memoEdit.replaceCurrentLocation" = "Предыдущее значение геолокации будет изменено";
 "memoEdit.confirmEntryDeletion" = "Данная строка будет удалена";
 "memoEdit.confirmImageDeletion" = "Данное изображение будет удалено";
 "memoEdit.replaceButtonTitle" = "Заменить";
+"memoEdit.alertChooseHyperlinkTitle" = "Выберите";
+"memoEdit.alertChooseLocationAppTitle" = "Выберите приложения для просомтра геолокации";
+"memoEdit.alertOpenHyperlink" = "Открыть в браузере";
+"memoEdit.alertCopyItemTitle" = "Копировать";
+"memoEdit.alertChooseImagePickMethodTitle" = "Выберите источник";
+"memoEdit.addFromCameraButtonTitle" = "Камера";
+"memoEdit.addFromPhotosButtonTitle" = "Фотопленка";
 
-"chooseMapApp.alertTitle" = "Выберите приложения для просомтра геолокации";
-"chooseMapApp.copyItemTitle" = "Копировать";
 
 "settings.navigationBarTitle" = "Настройки";
 "settings.pincodeSettingsDescription" = "Пинкод безопасности используется для разблокировки приложения и доступа к данным";
