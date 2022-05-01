@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: Localization routines
 public extension String {
     func localized(values: [String: String]?) -> String {
         var res = self.localized

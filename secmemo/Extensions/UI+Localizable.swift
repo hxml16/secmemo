@@ -7,6 +7,7 @@
 
 import UIKit
 
+//MARK: Inspectable vars
 extension UILabel {
     @IBInspectable public var lzText : String? {
         set {
