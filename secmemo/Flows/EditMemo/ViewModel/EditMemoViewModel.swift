@@ -75,6 +75,10 @@ class EditMemoViewModel {
         addMemoEntry(entry: memo.generateNewMemoEntry(with: .location))
     }
 
+    func addLinkEntry() {
+        addMemoEntry(entry: memo.generateNewMemoEntry(with: .link))
+    }
+
     func addPhotoEntry(image: UIImage) {
         let imageEntry = MemoImageEntry.imageEntry(with: image, memo: memo)
         if memo.entriesCount > 0, let imageCollection = memo.lastEntry as? MemoImageCollectionEntry {

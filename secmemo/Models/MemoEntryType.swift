@@ -11,6 +11,7 @@ enum MemoEntryType: Int {
     case base = 0
     case text
     case location
+    case link
     case image
     case imageCollection
 }

@@ -19,27 +19,27 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RSO-a3-mCu">
-                        <rect key="frame" x="0.0" y="-8" width="467" height="116"/>
+                        <rect key="frame" x="24" y="-8" width="443" height="116"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="document" translatesAutoresizingMaskIntoConstraints="NO" id="P3f-nP-ZH9">
-                                <rect key="frame" x="8" y="33" width="37" height="50"/>
+                                <rect key="frame" x="0.0" y="33" width="37" height="50"/>
                                 <color key="tintColor" name="CustomPrimaryTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="P3f-nP-ZH9" secondAttribute="height" multiplier="363:494" id="K6v-1Q-1zF"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KY3-W8-LdJ">
-                                <rect key="frame" x="61" y="16" width="374" height="84"/>
+                                <rect key="frame" x="53" y="16" width="358" height="84"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Uc-R3-4HF">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="50.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <color key="textColor" name="CustomPrimaryTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYq-jA-iYi">
-                                        <rect key="frame" x="0.0" y="33.5" width="374" height="50.5"/>
+                                        <rect key="frame" x="0.0" y="33.5" width="358" height="50.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" name="CustomPrimaryTextColor"/>
@@ -52,7 +52,7 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="KY3-W8-LdJ" secondAttribute="bottom" constant="16" id="AsG-gK-TrC"/>
                             <constraint firstAttribute="trailing" secondItem="KY3-W8-LdJ" secondAttribute="trailing" constant="32" id="H4d-Gs-stU"/>
-                            <constraint firstItem="P3f-nP-ZH9" firstAttribute="leading" secondItem="RSO-a3-mCu" secondAttribute="leading" constant="8" id="jpv-pI-6iH"/>
+                            <constraint firstItem="P3f-nP-ZH9" firstAttribute="leading" secondItem="RSO-a3-mCu" secondAttribute="leading" id="jpv-pI-6iH"/>
                             <constraint firstItem="KY3-W8-LdJ" firstAttribute="leading" secondItem="P3f-nP-ZH9" secondAttribute="trailing" constant="16" id="kvU-wW-y1C"/>
                             <constraint firstItem="KY3-W8-LdJ" firstAttribute="top" secondItem="RSO-a3-mCu" secondAttribute="top" constant="16" id="mci-Y5-nRm"/>
                             <constraint firstItem="P3f-nP-ZH9" firstAttribute="centerY" secondItem="RSO-a3-mCu" secondAttribute="centerY" id="tlD-kt-UcZ"/>
@@ -60,7 +60,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3GF-we-TFV" userLabel="Splitter">
-                        <rect key="frame" x="0.0" y="99" width="467" height="1"/>
+                        <rect key="frame" x="24" y="99" width="443" height="1"/>
                         <color key="backgroundColor" name="CustomMemoEntrySplitterColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="qkW-Wv-Ius"/>
@@ -75,7 +75,7 @@
                     <constraint firstAttribute="trailing" secondItem="RSO-a3-mCu" secondAttribute="trailing" id="T4a-tW-tm6"/>
                     <constraint firstAttribute="bottom" secondItem="RSO-a3-mCu" secondAttribute="bottom" constant="-8" id="eye-U9-C9I"/>
                     <constraint firstItem="3GF-we-TFV" firstAttribute="leading" secondItem="RSO-a3-mCu" secondAttribute="leading" id="yXn-Na-FLz"/>
-                    <constraint firstItem="RSO-a3-mCu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="z1O-Ox-wdf"/>
+                    <constraint firstItem="RSO-a3-mCu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="z1O-Ox-wdf"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -92,7 +92,7 @@
     <resources>
         <image name="document" width="121" height="164.66667175292969"/>
         <namedColor name="CustomMemoEntrySplitterColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.30000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="CustomPrimaryTextColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

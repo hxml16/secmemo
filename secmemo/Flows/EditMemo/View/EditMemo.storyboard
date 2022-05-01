@@ -190,7 +190,7 @@
                                                             <color key="backgroundColor" name="CustomButtonBackgroundColor"/>
                                                             <color key="tintColor" name="CustomPrimaryTextColor"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                            <state key="normal" image="photo" catalog="system">
+                                                            <state key="normal" image="globe" catalog="system">
                                                                 <color key="titleColor" name="CustomPrimaryTextColor"/>
                                                             </state>
                                                             <userDefinedRuntimeAttributes>
@@ -250,22 +250,22 @@
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="memoEdit.addTextButtonTitle"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6X-Vj-gLS">
-                                                            <rect key="frame" x="145.5" y="4" width="50.5" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6X-Vj-gLS">
+                                                            <rect key="frame" x="151" y="4" width="39.5" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="memoEdit.addFromCameraButtonTitle"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="memoEdit.addFromImageButtonTitle"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFq-si-bvb">
-                                                            <rect key="frame" x="221" y="4" width="45.5" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFq-si-bvb">
+                                                            <rect key="frame" x="230" y="4" width="27" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="memoEdit.addFromPhotosButtonTitle"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="memoEdit.addFromLinkButtonTitle"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOT-Ls-RrR">
@@ -391,8 +391,8 @@
                         <outlet property="addButtonsContainer" destination="n4y-de-gJM" id="Jgj-Ve-mUg"/>
                         <outlet property="addButtonsContainerHeightConstraint" destination="90Q-vF-GdH" id="yhg-Ii-5w3"/>
                         <outlet property="addButtonsTitlesContainer" destination="Lwi-NH-o5s" id="JdX-8H-eUr"/>
-                        <outlet property="addFromCameraButton" destination="Kve-GJ-oBR" id="E8J-Iz-kDk"/>
-                        <outlet property="addFromPhotosButton" destination="740-ba-XZQ" id="Edk-jt-ai4"/>
+                        <outlet property="addImageButton" destination="Kve-GJ-oBR" id="wt4-Zy-S0X"/>
+                        <outlet property="addLinkButton" destination="740-ba-XZQ" id="ppR-Ws-LhW"/>
                         <outlet property="addLocationButton" destination="nwx-Hn-b6g" id="LMg-BO-8jb"/>
                         <outlet property="addTextButton" destination="Xgk-qP-wbN" id="ghi-wY-DxE"/>
                         <outlet property="deleteMemoButton" destination="zql-Sp-dch" id="oQg-63-jMN"/>
@@ -420,9 +420,9 @@
     <resources>
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="dismissKeyboard" width="66.666664123535156" height="66.666664123535156"/>
+        <image name="globe" catalog="system" width="128" height="121"/>
         <image name="locationEntry" width="42.666667938232422" height="42.666667938232422"/>
         <image name="paste" width="66.666664123535156" height="66.666664123535156"/>
-        <image name="photo" catalog="system" width="128" height="93"/>
         <image name="text.cursor" catalog="system" width="128" height="118"/>
         <image name="trash" catalog="system" width="121" height="128"/>
         <namedColor name="CustomButtonBackgroundColor">
