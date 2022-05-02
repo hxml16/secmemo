@@ -9,6 +9,7 @@ import Foundation
 
 import UIKit
 
+//MARK: Inspectable vars
 extension UIButton {
     @IBInspectable public var adjustsFontSizeToFitWidth : Bool {
         set {

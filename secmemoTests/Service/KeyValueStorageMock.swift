@@ -9,6 +9,14 @@ import Foundation
 @testable import secmemo
 
 class KeyValueStorageMock: KeyValueStorage {
+    func double(forKey: String) -> Double? {
+        dict[forKey] as? Double
+    }
+    
+    func set(value: Double?, forKey: String) {
+        dict[forKey] = value as AnyObject?
+    }
+    
     var dict: [String: AnyObject] = [:]
     
     func remove(forKey: String) {

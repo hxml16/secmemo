@@ -12,6 +12,6 @@ class PincodeUtils {
         guard let pincode = pincode else {
             return false
         }
-        return pincode.count == Constants.pincodeLength
+        return pincode.count == GlobalConstants.pincodeLength
     }
 }

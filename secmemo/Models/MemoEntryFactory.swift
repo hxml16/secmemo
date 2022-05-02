@@ -36,6 +36,8 @@ class MemoEntryFactory {
                 memoEntry = MemoTextEntry()
             case .location:
                 memoEntry = MemoLocationEntry()
+            case .link:
+                memoEntry = MemoLinkEntry()
             case .image:
                 memoEntry = MemoImageEntry()
             case .imageCollection:

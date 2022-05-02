@@ -50,7 +50,7 @@ class MemoImageEntry: MemoEntry {
         entry.isChanged = true
         entry.memoId = memo.id
         entry._originalImage = image
-        entry._thumbnailImage = image.scale(to: Constants.imageEntryThumbnailSize)
+        entry._thumbnailImage = image.scale(to: GlobalConstants.imageEntryThumbnailSize)
         return entry
     }
     

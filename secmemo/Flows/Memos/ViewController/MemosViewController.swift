@@ -80,10 +80,11 @@ extension MemosViewController {
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
         tableView.register(UINib(nibName: MemosTableCellsFactory.Constants.memoTableViewCellIdentifier, bundle: nil), forCellReuseIdentifier: MemosTableCellsFactory.Constants.memoTableViewCellIdentifier)
         
-        viewModel?.items.bind(to: tableView.rx.items(cellIdentifier: MemosTableCellsFactory.Constants.memoTableViewCellIdentifier, cellType: MemoTableViewCell.self)) { (row, memoHeader, cell) in
+        viewModel?.items.bind(to: tableView.rx.items(cellIdentifier: MemosTableCellsFactory.Constants.memoTableViewCellIdentifier, cellType: MemoTableViewCell.self)) { [weak self] (row, memoHeader, cell) in
             cell.memoHeader = memoHeader
             if UIDevice.isPad {
                 cell.selectionStyle = .gray
+                cell.selectedBackgroundView = self?.selectedCellBackgroundView
             }
         }.disposed(by: disposeBag)
         
@@ -107,5 +108,14 @@ extension MemosViewController {
 extension MemosViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return Constants.estimatedRowHeight
+    }
+}
+
+//MARK: UI
+extension MemosViewController {
+    var selectedCellBackgroundView: UIView {
+        let selectionBackgroundView = UIView()
+        selectionBackgroundView.backgroundColor = Colors.memoEntrySplitterColor.color
+        return selectionBackgroundView
     }
 }

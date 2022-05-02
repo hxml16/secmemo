@@ -21,6 +21,10 @@ class PincodeViewController: UIViewController, Storyboarded {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dotsContainer: UIView!
+    @IBOutlet weak var blockContainer: UIView!
+    @IBOutlet weak var buttonsContainer: UIView!
+    @IBOutlet weak var blockContainerTitleLabel: UILabel!
+    @IBOutlet weak var blockTimerLabel: UILabel!
     @IBOutlet weak var dotsContainerCenterConstraint: NSLayoutConstraint!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet var digitButtons: [UIButton]!
@@ -147,11 +151,31 @@ extension PincodeViewController {
                 self?.dismiss(animated: false, completion: nil)
             })
             .disposed(by: disposeBag)
+        
+        viewModel.blockLabelTitle
+            .bind(to: blockContainerTitleLabel.rx.text)
+            .disposed(by: disposeBag)
+
+
+        viewModel.pincodeBlockLeftFor
+            .subscribe ( onNext: { [weak self] secondsLeft in
+                self?.handleBlockTimer(secondsLeft: secondsLeft)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
 //MARK: UI Helpers
 extension PincodeViewController {
+    private func handleBlockTimer(secondsLeft: TimeInterval) {
+        blockContainer.visible = secondsLeft > 0
+        dotsContainer.visible = secondsLeft < 0.000001
+        buttonsContainer.alpha = secondsLeft > 0 ? 0.3 : 1.0
+        buttonsContainer.isUserInteractionEnabled = secondsLeft < 0.000001
+        titleLabel.alpha = buttonsContainer.alpha
+        blockTimerLabel.text = secondsLeft.hhmmssValue
+    }
+    
     private func animateDotsQuake(duration: TimeInterval) {        
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
                 animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)

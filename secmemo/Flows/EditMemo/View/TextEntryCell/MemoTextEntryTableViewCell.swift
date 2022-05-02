@@ -8,9 +8,13 @@
 import Foundation
 import RxSwift
 
-class MemoTextEntryTableViewCell: MultiLineTextInputTableViewCell {
+class MemoTextEntryTableViewCell: MultiLineTextInputTableViewCell, FocusableEntryCell {
     @IBOutlet weak var textPlaceholder: UILabel!
     private var disposeBag = DisposeBag()
+
+    var focusableView: UIView? {
+        return textView
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

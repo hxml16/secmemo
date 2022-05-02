@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: Json routines
 extension Dictionary {
     var json: String {
         let invalidJson = "Not a valid JSON"

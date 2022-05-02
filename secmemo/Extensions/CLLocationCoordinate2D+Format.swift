@@ -8,6 +8,7 @@
 import Foundation
 import CoreLocation
 
+//MARK: Formatting routines
 extension CLLocationCoordinate2D {
     var formattedValue: String {
         return String(format: "%.5f", latitude) + ", " + String(format: "%.5f", longitude)

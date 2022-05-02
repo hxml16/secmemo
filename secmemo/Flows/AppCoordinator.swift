@@ -68,7 +68,7 @@ extension AppCoordinator {
 extension AppCoordinator {
     private func showPincode(pincodeMode: PincodeMode, hostViewController: UIViewController?, pincodeObserver: PincodeObserver?) {
         let coordinator = AppDelegate.container.resolve(PincodeCoordinator.self)!
-        let viewModel = PincodeViewModel(pincodeMode: pincodeMode, sessionService: sessionService)
+        let viewModel = PincodeViewModel(pincodeMode: pincodeMode, sessionService: sessionService, settingsService: settingsService)
         viewModel.didCompletePincodeInput
             .subscribe(onNext: {
                 pincodeObserver?.didCompletePincodeInput(pincodeApplied: true)

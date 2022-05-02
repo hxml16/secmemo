@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+//MARK: Color routines
 extension UIColor {
     func rgb() -> (red:Int, green:Int, blue:Int, alpha:Int)? {
         var fRed : CGFloat = 0

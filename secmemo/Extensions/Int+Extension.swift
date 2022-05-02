@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 
+//MARK: Formatting routines
 extension Int {
     var fullTimeStampFormatter: String {
         let dateFormatter = DateFormatter()

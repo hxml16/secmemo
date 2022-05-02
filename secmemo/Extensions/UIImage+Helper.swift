@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+//MARK: UIImage helper routines
 extension UIImage {
     class func image(with color: UIColor) -> UIImage {
         let rect: CGRect = CGRect(x: 0, y: 0, width: 1, height: 1)

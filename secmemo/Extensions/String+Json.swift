@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: Json routines
 extension String {
     var dictionary: [String: Any]? {
         if let data = data(using: .utf8) {

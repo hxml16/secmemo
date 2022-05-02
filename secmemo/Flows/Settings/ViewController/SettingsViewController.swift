@@ -88,7 +88,7 @@ extension SettingsViewController {
         viewModel.securityPincodeEnabled
             .bind{ [weak self] isEnabled in
                 self?.changeSecurityPincodeButton.visible = isEnabled
-                self?.emergencySettingContainer.alpha = isEnabled ? Constants.opaqueAlphaValue : Constants.semitransparentAlphaValue
+                self?.emergencySettingContainer.alpha = isEnabled ? GlobalConstants.opaqueAlphaValue : GlobalConstants.semitransparentAlphaValue
                 self?.emergencySettingContainer.isUserInteractionEnabled = isEnabled
             }
             .disposed(by: disposeBag)

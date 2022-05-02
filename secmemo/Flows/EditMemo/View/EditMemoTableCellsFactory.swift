@@ -11,6 +11,7 @@ import UIKit
 class EditMemoTableCellsFactory {
     enum Constants {
         static let memoLocationTableViewCellIdentifier = "MemoLocationTableViewCell"
+        static let memoLinkTableViewCellIdentifier = "MemoLinkTableViewCell"
         static let memoTextEntryTableViewCellIdentifier = "MemoTextEntryTableViewCell"
         static let memoImageCollectionEntryTableViewCellIdentifier = "MemoImageCollectionCell"
         static let memoImageCellIdentifier = "MemoImageCell"
@@ -18,6 +19,12 @@ class EditMemoTableCellsFactory {
 
     static func locationCell(tableView: UITableView, row: Int, item: MemoLocationEntry) -> MemoLocationTableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.memoLocationTableViewCellIdentifier, for: IndexPath.init(row: row, section: 0)) as! MemoLocationTableViewCell
+        cell.entry = item
+        return cell
+    }
+
+    static func linkCell(tableView: UITableView, row: Int, item: MemoLinkEntry) -> MemoLinkTableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.memoLinkTableViewCellIdentifier, for: IndexPath.init(row: row, section: 0)) as! MemoLinkTableViewCell
         cell.entry = item
         return cell
     }

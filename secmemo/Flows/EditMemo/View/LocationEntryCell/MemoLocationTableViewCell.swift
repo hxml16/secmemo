@@ -1,5 +1,5 @@
 //
-//  MemoTextEntryTableViewCell.swift
+//  MemoLocationTableViewCell.swift
 //  secmemo
 //
 //  Created by heximal on 19.02.2022.
@@ -9,16 +9,17 @@ import Foundation
 import RxSwift
 import CoreLocation
 
-class MemoLocationTableViewCell: UITableViewCell {
-    enum Constants {
-        static let locationTextFieldHeightProportionToBadgeWidth: CGFloat = 0.8
-    }
-    
+class MemoLocationTableViewCell: UITableViewCell, FocusableEntryCell {
     @IBOutlet weak var myLocationButton: UIButton!
-    @IBOutlet weak var validationView: CoordValidationView!
+    @IBOutlet weak var validationView: ValidationView!
     @IBOutlet weak var locationTextField: TextField!
     @IBOutlet weak var activityIndicator: CircleButtonActivityIndicator!
+    @IBOutlet weak var actionListButton: UIButton!
 
+    var focusableView: UIView? {
+        return locationTextField
+    }
+    
     private var disposeBag = DisposeBag()
     var onLocationUnavailable: (() -> ())?
     var onOpenLocation: ((MemoLocationEntry, UIView) -> ())?
@@ -38,7 +39,6 @@ class MemoLocationTableViewCell: UITableViewCell {
     }
     
     private func updateUI() {
-//        disposeBag = DisposeBag()
         updateLocationTextField()
     }
     
@@ -48,6 +48,15 @@ class MemoLocationTableViewCell: UITableViewCell {
             .bind { [weak self] in
                 self?.fetchCurrentLocationViaIsSetCheck()
             }
+            .disposed(by: disposeBag)
+
+        locationTextField.rx.controlEvent([.editingDidBegin])
+            .asObservable()
+            .subscribe(onNext: { [weak self] _ in
+                self?.actionListButton.visible = false
+                self?.myLocationButton.visible = true
+                self?.activityIndicator.visible = false
+            })
             .disposed(by: disposeBag)
 
         locationTextField.rx.controlEvent([.editingDidEnd])
@@ -65,6 +74,8 @@ class MemoLocationTableViewCell: UITableViewCell {
         viewModel.validationState
             .subscribe(onNext: { [weak self] state in
                 self?.validationView.validationState = state
+                self?.actionListButton.visible = state.isValid
+                self?.myLocationButton.visible = !state.isValid
             })
             .disposed(by: disposeBag)
 
@@ -78,9 +89,16 @@ class MemoLocationTableViewCell: UITableViewCell {
             self?.onInvalidLocation?()
         }
 
-        validationView.onOpenLocationRequested = { [weak self] in
+        validationView.onOpenRequested = { [weak self] in
             self?.openLocation()
         }
+        
+        actionListButton.rx.tap
+            .bind { [weak self] in
+                self?.openLocation()
+            }
+            .disposed(by: disposeBag)
+
     }
     
     private func openLocation() {

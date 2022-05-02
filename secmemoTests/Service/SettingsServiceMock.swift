@@ -11,6 +11,34 @@ import Foundation
 class SettingsServiceMock: SettingsService {
     var settings: [String: AnyObject] = [:]
     
+    
+    var pincodeUnlockAttemptsCount: Int {
+        get {
+            if let i = settings[SettingsConstants.pincodeUnlockAttemptsCount.rawValue] as? Int {
+                return i
+            }
+            return -1
+        }
+        
+        set {
+            settings[SettingsConstants.pincodeUnlockAttemptsCount.rawValue] = newValue as AnyObject
+        }
+    }
+    
+    var pincodeBlockedUntil: TimeInterval {
+        get {
+            if let d = settings[SettingsConstants.pincodeBlockedUntil.rawValue] as? Double {
+                return TimeInterval(d)
+            }
+            return 0
+        }
+        
+        set {
+            settings[SettingsConstants.pincodeBlockedUntil.rawValue] = newValue as AnyObject
+        }
+    }
+
+    
     var pincodesCreated: Bool {
         get {
             if let b = settings[SettingsConstants.pincodesCreated.rawValue] as? Bool {

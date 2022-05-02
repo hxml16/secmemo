@@ -61,7 +61,32 @@ class SettingsServiceImpl: SettingsService {
         }
     }
 
+    var pincodeUnlockAttemptsCount: Int {
+        get {
+            if let i = userDefaultsStorage.int(forKey: SettingsConstants.pincodeUnlockAttemptsCount.rawValue) {
+                return i
+            }
+            return -1
+        }
+        
+        set {
+            userDefaultsStorage.set(value: newValue, forKey: SettingsConstants.pincodeUnlockAttemptsCount.rawValue)
+        }
+    }
     
+    var pincodeBlockedUntil: TimeInterval {
+        get {
+            if let d = userDefaultsStorage.double(forKey: SettingsConstants.pincodeBlockedUntil.rawValue) {
+                return TimeInterval(d)
+            }
+            return 0
+        }
+        
+        set {
+            userDefaultsStorage.set(value: Double(newValue), forKey: SettingsConstants.pincodeBlockedUntil.rawValue)
+        }
+    }
+
     var securityPincode: String? {
         get {
             return keyChainStorage.string(forKey: SettingsConstants.securityPincode.rawValue)

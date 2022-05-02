@@ -10,7 +10,7 @@ import UIKit
 class SMButton: UIButton {
     override var isEnabled: Bool {
         didSet {
-            alpha = isEnabled ? Constants.opaqueAlphaValue : Constants.semitransparentAlphaValue
+            alpha = isEnabled ? GlobalConstants.opaqueAlphaValue : GlobalConstants.semitransparentAlphaValue
         }
     }
 }

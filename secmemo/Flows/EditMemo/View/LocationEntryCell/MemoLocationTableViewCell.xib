@@ -24,7 +24,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T9z-SX-vvL">
                                 <rect key="frame" x="0.0" y="0.0" width="288" height="160"/>
                                 <subviews>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZpA-b0-gOt" userLabel="ValidationState" customClass="CoordValidationView" customModule="secmemo" customModuleProvider="target">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZpA-b0-gOt" userLabel="ValidationState" customClass="ValidationView" customModule="secmemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="40" width="80" height="80"/>
                                         <subviews>
                                             <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SeR-qe-ahO" customClass="CircleButton" customModule="secmemo" customModuleProvider="target">
@@ -71,9 +71,9 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="invalidButton" destination="SeR-qe-ahO" id="ZYk-TI-85L"/>
-                                            <outlet property="locationPlaceholderIcon" destination="yjA-T6-oRA" id="n6H-Nv-dgB"/>
-                                            <outlet property="locationValidatedIcon" destination="QvC-m2-yGp" id="RCY-so-h57"/>
-                                            <outlet property="openLocationButton" destination="u4v-Lf-h3G" id="Gis-JQ-hGg"/>
+                                            <outlet property="openButton" destination="u4v-Lf-h3G" id="Zvx-uX-peK"/>
+                                            <outlet property="placeholderIcon" destination="yjA-T6-oRA" id="8AW-2c-xyG"/>
+                                            <outlet property="validatedIcon" destination="QvC-m2-yGp" id="00L-Hk-blj"/>
                                         </connections>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lhG-yl-HEh" customClass="TextField" customModule="secmemo" customModuleProvider="target">
@@ -112,6 +112,25 @@
                                         <rect key="frame" x="160" y="16" width="128" height="128"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dsm-YK-JXI" userLabel="TextButton" customClass="CircleButton" customModule="secmemo" customModuleProvider="target">
+                                        <rect key="frame" x="160" y="16" width="128" height="128"/>
+                                        <color key="backgroundColor" name="CustomButtonBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Dsm-YK-JXI" secondAttribute="height" multiplier="1:1" id="HvL-xL-Qvp"/>
+                                            <constraint firstAttribute="width" secondItem="Dsm-YK-JXI" secondAttribute="height" id="ict-6d-3sc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                        <color key="tintColor" name="CustomPrimaryTextColor"/>
+                                        <inset key="imageEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                                        <state key="normal" image="list.dash" catalog="system">
+                                            <color key="titleColor" name="CustomPrimaryTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -122,9 +141,13 @@
                                     <constraint firstItem="aAq-73-fL8" firstAttribute="width" secondItem="xmg-2z-8w3" secondAttribute="width" id="Di4-al-eKg"/>
                                     <constraint firstItem="aAq-73-fL8" firstAttribute="centerY" secondItem="xmg-2z-8w3" secondAttribute="centerY" id="Fht-fo-fME"/>
                                     <constraint firstItem="lhG-yl-HEh" firstAttribute="leading" secondItem="ZpA-b0-gOt" secondAttribute="trailing" constant="4" id="HK0-Ko-WCd"/>
+                                    <constraint firstItem="Dsm-YK-JXI" firstAttribute="centerX" secondItem="xmg-2z-8w3" secondAttribute="centerX" id="LHz-dl-fWa"/>
+                                    <constraint firstItem="Dsm-YK-JXI" firstAttribute="height" secondItem="xmg-2z-8w3" secondAttribute="height" id="LRa-5L-hg9"/>
+                                    <constraint firstItem="Dsm-YK-JXI" firstAttribute="centerY" secondItem="xmg-2z-8w3" secondAttribute="centerY" id="Lxb-OT-B9z"/>
                                     <constraint firstItem="ZpA-b0-gOt" firstAttribute="centerY" secondItem="T9z-SX-vvL" secondAttribute="centerY" id="TI6-eX-f1I"/>
                                     <constraint firstItem="aAq-73-fL8" firstAttribute="centerX" secondItem="xmg-2z-8w3" secondAttribute="centerX" id="YkB-Pk-kmg"/>
                                     <constraint firstItem="lhG-yl-HEh" firstAttribute="top" secondItem="T9z-SX-vvL" secondAttribute="top" id="aKq-KX-YuB"/>
+                                    <constraint firstItem="Dsm-YK-JXI" firstAttribute="width" secondItem="xmg-2z-8w3" secondAttribute="width" id="fjh-UV-P2b"/>
                                     <constraint firstItem="xmg-2z-8w3" firstAttribute="height" secondItem="T9z-SX-vvL" secondAttribute="height" multiplier="0.8" id="gi3-st-X5X"/>
                                     <constraint firstItem="aAq-73-fL8" firstAttribute="height" secondItem="xmg-2z-8w3" secondAttribute="height" id="kuT-gp-pok"/>
                                     <constraint firstAttribute="bottom" secondItem="lhG-yl-HEh" secondAttribute="bottom" id="weS-uf-oEd"/>
@@ -153,6 +176,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="actionListButton" destination="Dsm-YK-JXI" id="uwS-6H-pjH"/>
                 <outlet property="activityIndicator" destination="aAq-73-fL8" id="3P9-A4-HlD"/>
                 <outlet property="locationTextField" destination="lhG-yl-HEh" id="X49-NU-YAs"/>
                 <outlet property="myLocationButton" destination="xmg-2z-8w3" id="grx-YI-ddg"/>
@@ -162,6 +186,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="location" catalog="system" width="128" height="118"/>
         <image name="locationEntry" width="42.666667938232422" height="42.666667938232422"/>
         <namedColor name="CustomButtonBackgroundColor">

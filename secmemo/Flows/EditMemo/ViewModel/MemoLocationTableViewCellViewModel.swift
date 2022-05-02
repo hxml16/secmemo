@@ -11,8 +11,8 @@ import CoreLocation
 
 class MemoLocationTableViewCellViewModel {
     let validatedCoordinate = PublishSubject<CLLocationCoordinate2D>()
-    let validationState = BehaviorSubject<CoordValidationState>(value: .placeholder)
-    private var _validationState = CoordValidationState.placeholder {
+    let validationState = BehaviorSubject<ValidationState>(value: .placeholder)
+    private var _validationState = ValidationState.placeholder {
         didSet {
             validationState.onNext(_validationState)
         }

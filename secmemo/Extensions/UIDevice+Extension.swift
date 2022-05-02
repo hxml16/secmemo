@@ -7,6 +7,7 @@
 
 import UIKit
 
+//MARK: Device info helpers
 extension UIDevice {
     static var isPad: Bool {
         return UIDevice.current.userInterfaceIdiom == .pad
