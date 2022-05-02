@@ -39,6 +39,7 @@
 "pinCode.pincodesMatch" = "Пинкоды совпадают! Пожалуйста, придумайте другой пинкод";
 "pinCode.changeSecurityPincodeTitle" = "Для смены пинкода, введите текущий пинкод безопасности";
 "pinCode.changeEmergencyPincodeTitle" = "Для смены пинкода, введите текущий пинкод безопасности";
+"pinCode.blockTitle" = "Вам не удалось разблокировать приложение за %d раз. Следующая попытка будет доступна через";
 
 "memos.navigationBarTitle" = "Заметки";
 "memos.deleteItemConfirmText" = "Запись\n\"%@\"\nбудет бeзвозвратно удалена.";

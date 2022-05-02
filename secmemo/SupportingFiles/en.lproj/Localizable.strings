@@ -40,6 +40,7 @@
 "pinCode.pincodesMismatchTitle" = "Typed pincodes mismatch. Try again.";
 "pinCode.pincodesCreatedTitle" = "Pincode successfully created.\nDon't forget it!";
 "pinCode.pincodesMatch" = "Pincodes match! Please choose some other pincode";
+"pinCode.blockTitle" = "You failed to unlock the app for %d times. Next attempt will be available in";
 
 "memos.navigationBarTitle" = "Memos";
 "memos.deleteItemConfirmText" = "Item \"%@\" will be completely deleted";
