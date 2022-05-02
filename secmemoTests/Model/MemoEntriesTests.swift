@@ -76,7 +76,7 @@ class MemoEntriesTests: XCTestCase {
         // testImage must be linked to project fot test to succeed
         let testImage = UIImage(named: testImageName)!
         let imageEntry = MemoImageEntry.imageEntry(with: testImage, memo: testMemo)
-        let koef = Constants.imageEntryThumbnailSize.height / testImage.size.height
+        let koef = GlobalConstants.imageEntryThumbnailSize.height / testImage.size.height
         let haulThumbnailSize = CGSize(width: testImage.size.width * koef, height: testImage.size.height * koef)
         
         XCTAssertNotNil(imageEntry.originalImage)
