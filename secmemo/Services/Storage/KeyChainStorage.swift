@@ -44,6 +44,18 @@ class KeyChainStorage: KeyValueStorage {
         }
     }
     
+    func double(forKey: String) -> Double? {
+        return KeychainWrapper.standard.double(forKey: forKey)
+    }
+    
+    func set(value: Double?, forKey: String) {
+        if let value = value {
+            KeychainWrapper.standard.set(value, forKey: forKey)
+        } else {
+            KeychainWrapper.standard.removeObject(forKey: forKey)
+        }
+    }
+    
     func string(forKey: String) -> String? {
         return KeychainWrapper.standard.string(forKey: forKey)
     }

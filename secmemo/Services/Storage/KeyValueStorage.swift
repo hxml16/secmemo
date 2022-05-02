@@ -19,6 +19,9 @@ protocol KeyValueStorage {
     func float(forKey: String) -> Float?
     func set(value: Float?, forKey: String)
     
+    func double(forKey: String) -> Double?
+    func set(value: Double?, forKey: String)
+    
     func string(forKey: String) -> String?
     func set(value: String?, forKey: String)
     

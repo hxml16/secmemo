@@ -13,4 +13,6 @@ enum SettingsConstants: String {
     case emergencyPincodeEnabled
     case securityPincode
     case emergencyPincode
+    case pincodeUnlockAttemptsCount
+    case pincodeBlockedUntil
 }

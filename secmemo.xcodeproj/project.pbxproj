@@ -117,6 +117,7 @@
 		DDD1AEE2281E7CC5000B8A68 /* EditMemoViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD1AEE1281E7CC5000B8A68 /* EditMemoViewController+UI.swift */; };
 		DDD1AEE4281E7DCF000B8A68 /* EditMemoViewController+Bindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD1AEE3281E7DCF000B8A68 /* EditMemoViewController+Bindings.swift */; };
 		DDD1AEE6281E7EC5000B8A68 /* EditMemoViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD1AEE5281E7EC5000B8A68 /* EditMemoViewController+Alerts.swift */; };
+		DDD1AEE8281F3F65000B8A68 /* TimeInterval+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD1AEE7281F3F64000B8A68 /* TimeInterval+String.swift */; };
 		DDE8861D27B2D867005DA709 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8861C27B2D867005DA709 /* AppDelegate.swift */; };
 		DDE8863E27B2D86B005DA709 /* secmemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8863D27B2D86B005DA709 /* secmemoUITests.swift */; };
 		DDE8864027B2D86B005DA709 /* secmemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8863F27B2D86B005DA709 /* secmemoUITestsLaunchTests.swift */; };
@@ -292,6 +293,7 @@
 		DDD1AEE1281E7CC5000B8A68 /* EditMemoViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditMemoViewController+UI.swift"; sourceTree = "<group>"; };
 		DDD1AEE3281E7DCF000B8A68 /* EditMemoViewController+Bindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditMemoViewController+Bindings.swift"; sourceTree = "<group>"; };
 		DDD1AEE5281E7EC5000B8A68 /* EditMemoViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditMemoViewController+Alerts.swift"; sourceTree = "<group>"; };
+		DDD1AEE7281F3F64000B8A68 /* TimeInterval+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+String.swift"; sourceTree = "<group>"; };
 		DDE8861927B2D867005DA709 /* secmemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = secmemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE8861C27B2D867005DA709 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDE8862F27B2D86B005DA709 /* secmemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = secmemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -969,6 +971,7 @@
 				DDF7DB9427D575FB00B7C5AD /* Int+Extension.swift */,
 				DDF7DB8C27D4F3B300B7C5AD /* Dictionary+Json.swift */,
 				DD16FB2927CC4A1000534DA2 /* UIColor+Extension.swift */,
+				DDD1AEE7281F3F64000B8A68 /* TimeInterval+String.swift */,
 				DDA9A9AE280F70A8002167F1 /* UIDevice+Extension.swift */,
 				DDE8867D27B42075005DA709 /* UIImage+Helper.swift */,
 				DD16FB3227CEBFAD00534DA2 /* CLLocationCoordinate2D+Format.swift */,
@@ -1377,6 +1380,7 @@
 				DDE8861D27B2D867005DA709 /* AppDelegate.swift in Sources */,
 				DDA6633F2800A7F90024610E /* MemosViewModel.swift in Sources */,
 				DDA663452800A7F90024610E /* MemosViewController.swift in Sources */,
+				DDD1AEE8281F3F65000B8A68 /* TimeInterval+String.swift in Sources */,
 				DDE886CA27B6816D005DA709 /* Popup.swift in Sources */,
 				DDA6633A2800A7F90024610E /* PincodeViewModel.swift in Sources */,
 				DDD1AEE6281E7EC5000B8A68 /* EditMemoViewController+Alerts.swift in Sources */,
@@ -1596,7 +1600,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = MLQ8BKSTJN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = secmemo/SupportingFiles/Info.plist;
@@ -1631,7 +1635,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = MLQ8BKSTJN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = secmemo/SupportingFiles/Info.plist;

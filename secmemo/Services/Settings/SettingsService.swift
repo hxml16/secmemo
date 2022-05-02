@@ -13,4 +13,6 @@ protocol SettingsService {
     var emergencyPincodeEnabled: Bool { get set }
     var securityPincode: String? { get set }
     var emergencyPincode: String? { get set }
+    var pincodeUnlockAttemptsCount: Int { get set }
+    var pincodeBlockedUntil: TimeInterval { get set }
 }

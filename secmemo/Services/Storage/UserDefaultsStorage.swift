@@ -47,6 +47,19 @@ class UserDefaultsStorage: KeyValueStorage {
         synchronize()
     }
     
+    func double(forKey: String) -> Double? {
+        return userDefaults.double(forKey: forKey)
+    }
+    
+    func set(value: Double?, forKey: String) {
+        if let value = value {
+            userDefaults.set(value, forKey: forKey)
+        } else {
+            userDefaults.removeObject(forKey: forKey)
+        }
+        synchronize()
+    }
+    
     func string(forKey: String) -> String? {
         return userDefaults.string(forKey: forKey)
     }
