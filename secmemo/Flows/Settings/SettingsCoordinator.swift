@@ -42,7 +42,7 @@ class SettingsCoordinator: BaseCoordinator {
 //MARK: Routing
 extension SettingsCoordinator {
     private func showPincode(pincodeMode: PincodeMode, pincodeObserver: PincodeObserver?) {
-        let viewModel = PincodeViewModel(pincodeMode: pincodeMode, sessionService: sessionService)
+        let viewModel = PincodeViewModel(pincodeMode: pincodeMode, sessionService: sessionService, settingsService: settingsService)
         viewModel.didCompletePincodeInputWithResult
             .subscribe(onNext: { pincodeApplied in
                 pincodeObserver?.didCompletePincodeInput(pincodeApplied: pincodeApplied)

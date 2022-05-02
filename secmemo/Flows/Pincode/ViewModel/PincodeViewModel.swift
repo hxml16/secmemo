@@ -17,10 +17,15 @@ class PincodeViewModel {
     private let filledDotColor = Colors.primaryText.color
     private var pincodeMode = PincodeMode.unlock
     private var sessionService: SessionService
+    private var settingsService: SettingsService
     private var pinPadEnabled = true
+    private var lockTimer: Timer?
     private let disposeBag = DisposeBag()
 
+    let blockLabelTitle = BehaviorSubject<String>(value: "")
+    let blockTimerLabelTitle = BehaviorSubject<String>(value: "")
     let didValidatePincode = PublishSubject<Bool>()
+    let pincodeBlockLeftFor = BehaviorSubject<TimeInterval>(value: 0)
     let dotsBackground = [
         clearColorBehviourSubject(),
         clearColorBehviourSubject(),
@@ -37,13 +42,37 @@ class PincodeViewModel {
     let cancelButtonAvailable = BehaviorSubject<Bool>(value: false)
     var changeMode = false
 
-    init (pincodeMode: PincodeMode, sessionService: SessionService) {
+    init (pincodeMode: PincodeMode, sessionService: SessionService, settingsService: SettingsService) {
         self.pincodeMode = pincodeMode
         self.sessionService = sessionService
+        self.settingsService = settingsService
         self.changeMode = pincodeMode.isChangeMode
         cancelButtonAvailable.onNext(pincodeMode != .unlock)
         updateTitle()
         setupBindings()
+        initBlockTimerIfRequired()
+    }
+    
+    private var nowTime: TimeInterval {
+        return Date().timeIntervalSince1970
+    }
+    
+    private func initBlockTimerIfRequired() {
+        lockTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.timerTick), userInfo: nil, repeats: true)
+        
+        blockLabelTitle.onNext(String(format: "pinCode.blockTitle".localized, GlobalConstants.unlockAttemptsCountUntilBlock))
+        if settingsService.pincodeUnlockAttemptsCount <= 0 {
+            restoreUnlockAttemptsCount()
+        }
+    }
+    
+    private func enableBlockTimer() {
+        settingsService.pincodeBlockedUntil = nowTime + GlobalConstants.blockTimerSecondsValue
+        pincodeBlockLeftFor.onNext(GlobalConstants.blockTimerSecondsValue)
+    }
+    
+    @objc private func timerTick() {
+        pincodeBlockLeftFor.onNext(settingsService.pincodeBlockedUntil - nowTime)
     }
     
     private func setupBindings() {
@@ -190,9 +219,25 @@ class PincodeViewModel {
             typingPincode = ""
             typedPincode = ""
             pinPadEnabled = false
+            spendAttemptsIfRequired()
             clearDotsAfterDelay(timeInterval: Constants.clearDotsDelayInterval)
+        } else {
+            restoreUnlockAttemptsCount()
         }
         didValidatePincode.onNext(pincodeValid)
+    }
+    
+    private func spendAttemptsIfRequired() {
+        settingsService.pincodeUnlockAttemptsCount -= 1
+        if settingsService.pincodeUnlockAttemptsCount <= 0 {
+            enableBlockTimer()
+            clearDots()
+            restoreUnlockAttemptsCount()
+        }
+    }
+    
+    private func restoreUnlockAttemptsCount() {
+        settingsService.pincodeUnlockAttemptsCount = GlobalConstants.unlockAttemptsCountUntilBlock
     }
 
     private func validatePincodeRepeat() {
@@ -265,8 +310,17 @@ class PincodeViewModel {
 
     private func clearDotsAfterDelay(timeInterval: TimeInterval) {
         executeOnMainThread(timeInterval) {
-            self.pinPadEnabled = true
-            self.updateDotsState()
+            self.clearDots()
         }
+    }
+
+    private func clearDots() {
+        pinPadEnabled = true
+        updateDotsState()
+    }
+
+    deinit {
+        lockTimer?.invalidate()
+        lockTimer = nil
     }
 }
