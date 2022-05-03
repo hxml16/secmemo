@@ -26,8 +26,8 @@ class SettingsCoordinator: BaseCoordinator {
         
         let settingsViewModel = SettingsViewModel(settingsService: settingsService)
         settingsViewModel.didRequestPincode
-            .subscribe ( onNext: { pincodeMode in
-                self.showPincode(pincodeMode: pincodeMode, pincodeObserver: settingsViewModel)
+            .subscribe ( onNext: { [weak self] pincodeMode in
+                self?.showPincode(pincodeMode: pincodeMode, pincodeObserver: settingsViewModel)
             })
             .disposed(by: disposeBag)
 
