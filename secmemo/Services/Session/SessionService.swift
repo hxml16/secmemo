@@ -22,5 +22,6 @@ protocol SessionService {
     func lockSessionIfRequired()
     func unlockSessionIfRequired()
     func forceUnlockSession()
+    func forceDataCleanup()
     func didInputEmergencyPincode(confirmed: (Bool) -> ())
 }

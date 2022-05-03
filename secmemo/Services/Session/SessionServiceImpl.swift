@@ -90,10 +90,14 @@ class SessionServiceImpl: SessionService {
         let emergencyPincodeConfirmed = settingsService.emergencyPincodeEnabled
         if emergencyPincodeConfirmed {
             firstSessionUnlock = true
-            dataProvider.cleanupAllData()
-            didCleanupData.onNext(Void())
+            forceDataCleanup()
         }
         
         confirmed(emergencyPincodeConfirmed)
+    }
+    
+    func forceDataCleanup() {
+        dataProvider.cleanupAllData()
+        didCleanupData.onNext(Void())
     }
 }

@@ -74,6 +74,40 @@ class SettingsServiceImpl: SettingsService {
         }
     }
     
+    var pincodeWrongAttemptsCount: Int {
+        get {
+            if let i = userDefaultsStorage.int(forKey: SettingsConstants.pincodeWrongAttemptsCount.rawValue) {
+                return i
+            }
+            return -1
+        }
+        
+        set {
+            userDefaultsStorage.set(value: newValue, forKey: SettingsConstants.pincodeWrongAttemptsCount.rawValue)
+        }
+    }
+    
+    var numberOfWrongPincodeAttempts: Int {
+        get {
+            if let i = userDefaultsStorage.int(forKey: SettingsConstants.numberOfWrongPincodeAttempts.rawValue) {
+                return i
+            }
+            return -1
+        }
+        
+        set {
+            userDefaultsStorage.set(value: newValue, forKey: SettingsConstants.numberOfWrongPincodeAttempts.rawValue)
+        }
+    }
+    
+    func restoreUnlockAttemptsCount() {
+        pincodeUnlockAttemptsCount = GlobalConstants.unlockAttemptsCountUntilBlock
+    }
+    
+    func restoreWrongUnlockAttemptsCount() {
+        pincodeWrongAttemptsCount = numberOfWrongPincodeAttempts
+    }
+    
     var pincodeBlockedUntil: TimeInterval {
         get {
             if let d = userDefaultsStorage.double(forKey: SettingsConstants.pincodeBlockedUntil.rawValue) {
