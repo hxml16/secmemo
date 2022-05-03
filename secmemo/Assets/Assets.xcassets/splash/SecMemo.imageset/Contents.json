@@ -29,7 +29,7 @@
       "scale" : "2x"
     },
     {
-      "filename" : "SecMemo2-1.png",
+      "filename" : "SecMemo@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -40,7 +40,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "SecMemo2.png",
+      "filename" : "SecMemoDark@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
