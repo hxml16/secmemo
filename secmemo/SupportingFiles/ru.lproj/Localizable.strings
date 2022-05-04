@@ -75,6 +75,8 @@
 "settings.pincodeSettingsDescription" = "Пинкод безопасности используется для разблокировки приложения и доступа к данным";
 "settings.emergencyPincodeSettingsDescription" = "Аварийный пинкод используется для мгновенного удаления всех данных с последущей разблокировкой. Используете его с осторожностью, подтверждение не спрашивается!";
 "settings.disableSecurityPincodeConfirmTitle" = "Деактивация пинкода безопасности сделает ваши данные незащищенными. Аварийный код будет также деактивирован";
+"settings.secureDeletionTitle" = "Кол-во неверных попыток";
+"settings.secureDeletionDescription" = "Когда пользователь вводит неверный пинкод указанное количество раз, все данные удаляются";
 "settings.disableEmergencyPincodeConfirmTitle" = "Аварийное удаление данных будет невозможно, если деактивировать аварийный пинкод";
 "settings.disableButtonTitle" = "Деактивировать";
 "settings.clearAllDataButtonTitle" = "Очистить все данные";

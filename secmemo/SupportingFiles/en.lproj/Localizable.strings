@@ -73,6 +73,8 @@
 "settings.navigationBarTitle" = "Settings";
 "settings.pincodeSettingsDescription" = "Security pincode is used to unlock the app and access its data";
 "settings.emergencyPincodeSettingsDescription" = "Emergency pincode is used for imediate deletion of data and then unlock the app. Use it carefully, confirmation is not asked!";
+"settings.secureDeletionTitle" = "Number of wrong attempts";
+"settings.secureDeletionDescription" = "When user exceeds specified number of pincode attempts, all data removes";
 "settings.disableSecurityPincodeConfirmTitle" = "Disabling security pincode makes your data unprotected. Emergency pincode will also be disabled";
 "settings.disableEmergencyPincodeConfirmTitle" = "You won't be able to emergency remove all data if you disable emergency pincode";
 "settings.disableButtonTitle" = "Disable";

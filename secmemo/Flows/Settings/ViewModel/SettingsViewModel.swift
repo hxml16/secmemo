@@ -12,17 +12,44 @@ import UIKit
 typealias AlertConfirmed = (() -> ())
 
 class SettingsViewModel {
+    enum Constants {
+        static let longHyphenSymbol = "—"
+    }
+    
     var settingsService: SettingsService
     let securityPincodeEnabled = BehaviorSubject<Bool>(value: false)
     let emergencyPincodeEnabled = BehaviorSubject<Bool>(value: false)
+    let numberOfWrongPincodeAttemptsTitle = BehaviorSubject<String>(value: Constants.longHyphenSymbol)
+    let numberOfWrongPincodeAttemptsValue = BehaviorSubject<Int>(value: 0)
+    let wrongAttemptsNumberSequenceObservable = Observable.just(wrongAttemptsNumberSequence)
     var onConfirmAlertRequested: ((String, String,  @escaping AlertConfirmed, @escaping AlertConfirmed) -> ())?
     let didRequestPincode = PublishSubject<PincodeMode>()
     var currentRequestedPincode = PincodeMode.none
+    
+    var numberOfWrongPincodeAttempts: Int {
+        get {
+            return settingsService.numberOfWrongPincodeAttempts
+        }
+        
+        set {
+            settingsService.numberOfWrongPincodeAttempts = newValue
+            numberOfWrongPincodeAttemptsTitle.onNext(SettingsViewModel.wrongAttemptsNumberStringValue(for: settingsService.numberOfWrongPincodeAttempts))
+            numberOfWrongPincodeAttemptsValue.onNext(settingsService.numberOfWrongPincodeAttempts)
+        }
+    }
+    
+    static var wrongAttemptsNumberSequence = Array(0...GlobalConstants.wrongAttemptsNumberSequenceLength).map { wrongAttemptsNumberStringValue(for: $0) }
+    
+    static func wrongAttemptsNumberStringValue(for number: Int) -> String {
+        return number == 0 ? Constants.longHyphenSymbol : String(number)
+    }
 
     init (settingsService: SettingsService) {
         self.settingsService = settingsService
         securityPincodeEnabled.onNext(settingsService.securityPincodeEnabled)
         emergencyPincodeEnabled.onNext(settingsService.emergencyPincodeEnabled)
+        numberOfWrongPincodeAttemptsTitle.onNext(SettingsViewModel.wrongAttemptsNumberStringValue(for: settingsService.numberOfWrongPincodeAttempts))
+        numberOfWrongPincodeAttemptsValue.onNext(settingsService.numberOfWrongPincodeAttempts)
     }
     
     func remeveAllData() {

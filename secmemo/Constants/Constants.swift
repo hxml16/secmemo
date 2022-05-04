@@ -13,6 +13,8 @@ enum GlobalConstants {
     static let pincodeLength: Int = 4
     static let opaqueAlphaValue: CGFloat = 1.0
     static let semitransparentAlphaValue: CGFloat = 0.5
-    static let unlockAttemptsCountUntilBlock: Int = 4
+    static let unlockAttemptsCountUntilBlock: Int = 8
     static let blockTimerSecondsValue: TimeInterval = 5 * 60 // 5 minutes
+    static let wrongAttemptsNumberSequenceLength = 64
+    static let appearAnimationDuration: TimeInterval = 0.25
 }

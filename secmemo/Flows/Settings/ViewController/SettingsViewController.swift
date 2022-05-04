@@ -16,12 +16,18 @@ class SettingsViewController: UIViewController, Storyboarded {
     @IBOutlet weak var clearAllDataButton: UIButton!
     @IBOutlet weak var changeSecurityPincodeButton: UIButton!
     @IBOutlet weak var changeEmergencyPincodeButton: UIButton!
+    @IBOutlet weak var changeWrongAttemptsCountButton: UIButton!
+    @IBOutlet weak var changeWrongAttemptsCountTitleLabel: UILabel!
+    @IBOutlet weak var dismissPickerViewButton: UIButton!
     @IBOutlet weak var securityPincodeSwitch: UISwitch!
     @IBOutlet weak var emergencyPincodeSwitch: UISwitch!
     @IBOutlet weak var emergencySettingContainer: UIView!
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var pickerViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var pickerViewHeightConstraint: NSLayoutConstraint!
 
     private let disposeBag = DisposeBag()
-    var viewModel: SettingsViewModel?
+    weak var viewModel: SettingsViewModel?
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
@@ -29,6 +35,7 @@ class SettingsViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         setupBindings()
     }
     
@@ -65,6 +72,18 @@ extension SettingsViewController {
             }
             .disposed(by: disposeBag)
 
+        changeWrongAttemptsCountButton.rx.tap
+            .bind { [weak self] in
+                self?.showPickerView()
+            }
+            .disposed(by: disposeBag)
+
+        dismissPickerViewButton.rx.tap
+            .bind { [weak self] in
+                self?.hidePickerView(animated: true)
+            }
+            .disposed(by: disposeBag)
+
         changeEmergencyPincodeButton.rx.tap
             .bind { [weak self] in
                 self?.viewModel?.changeEmergencyPincode()
@@ -73,7 +92,7 @@ extension SettingsViewController {
 
         self.navigationItem.leftBarButtonItem?.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.dismiss(animated: true, completion: nil)
+                self?.dismissController()
             })
             .disposed(by: disposeBag)
 
@@ -112,5 +131,67 @@ extension SettingsViewController {
                 self?.viewModel?.changeEmergencyPincodeEnabledState(newState: isOn)
             }
             .disposed(by: self.disposeBag)
+        
+        viewModel.wrongAttemptsNumberSequenceObservable
+                        .bind(to: pickerView.rx.itemTitles) { _, item in
+                            return "\(item)"
+                        }
+                        .disposed(by: disposeBag)
+
+        viewModel.numberOfWrongPincodeAttemptsTitle
+            .bind{ [weak self] title in
+                self?.changeWrongAttemptsCountButton.setTitle(title, for: .normal)
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.numberOfWrongPincodeAttemptsValue
+            .bind{ [weak self] value in
+                self?.applyNumberOfWrongPincodeAttemptsValue(value: value)
+            }
+            .disposed(by: disposeBag)
+
+        pickerView.rx.itemSelected
+                        .subscribe(onNext: {[weak self] (row, value) in
+                            self?.viewModel?.numberOfWrongPincodeAttempts = row
+                        })
+                        .disposed(by: disposeBag)
+    }
+}
+
+//MARK: UI
+extension SettingsViewController {
+    private func setupUI() {
+        hidePickerView(animated: false)
+    }
+    
+    private func applyNumberOfWrongPincodeAttemptsValue(value: Int) {
+        changeWrongAttemptsCountTitleLabel.alpha = value > 0 ? GlobalConstants.opaqueAlphaValue : GlobalConstants.semitransparentAlphaValue
+        pickerView.selectRow(value, inComponent: 0, animated: false)
+    }
+    
+    private func showPickerView() {
+        pickerViewBottomConstraint.constant = 0
+        UIView.animate(withDuration: GlobalConstants.appearAnimationDuration) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func hidePickerView(animated: Bool) {
+        pickerViewBottomConstraint.constant = -pickerViewHeightConstraint.constant
+        if animated {
+            UIView.animate(withDuration: GlobalConstants.appearAnimationDuration) {
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    private func dismissController() {
+        if let nc = navigationController {
+            nc.dismiss(animated: true) {
+                nc.viewControllers = []
+            }
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
 }

@@ -160,10 +160,106 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="lzButtonTitle" value="settings.clearAllDataButtonTitle"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lpF-8v-guz" userLabel="WrongAttemptsContainer">
+                                <rect key="frame" x="16" y="317.5" width="382" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of wrong attempts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1H-Gi-5wG">
+                                        <rect key="frame" x="0.0" y="0.0" width="302" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="CustomPrimaryTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="settings.secureDeletionTitle"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcm-uh-PnD" userLabel="TextButton">
+                                        <rect key="frame" x="318" y="8" width="64" height="34"/>
+                                        <color key="backgroundColor" name="CustomButtonBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="64" id="Avk-lt-k6N"/>
+                                        </constraints>
+                                        <color key="tintColor" name="CustomPrimaryTextColor"/>
+                                        <inset key="imageEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                                        <state key="normal" title="—">
+                                            <color key="titleColor" name="CustomPrimaryTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layerCornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Hcm-uh-PnD" firstAttribute="centerY" secondItem="lpF-8v-guz" secondAttribute="centerY" id="6TO-t4-myw"/>
+                                    <constraint firstAttribute="bottom" secondItem="Hcm-uh-PnD" secondAttribute="bottom" constant="8" id="Fok-vn-Ikv"/>
+                                    <constraint firstItem="H1H-Gi-5wG" firstAttribute="leading" secondItem="lpF-8v-guz" secondAttribute="leading" id="IqR-Yk-xSC"/>
+                                    <constraint firstItem="Hcm-uh-PnD" firstAttribute="top" secondItem="lpF-8v-guz" secondAttribute="top" constant="8" id="P0C-sg-FZZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hcm-uh-PnD" secondAttribute="trailing" id="SI7-LX-dfZ"/>
+                                    <constraint firstItem="Hcm-uh-PnD" firstAttribute="leading" secondItem="H1H-Gi-5wG" secondAttribute="trailing" constant="16" id="gfF-TN-N7N"/>
+                                    <constraint firstAttribute="bottom" secondItem="H1H-Gi-5wG" secondAttribute="bottom" id="lq4-3O-xnA"/>
+                                    <constraint firstItem="H1H-Gi-5wG" firstAttribute="top" secondItem="lpF-8v-guz" secondAttribute="top" id="mtm-AU-yPq"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secure deletion description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ntx-4M-jDa">
+                                <rect key="frame" x="16" y="371.5" width="382" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" name="CustomTextFieldPlaceholderTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="settings.secureDeletionDescription"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMY-Go-4N6" userLabel="PickerViewContainer">
+                                <rect key="frame" x="0.0" y="724" width="414" height="172"/>
+                                <subviews>
+                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CDt-Yi-8ps" userLabel="solidBackground">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="172"/>
+                                        <color key="backgroundColor" name="CustomMemoEntrySplitterColor"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPb-3t-jA6">
+                                        <rect key="frame" x="374" y="0.0" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="qPb-3t-jA6" secondAttribute="height" id="6g1-CV-M4f"/>
+                                            <constraint firstAttribute="height" constant="32" id="zIF-aB-xLg"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="backButton"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rotate">
+                                                <real key="value" value="270"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTp-HI-s2c">
+                                        <rect key="frame" x="0.0" y="32" width="414" height="140"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="qPb-3t-jA6" secondAttribute="trailing" constant="8" id="4mX-90-NMV"/>
+                                    <constraint firstAttribute="height" constant="172" id="G7i-w0-7OQ"/>
+                                    <constraint firstItem="CDt-Yi-8ps" firstAttribute="top" secondItem="TMY-Go-4N6" secondAttribute="top" id="Mbq-PP-W7f"/>
+                                    <constraint firstAttribute="trailing" secondItem="oTp-HI-s2c" secondAttribute="trailing" id="bYt-qG-lXw"/>
+                                    <constraint firstAttribute="bottom" secondItem="CDt-Yi-8ps" secondAttribute="bottom" id="c30-Mf-Gg3"/>
+                                    <constraint firstItem="CDt-Yi-8ps" firstAttribute="leading" secondItem="TMY-Go-4N6" secondAttribute="leading" id="dtO-Un-Ihe"/>
+                                    <constraint firstItem="oTp-HI-s2c" firstAttribute="leading" secondItem="TMY-Go-4N6" secondAttribute="leading" id="elE-pV-Jne"/>
+                                    <constraint firstAttribute="trailing" secondItem="CDt-Yi-8ps" secondAttribute="trailing" id="lcu-fI-Rtd"/>
+                                    <constraint firstItem="oTp-HI-s2c" firstAttribute="top" secondItem="qPb-3t-jA6" secondAttribute="bottom" id="rOo-7C-G9c"/>
+                                    <constraint firstAttribute="bottom" secondItem="oTp-HI-s2c" secondAttribute="bottom" id="sfF-1x-Gl5"/>
+                                    <constraint firstItem="qPb-3t-jA6" firstAttribute="top" secondItem="TMY-Go-4N6" secondAttribute="top" id="vN1-9l-YwV"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Ntx-4M-jDa" firstAttribute="trailing" secondItem="Sja-q1-gUE" secondAttribute="trailing" id="3jM-Pn-RR8"/>
                             <constraint firstItem="Sja-q1-gUE" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="16" id="3ny-l1-qOd"/>
                             <constraint firstItem="lcC-c0-3HK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="4dj-bU-cgt"/>
                             <constraint firstItem="C54-O0-dlf" firstAttribute="trailing" secondItem="Sja-q1-gUE" secondAttribute="trailing" id="8rw-Q9-bor"/>
@@ -171,13 +267,21 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="lcC-c0-3HK" secondAttribute="bottom" id="CUg-q6-8hh"/>
                             <constraint firstItem="VpG-gk-hXV" firstAttribute="trailing" secondItem="Sja-q1-gUE" secondAttribute="trailing" id="JHO-3k-fhw"/>
                             <constraint firstItem="C54-O0-dlf" firstAttribute="leading" secondItem="Sja-q1-gUE" secondAttribute="leading" id="KQ1-7Z-tSF"/>
+                            <constraint firstItem="lpF-8v-guz" firstAttribute="top" secondItem="ecs-gT-pIJ" secondAttribute="bottom" constant="24" id="NSt-Vp-nrc"/>
                             <constraint firstItem="ecs-gT-pIJ" firstAttribute="top" secondItem="VpG-gk-hXV" secondAttribute="bottom" constant="4" id="QZe-am-qUr"/>
+                            <constraint firstItem="TMY-Go-4N6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Rzd-0m-oDQ"/>
+                            <constraint firstItem="lpF-8v-guz" firstAttribute="trailing" secondItem="Sja-q1-gUE" secondAttribute="trailing" id="SAI-dS-lP2"/>
                             <constraint firstItem="ecs-gT-pIJ" firstAttribute="trailing" secondItem="Sja-q1-gUE" secondAttribute="trailing" id="ZKt-Da-60H"/>
                             <constraint firstItem="C54-O0-dlf" firstAttribute="top" secondItem="Sja-q1-gUE" secondAttribute="bottom" constant="4" id="cRc-Ah-Xfn"/>
+                            <constraint firstItem="lpF-8v-guz" firstAttribute="leading" secondItem="Sja-q1-gUE" secondAttribute="leading" id="ceY-Gh-ox4"/>
                             <constraint firstItem="ecs-gT-pIJ" firstAttribute="leading" secondItem="Sja-q1-gUE" secondAttribute="leading" id="mcW-SJ-McK"/>
+                            <constraint firstItem="TMY-Go-4N6" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="nXw-lQ-nRv"/>
+                            <constraint firstItem="Ntx-4M-jDa" firstAttribute="leading" secondItem="Sja-q1-gUE" secondAttribute="leading" id="nZa-9I-xyL"/>
+                            <constraint firstAttribute="bottom" secondItem="TMY-Go-4N6" secondAttribute="bottom" id="oIQ-0u-VUv"/>
                             <constraint firstItem="VpG-gk-hXV" firstAttribute="leading" secondItem="Sja-q1-gUE" secondAttribute="leading" id="pEK-Zu-N0E"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lcC-c0-3HK" secondAttribute="trailing" id="skK-ot-5My"/>
                             <constraint firstItem="Sja-q1-gUE" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="32" id="uGc-dx-W3n"/>
+                            <constraint firstItem="Ntx-4M-jDa" firstAttribute="top" secondItem="lpF-8v-guz" secondAttribute="bottom" constant="4" id="yAu-ho-TVB"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Sja-q1-gUE" secondAttribute="trailing" constant="16" id="zhG-Tl-tFY"/>
                         </constraints>
                     </view>
@@ -191,9 +295,15 @@
                     <connections>
                         <outlet property="changeEmergencyPincodeButton" destination="kmu-kO-iJr" id="ho3-vp-uwz"/>
                         <outlet property="changeSecurityPincodeButton" destination="Ca3-zI-bcs" id="MBS-jk-UAL"/>
+                        <outlet property="changeWrongAttemptsCountButton" destination="Hcm-uh-PnD" id="0QJ-T8-9VO"/>
+                        <outlet property="changeWrongAttemptsCountTitleLabel" destination="H1H-Gi-5wG" id="5qJ-WQ-Vlh"/>
                         <outlet property="clearAllDataButton" destination="lcC-c0-3HK" id="eLO-BN-BHb"/>
+                        <outlet property="dismissPickerViewButton" destination="qPb-3t-jA6" id="dUe-xN-hah"/>
                         <outlet property="emergencyPincodeSwitch" destination="Qno-HF-Pho" id="AnP-Vt-wgG"/>
                         <outlet property="emergencySettingContainer" destination="VpG-gk-hXV" id="0pE-D8-dwx"/>
+                        <outlet property="pickerView" destination="oTp-HI-s2c" id="cA4-7H-ChR"/>
+                        <outlet property="pickerViewBottomConstraint" destination="oIQ-0u-VUv" id="Gzg-SQ-Nd9"/>
+                        <outlet property="pickerViewHeightConstraint" destination="G7i-w0-7OQ" id="zsR-gl-nSh"/>
                         <outlet property="securityPincodeSwitch" destination="Foc-sa-5v8" id="Ox0-ab-dx7"/>
                     </connections>
                 </viewController>
@@ -203,12 +313,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backButton" width="24" height="24"/>
         <image name="editPencil" width="42.666667938232422" height="42.666667938232422"/>
         <namedColor name="CustomButtonBackgroundColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.10000000149011612" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="CustomButtonHighlightedBackgroundColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.15000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CustomMemoEntrySplitterColor">
+            <color red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="CustomPrimaryTextColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

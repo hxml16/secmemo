@@ -58,11 +58,15 @@ class PincodeViewModel {
     }
     
     private func initBlockTimerIfRequired() {
+        timerTick()
         lockTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.timerTick), userInfo: nil, repeats: true)
         
         blockLabelTitle.onNext(String(format: "pinCode.blockTitle".localized, GlobalConstants.unlockAttemptsCountUntilBlock))
         if settingsService.pincodeUnlockAttemptsCount <= 0 {
-            restoreUnlockAttemptsCount()
+            settingsService.restoreUnlockAttemptsCount()
+        }
+        if settingsService.numberOfWrongPincodeAttempts > 0 && settingsService.pincodeWrongAttemptsCount <= 0 {
+            settingsService.restoreWrongUnlockAttemptsCount()
         }
     }
     
@@ -222,24 +226,37 @@ class PincodeViewModel {
             spendAttemptsIfRequired()
             clearDotsAfterDelay(timeInterval: Constants.clearDotsDelayInterval)
         } else {
-            restoreUnlockAttemptsCount()
+            settingsService.restoreUnlockAttemptsCount()
+            settingsService.restoreWrongUnlockAttemptsCount()
         }
         didValidatePincode.onNext(pincodeValid)
     }
     
+    // Decremetns unlock attempts in order to block UI if it exceeds specific threshold
     private func spendAttemptsIfRequired() {
         settingsService.pincodeUnlockAttemptsCount -= 1
         if settingsService.pincodeUnlockAttemptsCount <= 0 {
             enableBlockTimer()
             clearDots()
-            restoreUnlockAttemptsCount()
+            settingsService.restoreUnlockAttemptsCount()
+        }
+        spendWrongAttemptsIfRequired()
+    }
+    
+    // Decremetns wrong unlock attempts in order to delete all data
+    private func spendWrongAttemptsIfRequired() {
+        if settingsService.numberOfWrongPincodeAttempts <= 0 {
+            return
+        }
+        settingsService.pincodeWrongAttemptsCount -= 1
+        print("pincodeUnlockAttemptsCount: \(settingsService.pincodeWrongAttemptsCount)")
+        if settingsService.pincodeWrongAttemptsCount <= 0 {
+            sessionService.forceDataCleanup()
+            settingsService.restoreWrongUnlockAttemptsCount()
+            print("pincodeUnlockAttemptsCount: delete")
         }
     }
     
-    private func restoreUnlockAttemptsCount() {
-        settingsService.pincodeUnlockAttemptsCount = GlobalConstants.unlockAttemptsCountUntilBlock
-    }
-
     private func validatePincodeRepeat() {
         if typedPincode != typingPincode {
             switchPincodeToSetup()
