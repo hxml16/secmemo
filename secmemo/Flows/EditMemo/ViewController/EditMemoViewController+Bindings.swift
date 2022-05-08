@@ -91,6 +91,7 @@ extension EditMemoViewController {
                 self?.view.endEditing(true)
             }
             .disposed(by: disposeBag)
+        
         pasteKeyboardButton.rx.tap
             .bind { [weak self] in
                 self?.viewModel?.makeCurrentResponderFirst()
@@ -150,8 +151,16 @@ extension EditMemoViewController {
               if let strongSelf = self {
                   let isKeyboardVisible = keyboardVisibleHeight > 0
                   strongSelf.tableViewBottomConstraint.constant = keyboardVisibleHeight
-                  strongSelf.keybaordHeaderHeightConstraint.constant = isKeyboardVisible ? strongSelf.initialKeybaordHeaderHeight : 0
-                  strongSelf.memoControlsContainerHeightConstraint.constant = isKeyboardVisible ? 0 : strongSelf.initiaMemoControlsContainerHeight
+                  if UIDevice.isPad {
+                      strongSelf.keybaordHeaderHeightConstraint.constant = 0
+                      strongSelf.memoControlsContainerHeightConstraint.constant = 0
+                  } else {
+                      strongSelf.keybaordHeaderHeightConstraint.constant = isKeyboardVisible ? strongSelf.initialKeybaordHeaderHeight : 0
+                      strongSelf.memoControlsContainerHeightConstraint.constant = isKeyboardVisible ? 0 : strongSelf.initiaMemoControlsContainerHeight
+                  }
+                  if !isKeyboardVisible {
+                      strongSelf.view.endEditing(true)
+                  }
               }
           })
           .disposed(by: disposeBag)

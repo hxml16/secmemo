@@ -17,4 +17,5 @@ enum GlobalConstants {
     static let blockTimerSecondsValue: TimeInterval = 5 * 60 // 5 minutes
     static let wrongAttemptsNumberSequenceLength = 64
     static let appearAnimationDuration: TimeInterval = 0.25
+    static let ellipsizeMemoTitleLongerThan: Int = 32
 }

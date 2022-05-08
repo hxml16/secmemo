@@ -42,7 +42,6 @@ class MemosViewModel {
     
     private func restorePreviouslySelectedItemIfRequired() {
         selectMemo(with: restoreSelectedRowWithMemoId)
-//        restoreSelectedRowWithMemoId = -1
     }
     
     private func selectMemo(with id: Int) {
@@ -95,7 +94,7 @@ class MemosViewModel {
             return
         }
         let memo = allMemoHeaders[index]
-        let message = String(format: "memos.deleteItemConfirmText".localized, String(format: "memoEdit.newMemoTitle".localized, String(memo.id)))
+        let message = String(format: "memos.deleteItemConfirmText".localized, memo.shortifiedTitle)
         showOkCancelAlert(message: message, okTitle: "common.delete".localized, inController: nil) {
             self.allMemoHeaders.remove(at: index)
             if self.lastSelectedMemoId != memo.id {
@@ -103,11 +102,11 @@ class MemosViewModel {
             } else {
                 self.restoreSelectedRowWithMemoId = -1
             }
-            memo.remove()
-            self.rebuildDataSource()
-            if UIDevice.isPad && self.restoreSelectedRowWithMemoId < 0{
+            if UIDevice.isPad && self.restoreSelectedRowWithMemoId < 0 {
                 self.requestEmptyDocument()
             }
+            memo.remove()
+            self.rebuildDataSource()
         } cancelComplete: {
         }
     }

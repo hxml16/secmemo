@@ -12,6 +12,7 @@ protocol SessionService {
     var didSignOut: PublishSubject<Void> { get }
     var didSignIn: PublishSubject<Void> { get }
     var willLock: PublishSubject<Void> { get }
+    var didSuspend: PublishSubject<Void> { get }
     var didLock: PublishSubject<Void> { get }
     var didUnlock: PublishSubject<Void> { get }
     var didCleanupData: PublishSubject<Void> { get }

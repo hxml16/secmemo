@@ -70,5 +70,24 @@ class MemoHeader: DataEntity {
     override func remove() {
         let dataProvider = AppDelegate.container.resolve(DataProvider.self)!
         dataProvider.remove(memo: self)
+        id = -1
+    }
+}
+
+//MARK: Helper methods
+extension MemoHeader {
+    static func templateMemoTitle(memoId: Int) -> String {
+        return String(format: "memoEdit.newMemoTitle".localized, String(memoId))
+    }
+    
+    var shortifiedTitle: String {
+        var message = MemoHeader.templateMemoTitle(memoId: id)
+        if title.trimmed != "" {
+            message = title.trimmed
+            if message.count > GlobalConstants.ellipsizeMemoTitleLongerThan {
+                message = message.prefix(GlobalConstants.ellipsizeMemoTitleLongerThan) + "..."
+            }
+        }
+        return message
     }
 }
