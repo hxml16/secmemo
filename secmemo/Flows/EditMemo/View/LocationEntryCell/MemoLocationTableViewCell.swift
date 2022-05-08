@@ -139,6 +139,7 @@ class MemoLocationTableViewCell: UITableViewCell, FocusableEntryCell {
         } else {
             onLocationUnavailable?()
         }
+        entry?.save()
     }
     
     private func updateLocationTextField() {

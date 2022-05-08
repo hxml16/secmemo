@@ -18,12 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Viewer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzY-vK-L2i">
-                                <rect key="frame" x="131" y="433.5" width="152.5" height="29"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hli-TG-pdl" userLabel="HeaderAlignerView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -101,10 +95,8 @@
                             <constraint firstItem="Vug-5Q-Lja" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="2YN-0u-T1M"/>
                             <constraint firstItem="aTw-nV-POQ" firstAttribute="height" secondItem="hli-TG-pdl" secondAttribute="height" id="CZ4-A7-JD9"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hli-TG-pdl" secondAttribute="trailing" id="DC6-Dr-4ZD"/>
-                            <constraint firstItem="pzY-vK-L2i" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="DzH-UI-7zW"/>
                             <constraint firstItem="Gnu-gx-VJq" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="EEw-dX-n09"/>
                             <constraint firstAttribute="trailing" secondItem="Gnu-gx-VJq" secondAttribute="trailing" id="GT3-iK-36S"/>
-                            <constraint firstItem="pzY-vK-L2i" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="GjY-JC-xhy"/>
                             <constraint firstItem="hli-TG-pdl" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="J7t-5X-3Ov"/>
                             <constraint firstItem="k7R-bB-2pk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Jh4-oC-Gq9"/>
                             <constraint firstItem="Gnu-gx-VJq" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="KwV-Zg-LRO"/>

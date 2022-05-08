@@ -34,10 +34,22 @@ class EditMemoViewModel {
     init(memo: Memo) {
         self.memo = memo
         initMemoIfRequired()
+        setupBindings()
+    }
+    
+    private func setupBindings() {
+        let sessionService = AppDelegate.container.resolve(SessionService.self)!
+        sessionService.didSuspend
+            .subscribe(onNext: { [weak self] in
+                self?.save()
+            })
+            .disposed(by: disposeBag)
     }
     
     func applyNewMemo(memo: Memo) {
-        save()
+        if memo.isValid {
+            save()
+        }
         self.memo = memo
         initMemoIfRequired()
     }
@@ -64,6 +76,7 @@ class EditMemoViewModel {
     func makeCurrentResponderFirst() {
         if let responder = currentResponder {
             responder.paste(UIPasteboard.general.string)
+            memo.save()
         }
     }
     
@@ -93,7 +106,7 @@ class EditMemoViewModel {
     }
     
     func removeMemo() {
-        let message = String(format: "memos.deleteItemConfirmText".localized, String(format: "memoEdit.newMemoTitle".localized, String(memo.id)))
+        let message = String(format: "memos.deleteItemConfirmText".localized, memo.shortifiedTitle)
         showOkCancelAlert(message: message, okTitle: "common.ok".localized, inController: nil) {
             self.memo.remove()
             self.didRequestDismission.onNext(Void())
@@ -134,6 +147,7 @@ class EditMemoViewModel {
         memo.addEntry(entry: entry)
         focusOnEntry = entry
         applyNewEntries()
+        save()
     }
     
     func removeImageEntry(imageEntry: MemoImageEntry) {
@@ -156,6 +170,7 @@ class EditMemoViewModel {
     func removeEntry(entry: MemoEntry) {
         memo.removeEntry(entry: entry)
         applyNewEntries()
+        save()
     }
 
     private func applyNewEntries() {
@@ -182,7 +197,7 @@ class EditMemoViewModel {
     }
 
     func save() {
-        if self.memo.isChanged {
+        if self.memo.needToSave {
             self.memo.save()
         }
     }

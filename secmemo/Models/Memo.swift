@@ -11,6 +11,18 @@ class Memo: DataEntity {
     var header: MemoHeader?
     var entries = [MemoEntry]()
     var entriesCollectionChanged = false
+    
+    var needToSave: Bool {
+        return isChanged && isValid
+    }
+    
+    var isValid: Bool {
+        if let id = header?.id, id >= 0 {
+            return true
+        }
+        return false
+    }
+    
     var isChanged: Bool {
         get {
             return
@@ -134,21 +146,18 @@ class Memo: DataEntity {
     }
 
     override func save() {
-        guard let header = self.header, header.id >= 0 else {
+        if !isValid {
             return
         }
         let dataProvider = AppDelegate.container.resolve(DataProvider.self)!
-        header.updateUpdated()
+        header?.updateUpdated()
         dataProvider.save(memo: self)
+        isChanged = false
     }
     
     override func remove() {
-        let dataProvider = AppDelegate.container.resolve(DataProvider.self)!
         header?.updateUpdated()
-        if let header = self.header {
-            dataProvider.remove(memo: header)
-            self.header?.id = -1
-        }
+        header?.remove()
     }
     
     func generateNewMemoEntry(with entryType: MemoEntryType) -> MemoEntry {
@@ -186,5 +195,15 @@ class Memo: DataEntity {
         }
         entry.remove()
         entriesCollectionChanged = true
+    }
+}
+
+//MARK: Helper methods
+extension Memo {
+    var shortifiedTitle: String {
+        if let headerTitle = header?.shortifiedTitle {
+            return headerTitle
+        }
+        return MemoHeader.templateMemoTitle(memoId: id)
     }
 }

@@ -18,9 +18,7 @@ extension EditMemoViewController {
         let alert = UIAlertController(title: "memoEdit.alertChooseHyperlinkTitle".localized, message: nil, preferredStyle: .actionSheet)
         if let presenter = alert.popoverPresentationController {
             presenter.sourceView = sourceView
-            if let globalBounds = sourceView.globalBounds {
-                presenter.sourceRect = globalBounds
-            }
+            presenter.sourceRect = sourceView.bounds
         }
         alert.addAction(UIAlertAction(title: "memoEdit.alertOpenHyperlink".localized, style: .default) { _ in
             UIApplication.shared.open(linkUrl)
@@ -40,10 +38,9 @@ extension EditMemoViewController {
         let alert = UIAlertController(title: "memoEdit.alertChooseLocationAppTitle".localized, message: nil, preferredStyle: .actionSheet)
         if let presenter = alert.popoverPresentationController {
             presenter.sourceView = sourceView
-            if let globalBounds = sourceView.globalFrame {
-                presenter.sourceRect = globalBounds
-            }
+            presenter.sourceRect = sourceView.bounds
         }
+
         let handlers = LocationUtils.listOfAvailableMapApps(coordinate: coordinate)
         handlers.forEach { (name, url) in
             alert.addAction(UIAlertAction(title: name, style: .default) { _ in
@@ -62,9 +59,7 @@ extension EditMemoViewController {
         let alert = UIAlertController(title: "memoEdit.alertChooseImagePickMethodTitle".localized, message: nil, preferredStyle: .actionSheet)
         if let presenter = alert.popoverPresentationController {
             presenter.sourceView = addImageButton
-            if let globalBounds = addImageButton.globalBounds {
-                presenter.sourceRect = globalBounds
-            }
+            presenter.sourceRect = addImageButton.bounds
         }
         alert.addAction(UIAlertAction(title: "memoEdit.addFromCameraButtonTitle".localized, style: .default) { _ in
             self.viewModel?.requestCameraEntry()

@@ -16,6 +16,8 @@ class SessionServiceImpl: SessionService {
     let didSignIn = PublishSubject<Void>()
     
     let didLock = PublishSubject<Void>()
+    let didSuspend = PublishSubject<Void>()
+    
     let willLock = PublishSubject<Void>()
     let didUnlock = PublishSubject<Void>()
     let didCleanupData = PublishSubject<Void>()
@@ -28,6 +30,7 @@ class SessionServiceImpl: SessionService {
             willLock.onNext(Void())
             didLock.onNext(Void())
         }
+        didSuspend.onNext(Void())
     }
 
     func unlockSessionIfRequired() {

@@ -128,6 +128,7 @@ class DataProviderImpl: DataProvider {
     func cleanupAllData() {
         dataStorage.removeItem(path: dataDir)
         initDirectories()
+        allMemoHeaders.forEach({ $0.id = -1 })
         allMemoHeaders = []
         lastId = 0
     }
@@ -136,6 +137,9 @@ class DataProviderImpl: DataProvider {
         dataStorage.removeItem(path: memoDirPath(memoId: memo.id))
         if let index = allMemoHeaders.firstIndex(where: {$0.id == memo.id}) {
             allMemoHeaders.remove(at: index)
+        }
+        if allMemoHeaders.count <= 0 {
+            lastId = 0
         }
         saveCatalog()
     }
