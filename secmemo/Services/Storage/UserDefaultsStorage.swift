@@ -22,7 +22,7 @@ class UserDefaultsStorage: KeyValueStorage {
     }
     
     func int(forKey: String) -> Int? {
-        return userDefaults.integer(forKey: forKey)
+        return userDefaults.object(forKey: forKey) as? Int
     }
     
     func set(value: Int?, forKey: String) {

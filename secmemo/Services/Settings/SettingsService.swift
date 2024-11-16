@@ -15,7 +15,8 @@ protocol SettingsService {
     var emergencyPincode: String? { get set }
     var pincodeUnlockAttemptsCount: Int { get set }
     var pincodeBlockedUntil: TimeInterval { get set }
-    var numberOfWrongPincodeAttempts: Int { get set }
+    var numberOfWrongPincodeAttempts: Int? { get set }
+    var autoLockTimeout: Int? { get set }
     var pincodeWrongAttemptsCount: Int { get set }
     func restoreUnlockAttemptsCount()
     func restoreWrongUnlockAttemptsCount()

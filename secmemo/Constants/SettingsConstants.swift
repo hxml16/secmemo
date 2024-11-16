@@ -17,4 +17,5 @@ enum SettingsConstants: String {
     case pincodeWrongAttemptsCount
     case pincodeBlockedUntil
     case numberOfWrongPincodeAttempts
+    case autoLockTimeout
 }

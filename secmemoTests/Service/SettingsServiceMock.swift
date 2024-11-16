@@ -24,12 +24,19 @@ class SettingsServiceMock: SettingsService {
         }
     }
     
-    var numberOfWrongPincodeAttempts: Int {
+    var autoLockTimeout: Int? {
         get {
-            if let i = settings[SettingsConstants.numberOfWrongPincodeAttempts.rawValue] as? Int {
-                return i
-            }
-            return -1
+            return settings[SettingsConstants.autoLockTimeout.rawValue] as? Int
+        }
+        
+        set {
+            settings[SettingsConstants.autoLockTimeout.rawValue] = newValue as AnyObject
+        }
+    }
+    
+    var numberOfWrongPincodeAttempts: Int? {
+        get {
+            return settings[SettingsConstants.numberOfWrongPincodeAttempts.rawValue] as? Int
         }
         
         set {
@@ -134,6 +141,6 @@ class SettingsServiceMock: SettingsService {
     }
     
     func restoreWrongUnlockAttemptsCount() {
-        pincodeWrongAttemptsCount = numberOfWrongPincodeAttempts
+        pincodeWrongAttemptsCount = numberOfWrongPincodeAttempts ?? 0
     }
 }
