@@ -17,5 +17,6 @@ extension Container {
         autoregister(LocationService.self, initializer: CoreLocationService.init).inObjectScope(.container)
         autoregister(FileStorageImpl.self, initializer: FileStorageImpl.init).inObjectScope(.container)
         autoregister(DataProvider.self, initializer: DataProviderImpl.init).inObjectScope(.container)
+        autoregister(AutoLockServiceImpl.self, initializer: AutoLockServiceImpl.init).inObjectScope(.container)
     }
 }
