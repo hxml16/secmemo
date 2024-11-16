@@ -65,7 +65,7 @@ class PincodeViewModel {
         if settingsService.pincodeUnlockAttemptsCount <= 0 {
             settingsService.restoreUnlockAttemptsCount()
         }
-        if settingsService.numberOfWrongPincodeAttempts > 0 && settingsService.pincodeWrongAttemptsCount <= 0 {
+        if settingsService.numberOfWrongPincodeAttempts ?? 0 > 0 && settingsService.pincodeWrongAttemptsCount <= 0 {
             settingsService.restoreWrongUnlockAttemptsCount()
         }
     }
@@ -245,7 +245,7 @@ class PincodeViewModel {
     
     // Decremetns wrong unlock attempts in order to delete all data
     private func spendWrongAttemptsIfRequired() {
-        if settingsService.numberOfWrongPincodeAttempts <= 0 {
+        if settingsService.numberOfWrongPincodeAttempts ?? 0 <= 0 {
             return
         }
         settingsService.pincodeWrongAttemptsCount -= 1
