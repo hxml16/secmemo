@@ -18,16 +18,28 @@ class SettingsViewController: UIViewController, Storyboarded {
     @IBOutlet weak var changeEmergencyPincodeButton: UIButton!
     @IBOutlet weak var changeWrongAttemptsCountButton: UIButton!
     @IBOutlet weak var changeWrongAttemptsCountTitleLabel: UILabel!
+    @IBOutlet weak var changeAutoLockTimeoutButton: UIButton!
+    @IBOutlet weak var changeAutoLockTimeoutTitleLabel: UILabel!
     @IBOutlet weak var dismissPickerViewButton: UIButton!
     @IBOutlet weak var securityPincodeSwitch: UISwitch!
     @IBOutlet weak var emergencyPincodeSwitch: UISwitch!
     @IBOutlet weak var emergencySettingContainer: UIView!
+    @IBOutlet weak var pickerViewTitleLabel: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var pickerViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var pickerViewHeightConstraint: NSLayoutConstraint!
 
     private let disposeBag = DisposeBag()
+    private var pickerViewDisposeBag = DisposeBag()
     weak var viewModel: SettingsViewModel?
+    
+    enum PickerViewMode {
+        case none
+        case wrongAttemptsNumber
+        case autoLockTimeoutSequence
+    }
+    
+    private var pickerViewMode = PickerViewMode.none
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
@@ -74,10 +86,31 @@ extension SettingsViewController {
 
         changeWrongAttemptsCountButton.rx.tap
             .bind { [weak self] in
-                self?.showPickerView()
+                guard let self else {
+                    return
+                }
+                self.pickerViewTitleLabel.text = self.changeWrongAttemptsCountTitleLabel.text
+                self.bindPickerView(dataSource: viewModel.wrongAttemptsNumberSequenceObservable)
+                self.pickerViewMode = .wrongAttemptsNumber
+                self.selectCurrentPickerViewRow(row: viewModel.numberOfWrongPincodeAttempts)
+                self.showPickerView()
             }
             .disposed(by: disposeBag)
-
+        
+        changeAutoLockTimeoutButton.rx.tap
+            .bind { [weak self] in
+                guard let self else {
+                    return
+                }
+                self.pickerViewTitleLabel.text = self.changeAutoLockTimeoutTitleLabel.text
+                self.bindPickerView(dataSource: viewModel.autoLockTimeoutSequenceObservable)
+                self.pickerViewMode = .autoLockTimeoutSequence
+                let index = GlobalConstants.autoLockTimeoutSequence.firstIndex(of: viewModel.autoLockTimeout) ?? 0
+                self.selectCurrentPickerViewRow(row: index)
+                self.showPickerView()
+            }
+            .disposed(by: disposeBag)
+        
         dismissPickerViewButton.rx.tap
             .bind { [weak self] in
                 self?.hidePickerView(animated: true)
@@ -90,7 +123,7 @@ extension SettingsViewController {
             }
             .disposed(by: disposeBag)
 
-        self.navigationItem.leftBarButtonItem?.rx.tap
+        navigationItem.leftBarButtonItem?.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.dismissController()
             })
@@ -132,12 +165,6 @@ extension SettingsViewController {
             }
             .disposed(by: self.disposeBag)
         
-        viewModel.wrongAttemptsNumberSequenceObservable
-                        .bind(to: pickerView.rx.itemTitles) { _, item in
-                            return "\(item)"
-                        }
-                        .disposed(by: disposeBag)
-
         viewModel.numberOfWrongPincodeAttemptsTitle
             .bind{ [weak self] title in
                 self?.changeWrongAttemptsCountButton.setTitle(title, for: .normal)
@@ -150,11 +177,44 @@ extension SettingsViewController {
             }
             .disposed(by: disposeBag)
 
+        viewModel.autoLockTimeoutTitle
+            .bind{ [weak self] title in
+                self?.changeAutoLockTimeoutButton.setTitle(title, for: .normal)
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.autoLockTimeoutValue
+            .bind{ [weak self] value in
+                self?.applyAutoLockTimeoutValue(value: value)
+            }
+            .disposed(by: disposeBag)
+
         pickerView.rx.itemSelected
-                        .subscribe(onNext: {[weak self] (row, value) in
-                            self?.viewModel?.numberOfWrongPincodeAttempts = row
-                        })
-                        .disposed(by: disposeBag)
+            .subscribe(onNext: {[weak self] (row, value) in
+                guard let self else {
+                    return
+                }
+                switch self.pickerViewMode {
+                case .wrongAttemptsNumber:
+                    self.viewModel?.numberOfWrongPincodeAttempts = row
+                case .autoLockTimeoutSequence:
+                    self.viewModel?.autoLockTimeout = GlobalConstants.autoLockTimeoutSequence[row]
+                default:
+                    break
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+        
+    private func bindPickerView(dataSource: Observable<[String]>) {
+        pickerView.delegate = nil
+        pickerView.dataSource = nil
+        pickerViewDisposeBag = DisposeBag()
+        dataSource
+            .bind(to: pickerView.rx.itemTitles) { _, item in
+                return "\(item)"
+            }
+            .disposed(by: pickerViewDisposeBag)
     }
 }
 
@@ -164,9 +224,16 @@ extension SettingsViewController {
         hidePickerView(animated: false)
     }
     
+    private func selectCurrentPickerViewRow(row: Int) {
+        pickerView.selectRow(row, inComponent: 0, animated: false)
+    }
+    
     private func applyNumberOfWrongPincodeAttemptsValue(value: Int) {
         changeWrongAttemptsCountTitleLabel.alpha = value > 0 ? GlobalConstants.opaqueAlphaValue : GlobalConstants.semitransparentAlphaValue
-        pickerView.selectRow(value, inComponent: 0, animated: false)
+    }
+    
+    private func applyAutoLockTimeoutValue(value: Int) {
+        changeAutoLockTimeoutTitleLabel.alpha = value > 0 ? GlobalConstants.opaqueAlphaValue : GlobalConstants.semitransparentAlphaValue
     }
     
     private func showPickerView() {
