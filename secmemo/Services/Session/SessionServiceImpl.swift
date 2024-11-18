@@ -50,6 +50,7 @@ class SessionServiceImpl: SessionService {
 
     func forceUnlockSession() {
         sessionUnlocked = true
+        didUnlock.onNext(Void())
     }
 
     init(settingService: SettingsService, dataProvider: DataProvider) {

@@ -87,16 +87,29 @@ class SettingsServiceImpl: SettingsService {
         }
     }
     
-    var numberOfWrongPincodeAttempts: Int {
+    var numberOfWrongPincodeAttempts: Int? {
         get {
-            if let i = userDefaultsStorage.int(forKey: SettingsConstants.numberOfWrongPincodeAttempts.rawValue) {
-                return i
-            }
-            return -1
+            return userDefaultsStorage.int(forKey: SettingsConstants.numberOfWrongPincodeAttempts.rawValue)
         }
         
         set {
             userDefaultsStorage.set(value: newValue, forKey: SettingsConstants.numberOfWrongPincodeAttempts.rawValue)
+        }
+    }
+    
+    var autoLockTimeout: Int? {
+        get {
+            if let i = userDefaultsStorage.int(forKey: SettingsConstants.autoLockTimeout.rawValue) {
+                return i
+            }
+            return GlobalConstants.defaultAutoLockTimeout
+        }
+        
+        set {
+            userDefaultsStorage.set(
+                value: newValue,
+                forKey: SettingsConstants.autoLockTimeout.rawValue
+            )
         }
     }
     
@@ -105,7 +118,7 @@ class SettingsServiceImpl: SettingsService {
     }
     
     func restoreWrongUnlockAttemptsCount() {
-        pincodeWrongAttemptsCount = numberOfWrongPincodeAttempts
+        pincodeWrongAttemptsCount = numberOfWrongPincodeAttempts ?? 0
     }
     
     var pincodeBlockedUntil: TimeInterval {

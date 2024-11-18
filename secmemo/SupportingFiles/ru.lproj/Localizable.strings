@@ -81,3 +81,5 @@
 "settings.disableButtonTitle" = "Деактивировать";
 "settings.clearAllDataButtonTitle" = "Очистить все данные";
 "settings.clearAllDataConfirmTitle" = "Все заметки будут удалены";
+"settings.autoLockTimeoutTitle" = "Таймаут автоблокировки";
+"settings.autoLockTimeoutDescription" = "Если вы забудете заблокировать приложение, оно сделает это за вас";

@@ -53,6 +53,8 @@
 		DD59710F27FE563200FA80EF /* Container+Coordinators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59710B27FE563200FA80EF /* Container+Coordinators.swift */; };
 		DD59711127FE58D100FA80EF /* PincodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59711027FE58D100FA80EF /* PincodeUtils.swift */; };
 		DD6620B127F127A600FE8B44 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6620B027F127A400FE8B44 /* GradientView.swift */; };
+		DD7DC03C2CE7BD8C002D1EAF /* AutoLockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7DC03B2CE7BD7F002D1EAF /* AutoLockService.swift */; };
+		DD7DC03E2CE7BD9B002D1EAF /* AutoLockServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7DC03D2CE7BD98002D1EAF /* AutoLockServiceImpl.swift */; };
 		DD83AD5027B91CBC00882471 /* KeyChainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD83AD0B27B91CBB00882471 /* KeyChainStorage.swift */; };
 		DD83AD5127B91CBC00882471 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD83AD0C27B91CBB00882471 /* UserDefaultsStorage.swift */; };
 		DD83AD5227B91CBC00882471 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD83AD0E27B91CBB00882471 /* SessionService.swift */; };
@@ -225,6 +227,8 @@
 		DD59710B27FE563200FA80EF /* Container+Coordinators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Container+Coordinators.swift"; sourceTree = "<group>"; };
 		DD59711027FE58D100FA80EF /* PincodeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PincodeUtils.swift; sourceTree = "<group>"; };
 		DD6620B027F127A400FE8B44 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		DD7DC03B2CE7BD7F002D1EAF /* AutoLockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLockService.swift; sourceTree = "<group>"; };
+		DD7DC03D2CE7BD98002D1EAF /* AutoLockServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLockServiceImpl.swift; sourceTree = "<group>"; };
 		DD83AD0B27B91CBB00882471 /* KeyChainStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChainStorage.swift; sourceTree = "<group>"; };
 		DD83AD0C27B91CBB00882471 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 		DD83AD0E27B91CBB00882471 /* SessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
@@ -443,9 +447,19 @@
 			path = DI;
 			sourceTree = "<group>";
 		};
+		DD7DC03A2CE7B92D002D1EAF /* Autolock */ = {
+			isa = PBXGroup;
+			children = (
+				DD7DC03B2CE7BD7F002D1EAF /* AutoLockService.swift */,
+				DD7DC03D2CE7BD98002D1EAF /* AutoLockServiceImpl.swift */,
+			);
+			path = Autolock;
+			sourceTree = "<group>";
+		};
 		DD83AD0927B91CBB00882471 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				DD7DC03A2CE7B92D002D1EAF /* Autolock */,
 				DDF7DB8027D15D5A00B7C5AD /* Data */,
 				DD16FB2B27CE996100534DA2 /* Location */,
 				DD83AD0A27B91CBB00882471 /* Storage */,
@@ -1357,6 +1371,7 @@
 				DD5970CF27FB528D00FA80EF /* SessionServiceImpl.swift in Sources */,
 				DDA6635D2800A7F90024610E /* SignUpCoordinator.swift in Sources */,
 				DD16FB2827CC486100534DA2 /* ActivityRingLayer.swift in Sources */,
+				DD7DC03E2CE7BD9B002D1EAF /* AutoLockServiceImpl.swift in Sources */,
 				DDD1AEE4281E7DCF000B8A68 /* EditMemoViewController+Bindings.swift in Sources */,
 				DDE886D027B68964005DA709 /* PincodeObserver.swift in Sources */,
 				DDA6634C2800A7F90024610E /* EditMemoCoordinator.swift in Sources */,
@@ -1402,6 +1417,7 @@
 				DD59711127FE58D100FA80EF /* PincodeUtils.swift in Sources */,
 				DDA6635B2800A7F90024610E /* SignUpViewModel.swift in Sources */,
 				DDE886CE27B682B7005DA709 /* UIApplication+Helper.swift in Sources */,
+				DD7DC03C2CE7BD8C002D1EAF /* AutoLockService.swift in Sources */,
 				DD0BAAD327DE0CDC00882FBD /* Constants.swift in Sources */,
 				DDD1AEDA281B55BE000B8A68 /* MemoLinkTableViewCellViewModel.swift in Sources */,
 				DD16FB2627CC486100534DA2 /* ActivityRing.swift in Sources */,
@@ -1600,7 +1616,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = MLQ8BKSTJN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = secmemo/SupportingFiles/Info.plist;
@@ -1619,7 +1635,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pikeit.secmemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1635,7 +1651,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = MLQ8BKSTJN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = secmemo/SupportingFiles/Info.plist;
@@ -1654,7 +1670,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pikeit.secmemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

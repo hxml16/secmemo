@@ -18,7 +18,7 @@ protocol Coordinator: AnyObject {
     func removeChildCoordinators()
 }
 
-class BaseCoordinator: Coordinator {
+class BaseCoordinator: NSObject, Coordinator {
     var navigationController = UINavigationController()
     var childCoordinators = [Coordinator]()
     var parentCoordinator: Coordinator?

@@ -15,17 +15,23 @@ class AppCoordinator: BaseCoordinator {
     private let settingsService: SettingsService
     private let sessionService: SessionService
     private let memosViewModel: MemosViewModel
+    private let autoLockService: AutoLockService
     private var window = UIWindow(frame: UIScreen.main.bounds)
     
     init(settingsService: SettingsService, sessionService: SessionService, memosViewModel: MemosViewModel) {
         self.settingsService = settingsService
         self.sessionService = sessionService
         self.memosViewModel = memosViewModel
+        self.autoLockService = AutoLockServiceImpl(
+            sessionService: sessionService,
+            settingsService: settingsService
+        )
     }
     
     override func start() {
         window.makeKeyAndVisible()
-        
+        setupGlobalTouchObserver()
+
         subscribeToSessionChanges()
         if sessionService.pincodesCreated {
             if settingsService.securityPincodeEnabled || settingsService.emergencyPincodeEnabled {
@@ -61,6 +67,21 @@ extension AppCoordinator {
                 }
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func setupGlobalTouchObserver() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: nil)
+        tapGesture.delegate = self
+        window.addGestureRecognizer(tapGesture)
+    }
+    
+}
+ 
+//MARK: UIGestureRecognizerDelegate
+extension AppCoordinator: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        autoLockService.resetUnlockDateIfRequired()
+        return false
     }
 }
 

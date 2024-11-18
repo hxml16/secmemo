@@ -45,7 +45,7 @@
 "memos.navigationBarTitle" = "Memos";
 "memos.deleteItemConfirmText" = "Item \"%@\" will be completely deleted";
 "memos.noMemosYet" = "You haven't added any memos yet.";
-"memos.addMemoButtonTitle" = "Add memo";
+"memos.addMemoButtonTitle" = "Add a memo";
 
 "memoEdit.navigationBarTitle" = "Memo";
 "memoEdit.newMemoTitle" = "Memo #%@";
@@ -80,3 +80,5 @@
 "settings.disableButtonTitle" = "Disable";
 "settings.clearAllDataButtonTitle" = "Clear all data";
 "settings.clearAllDataConfirmTitle" = "All memos will be deleted";
+"settings.autoLockTimeoutTitle" = "Autolock timeout";
+"settings.autoLockTimeoutDescription" = "If you forget to lock the app manually, it'll do it for you after this timeout";

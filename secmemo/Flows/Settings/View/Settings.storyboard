@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -15,7 +15,7 @@
             <objects>
                 <navigationController id="b2v-Ma-ZuA" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ch9-VB-kiJ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -34,186 +34,291 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sja-q1-gUE" userLabel="PincodeSettingsContainer">
-                                <rect key="frame" x="16" y="120" width="382" height="54.5"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWF-qy-dGa">
+                                <rect key="frame" x="0.0" y="92" width="414" height="804"/>
                                 <subviews>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Foc-sa-5v8">
-                                        <rect key="frame" x="0.0" y="12" width="51" height="31"/>
-                                    </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Security pincode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwi-1x-ueP">
-                                        <rect key="frame" x="65" y="0.0" width="258.5" height="54.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" name="CustomPrimaryTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="signUp.securityCodeLabelTitle"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ca3-zI-bcs" userLabel="TextButton" customClass="CircleButton" customModule="secmemo" customModuleProvider="target">
-                                        <rect key="frame" x="339.5" y="6" width="42.5" height="42.5"/>
-                                        <color key="backgroundColor" name="CustomButtonBackgroundColor"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JkX-qA-tLo" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="434.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sja-q1-gUE" userLabel="PincodeSettingsContainer">
+                                                <rect key="frame" x="16" y="8" width="382" height="75"/>
+                                                <subviews>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Foc-sa-5v8">
+                                                        <rect key="frame" x="0.0" y="12.5" width="51" height="31"/>
+                                                    </switch>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Security pincode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwi-1x-ueP">
+                                                        <rect key="frame" x="65" y="1.5" width="257" height="53"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="53" id="fKP-UJ-mGW"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="CustomPrimaryTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="signUp.securityCodeLabelTitle"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ca3-zI-bcs" userLabel="TextButton" customClass="CircleButton" customModule="secmemo" customModuleProvider="target">
+                                                        <rect key="frame" x="338" y="6" width="44" height="44"/>
+                                                        <color key="backgroundColor" name="CustomButtonBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Ca3-zI-bcs" secondAttribute="height" multiplier="1:1" id="BRq-Km-3IJ"/>
+                                                            <constraint firstAttribute="height" constant="44" id="JHi-ZR-Hmw"/>
+                                                        </constraints>
+                                                        <color key="tintColor" name="CustomPrimaryTextColor"/>
+                                                        <inset key="imageEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                                                        <state key="normal" image="editPencil">
+                                                            <color key="titleColor" name="CustomPrimaryTextColor"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                                <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secutiry pincode description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C54-O0-dlf">
+                                                        <rect key="frame" x="0.0" y="58" width="382" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" name="CustomTextFieldPlaceholderTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="settings.pincodeSettingsDescription"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="C54-O0-dlf" secondAttribute="bottom" id="2GN-Ld-YbL"/>
+                                                    <constraint firstItem="C54-O0-dlf" firstAttribute="top" secondItem="Ca3-zI-bcs" secondAttribute="bottom" constant="8" id="6BW-Yd-9wN"/>
+                                                    <constraint firstItem="Ca3-zI-bcs" firstAttribute="leading" secondItem="Rwi-1x-ueP" secondAttribute="trailing" constant="16" id="ACv-RM-omF"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Ca3-zI-bcs" secondAttribute="trailing" id="NIr-2W-acS"/>
+                                                    <constraint firstItem="Ca3-zI-bcs" firstAttribute="top" secondItem="Sja-q1-gUE" secondAttribute="top" constant="6" id="RC3-YY-TYz"/>
+                                                    <constraint firstItem="Rwi-1x-ueP" firstAttribute="centerY" secondItem="Ca3-zI-bcs" secondAttribute="centerY" id="RdN-IM-DVF"/>
+                                                    <constraint firstItem="C54-O0-dlf" firstAttribute="leading" secondItem="Sja-q1-gUE" secondAttribute="leading" id="SJM-UI-cTE"/>
+                                                    <constraint firstItem="Rwi-1x-ueP" firstAttribute="leading" secondItem="Foc-sa-5v8" secondAttribute="trailing" constant="16" id="dLX-9S-hoK"/>
+                                                    <constraint firstItem="Foc-sa-5v8" firstAttribute="centerY" secondItem="Ca3-zI-bcs" secondAttribute="centerY" id="mFX-Va-NQG"/>
+                                                    <constraint firstAttribute="trailing" secondItem="C54-O0-dlf" secondAttribute="trailing" id="uMG-Eg-eR5"/>
+                                                    <constraint firstItem="Foc-sa-5v8" firstAttribute="leading" secondItem="Sja-q1-gUE" secondAttribute="leading" id="zJA-Mg-ZmE"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VpG-gk-hXV" userLabel="EmergencyPincodeSettingsContainer">
+                                                <rect key="frame" x="16" y="99" width="382" height="73.5"/>
+                                                <subviews>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qno-HF-Pho">
+                                                        <rect key="frame" x="0.0" y="12" width="51" height="31"/>
+                                                    </switch>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emergency pincode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HrG-8Y-RQf">
+                                                        <rect key="frame" x="65" y="17" width="258.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="CustomPrimaryTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="signUp.emergencyCodeLabelTitle"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmu-kO-iJr" userLabel="TextButton" customClass="CircleButton" customModule="secmemo" customModuleProvider="target">
+                                                        <rect key="frame" x="339.5" y="6" width="42.5" height="42.5"/>
+                                                        <color key="backgroundColor" name="CustomButtonBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="kmu-kO-iJr" secondAttribute="height" id="8hF-AS-bwT"/>
+                                                            <constraint firstAttribute="width" secondItem="kmu-kO-iJr" secondAttribute="height" multiplier="1:1" id="XJw-d2-iTJ"/>
+                                                        </constraints>
+                                                        <color key="tintColor" name="CustomPrimaryTextColor"/>
+                                                        <inset key="imageEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                                                        <state key="normal" image="editPencil">
+                                                            <color key="titleColor" name="CustomPrimaryTextColor"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                                <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emergency pincode description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecs-gT-pIJ">
+                                                        <rect key="frame" x="0.0" y="56.5" width="382" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" name="CustomTextFieldPlaceholderTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="settings.emergencyPincodeSettingsDescription"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="ecs-gT-pIJ" secondAttribute="bottom" id="0aa-od-0hA"/>
+                                                    <constraint firstItem="Qno-HF-Pho" firstAttribute="centerY" secondItem="kmu-kO-iJr" secondAttribute="centerY" id="1CN-OS-eXI"/>
+                                                    <constraint firstItem="HrG-8Y-RQf" firstAttribute="leading" secondItem="Qno-HF-Pho" secondAttribute="trailing" constant="16" id="IDJ-ZU-EQz"/>
+                                                    <constraint firstItem="ecs-gT-pIJ" firstAttribute="leading" secondItem="VpG-gk-hXV" secondAttribute="leading" id="K2i-WH-uk3"/>
+                                                    <constraint firstItem="kmu-kO-iJr" firstAttribute="top" secondItem="VpG-gk-hXV" secondAttribute="top" constant="6" id="N0v-rL-dz7"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ecs-gT-pIJ" secondAttribute="trailing" id="TRj-SS-oVg"/>
+                                                    <constraint firstItem="kmu-kO-iJr" firstAttribute="leading" secondItem="HrG-8Y-RQf" secondAttribute="trailing" constant="16" id="aMU-zA-Jhd"/>
+                                                    <constraint firstAttribute="trailing" secondItem="kmu-kO-iJr" secondAttribute="trailing" id="c64-Fn-OrH"/>
+                                                    <constraint firstItem="ecs-gT-pIJ" firstAttribute="top" secondItem="kmu-kO-iJr" secondAttribute="bottom" constant="8" id="ejB-5l-51k"/>
+                                                    <constraint firstItem="Qno-HF-Pho" firstAttribute="leading" secondItem="VpG-gk-hXV" secondAttribute="leading" id="k6t-8N-R0E"/>
+                                                    <constraint firstItem="HrG-8Y-RQf" firstAttribute="centerY" secondItem="kmu-kO-iJr" secondAttribute="centerY" id="utu-LA-XD2"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lpF-8v-guz" userLabel="WrongAttemptsContainer">
+                                                <rect key="frame" x="16" y="188.5" width="382" height="67"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of wrong attempts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1H-Gi-5wG">
+                                                        <rect key="frame" x="0.0" y="15" width="302" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="CustomPrimaryTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="settings.secureDeletionTitle"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcm-uh-PnD" userLabel="TextButton">
+                                                        <rect key="frame" x="318" y="8" width="64" height="34"/>
+                                                        <color key="backgroundColor" name="CustomButtonBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="34" id="54a-yF-jMk"/>
+                                                            <constraint firstAttribute="width" constant="64" id="Avk-lt-k6N"/>
+                                                        </constraints>
+                                                        <color key="tintColor" name="CustomPrimaryTextColor"/>
+                                                        <inset key="imageEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                                                        <state key="normal" title="—">
+                                                            <color key="titleColor" name="CustomPrimaryTextColor"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                                <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layerCornerRadius">
+                                                                <real key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secure deletion description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ntx-4M-jDa">
+                                                        <rect key="frame" x="0.0" y="50" width="382" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" name="CustomTextFieldPlaceholderTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="settings.secureDeletionDescription"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="Ntx-4M-jDa" firstAttribute="top" secondItem="Hcm-uh-PnD" secondAttribute="bottom" constant="8" id="3AA-SC-SBo"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Ntx-4M-jDa" secondAttribute="bottom" id="8gB-fr-Q1I"/>
+                                                    <constraint firstItem="H1H-Gi-5wG" firstAttribute="leading" secondItem="lpF-8v-guz" secondAttribute="leading" id="IqR-Yk-xSC"/>
+                                                    <constraint firstItem="Ntx-4M-jDa" firstAttribute="leading" secondItem="lpF-8v-guz" secondAttribute="leading" id="Kde-lU-MhR"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Hcm-uh-PnD" secondAttribute="trailing" id="SI7-LX-dfZ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Ntx-4M-jDa" secondAttribute="trailing" id="acl-gV-fJn"/>
+                                                    <constraint firstItem="Hcm-uh-PnD" firstAttribute="leading" secondItem="H1H-Gi-5wG" secondAttribute="trailing" constant="16" id="gfF-TN-N7N"/>
+                                                    <constraint firstItem="H1H-Gi-5wG" firstAttribute="centerY" secondItem="Hcm-uh-PnD" secondAttribute="centerY" id="mCP-kE-SHw"/>
+                                                    <constraint firstItem="Hcm-uh-PnD" firstAttribute="top" secondItem="lpF-8v-guz" secondAttribute="top" constant="8" id="qeQ-AY-GEg"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sVZ-AM-bL3" userLabel="AutoLockContainer">
+                                                <rect key="frame" x="16" y="271.5" width="382" height="67"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Autolock timeout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zml-qj-hvs">
+                                                        <rect key="frame" x="0.0" y="15" width="302" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="CustomPrimaryTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="settings.autoLockTimeoutTitle"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qub-wz-fa0" userLabel="TextButton">
+                                                        <rect key="frame" x="318" y="8" width="64" height="34"/>
+                                                        <color key="backgroundColor" name="CustomButtonBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="34" id="0T0-qp-5eP"/>
+                                                            <constraint firstAttribute="width" constant="64" id="xUx-Qj-A6w"/>
+                                                        </constraints>
+                                                        <color key="tintColor" name="CustomPrimaryTextColor"/>
+                                                        <inset key="imageEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                                                        <state key="normal" title="—">
+                                                            <color key="titleColor" name="CustomPrimaryTextColor"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                                <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layerCornerRadius">
+                                                                <real key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Autolock description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mO1-YN-FZb">
+                                                        <rect key="frame" x="0.0" y="50" width="382" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" name="CustomTextFieldPlaceholderTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="settings.autoLockTimeoutDescription"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="zml-qj-hvs" firstAttribute="leading" secondItem="sVZ-AM-bL3" secondAttribute="leading" id="43o-Kg-KAW"/>
+                                                    <constraint firstItem="mO1-YN-FZb" firstAttribute="leading" secondItem="sVZ-AM-bL3" secondAttribute="leading" id="G2P-pf-Tsm"/>
+                                                    <constraint firstItem="qub-wz-fa0" firstAttribute="top" secondItem="sVZ-AM-bL3" secondAttribute="top" constant="8" id="JJQ-VX-Mla"/>
+                                                    <constraint firstAttribute="bottom" secondItem="mO1-YN-FZb" secondAttribute="bottom" id="Jg6-9t-icE"/>
+                                                    <constraint firstItem="mO1-YN-FZb" firstAttribute="top" secondItem="qub-wz-fa0" secondAttribute="bottom" constant="8" id="Qqa-o9-TNc"/>
+                                                    <constraint firstItem="qub-wz-fa0" firstAttribute="leading" secondItem="zml-qj-hvs" secondAttribute="trailing" constant="16" id="Qug-Au-KvN"/>
+                                                    <constraint firstAttribute="trailing" secondItem="qub-wz-fa0" secondAttribute="trailing" id="jLL-Vc-QtX"/>
+                                                    <constraint firstItem="zml-qj-hvs" firstAttribute="centerY" secondItem="qub-wz-fa0" secondAttribute="centerY" id="mkM-CA-892"/>
+                                                    <constraint firstAttribute="trailing" secondItem="mO1-YN-FZb" secondAttribute="trailing" id="rZx-WI-b4A"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcC-c0-3HK">
+                                                <rect key="frame" x="0.0" y="354.5" width="414" height="64"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="64" id="txb-Bt-Tek"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Clear all data">
+                                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="lzButtonTitle" value="settings.clearAllDataButtonTitle"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="Ca3-zI-bcs" secondAttribute="height" multiplier="1:1" id="BRq-Km-3IJ"/>
+                                            <constraint firstItem="kmu-kO-iJr" firstAttribute="height" secondItem="Ca3-zI-bcs" secondAttribute="height" multiplier="0.965909" id="0R2-Xj-StD"/>
+                                            <constraint firstItem="Sja-q1-gUE" firstAttribute="leading" secondItem="JkX-qA-tLo" secondAttribute="leading" constant="16" id="2o7-fG-Nyq"/>
+                                            <constraint firstItem="lcC-c0-3HK" firstAttribute="leading" secondItem="JkX-qA-tLo" secondAttribute="leading" id="8b7-Rq-ase"/>
+                                            <constraint firstItem="lpF-8v-guz" firstAttribute="leading" secondItem="Sja-q1-gUE" secondAttribute="leading" id="Ajj-u4-lVv"/>
+                                            <constraint firstItem="sVZ-AM-bL3" firstAttribute="leading" secondItem="Sja-q1-gUE" secondAttribute="leading" id="DMV-FX-gRZ"/>
+                                            <constraint firstItem="lpF-8v-guz" firstAttribute="trailing" secondItem="Sja-q1-gUE" secondAttribute="trailing" id="KhC-LI-bNF"/>
+                                            <constraint firstItem="sVZ-AM-bL3" firstAttribute="trailing" secondItem="Sja-q1-gUE" secondAttribute="trailing" id="LD0-80-Am3"/>
+                                            <constraint firstItem="Sja-q1-gUE" firstAttribute="top" secondItem="JkX-qA-tLo" secondAttribute="top" constant="8" id="MsC-in-f8o"/>
+                                            <constraint firstAttribute="bottom" secondItem="lcC-c0-3HK" secondAttribute="bottom" constant="16" id="Txf-4e-a5s"/>
+                                            <constraint firstItem="VpG-gk-hXV" firstAttribute="top" secondItem="Sja-q1-gUE" secondAttribute="bottom" constant="16" id="U43-2d-ITj"/>
+                                            <constraint firstAttribute="trailing" secondItem="lcC-c0-3HK" secondAttribute="trailing" id="UVF-YS-Bf5"/>
+                                            <constraint firstItem="lcC-c0-3HK" firstAttribute="top" secondItem="sVZ-AM-bL3" secondAttribute="bottom" constant="16" id="Z7j-hH-eOO"/>
+                                            <constraint firstItem="VpG-gk-hXV" firstAttribute="trailing" secondItem="Sja-q1-gUE" secondAttribute="trailing" id="cTb-vM-XEx"/>
+                                            <constraint firstAttribute="trailing" secondItem="Sja-q1-gUE" secondAttribute="trailing" constant="16" id="eHp-Mb-gXU"/>
+                                            <constraint firstItem="sVZ-AM-bL3" firstAttribute="top" secondItem="lpF-8v-guz" secondAttribute="bottom" constant="16" id="ipT-XL-yMf"/>
+                                            <constraint firstItem="VpG-gk-hXV" firstAttribute="leading" secondItem="Sja-q1-gUE" secondAttribute="leading" id="wMI-lo-BM8"/>
+                                            <constraint firstItem="lpF-8v-guz" firstAttribute="top" secondItem="VpG-gk-hXV" secondAttribute="bottom" constant="16" id="yIF-Qr-5cE"/>
                                         </constraints>
-                                        <color key="tintColor" name="CustomPrimaryTextColor"/>
-                                        <inset key="imageEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
-                                        <state key="normal" image="editPencil">
-                                            <color key="titleColor" name="CustomPrimaryTextColor"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Ca3-zI-bcs" secondAttribute="bottom" constant="6" id="2Ja-WZ-efd"/>
-                                    <constraint firstItem="Ca3-zI-bcs" firstAttribute="leading" secondItem="Rwi-1x-ueP" secondAttribute="trailing" constant="16" id="ACv-RM-omF"/>
-                                    <constraint firstItem="Foc-sa-5v8" firstAttribute="centerY" secondItem="Sja-q1-gUE" secondAttribute="centerY" id="L0L-bs-8BC"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ca3-zI-bcs" secondAttribute="trailing" id="NIr-2W-acS"/>
-                                    <constraint firstItem="Ca3-zI-bcs" firstAttribute="top" secondItem="Sja-q1-gUE" secondAttribute="top" constant="6" id="RC3-YY-TYz"/>
-                                    <constraint firstItem="Rwi-1x-ueP" firstAttribute="leading" secondItem="Foc-sa-5v8" secondAttribute="trailing" constant="16" id="dLX-9S-hoK"/>
-                                    <constraint firstItem="Rwi-1x-ueP" firstAttribute="top" secondItem="Sja-q1-gUE" secondAttribute="top" id="fQR-bJ-v8X"/>
-                                    <constraint firstAttribute="bottom" secondItem="Rwi-1x-ueP" secondAttribute="bottom" id="mh6-iY-LYz"/>
-                                    <constraint firstItem="Ca3-zI-bcs" firstAttribute="centerY" secondItem="Sja-q1-gUE" secondAttribute="centerY" id="pcf-My-qfg"/>
-                                    <constraint firstItem="Foc-sa-5v8" firstAttribute="leading" secondItem="Sja-q1-gUE" secondAttribute="leading" id="zJA-Mg-ZmE"/>
+                                    <constraint firstItem="JkX-qA-tLo" firstAttribute="leading" secondItem="GdO-va-gP7" secondAttribute="leading" id="NbH-vO-pTA"/>
+                                    <constraint firstItem="JkX-qA-tLo" firstAttribute="height" secondItem="VIC-lJ-bUF" secondAttribute="height" priority="250" id="c3w-kI-h71"/>
+                                    <constraint firstItem="JkX-qA-tLo" firstAttribute="width" secondItem="VIC-lJ-bUF" secondAttribute="width" id="fQe-lI-jXE"/>
+                                    <constraint firstItem="JkX-qA-tLo" firstAttribute="bottom" secondItem="GdO-va-gP7" secondAttribute="bottom" id="qL7-lS-I5M"/>
+                                    <constraint firstItem="JkX-qA-tLo" firstAttribute="trailing" secondItem="GdO-va-gP7" secondAttribute="trailing" id="wt2-R9-JQk"/>
+                                    <constraint firstItem="JkX-qA-tLo" firstAttribute="top" secondItem="GdO-va-gP7" secondAttribute="top" id="zEV-PU-SRi"/>
                                 </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secutiry pincode description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C54-O0-dlf">
-                                <rect key="frame" x="16" y="178.5" width="382" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" name="CustomTextFieldPlaceholderTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="settings.pincodeSettingsDescription"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VpG-gk-hXV" userLabel="EmergencyPincodeSettingsContainer">
-                                <rect key="frame" x="16" y="219.5" width="382" height="53"/>
-                                <subviews>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qno-HF-Pho">
-                                        <rect key="frame" x="0.0" y="11" width="51" height="31"/>
-                                    </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emergency pincode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HrG-8Y-RQf">
-                                        <rect key="frame" x="65" y="0.0" width="258.5" height="53"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" name="CustomPrimaryTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="signUp.emergencyCodeLabelTitle"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmu-kO-iJr" userLabel="TextButton" customClass="CircleButton" customModule="secmemo" customModuleProvider="target">
-                                        <rect key="frame" x="339.5" y="5.5" width="42.5" height="42.5"/>
-                                        <color key="backgroundColor" name="CustomButtonBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="kmu-kO-iJr" secondAttribute="height" id="8hF-AS-bwT"/>
-                                            <constraint firstAttribute="width" secondItem="kmu-kO-iJr" secondAttribute="height" multiplier="1:1" id="XJw-d2-iTJ"/>
-                                        </constraints>
-                                        <color key="tintColor" name="CustomPrimaryTextColor"/>
-                                        <inset key="imageEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
-                                        <state key="normal" image="editPencil">
-                                            <color key="titleColor" name="CustomPrimaryTextColor"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="HrG-8Y-RQf" firstAttribute="top" secondItem="VpG-gk-hXV" secondAttribute="top" id="Fy2-Cf-VCY"/>
-                                    <constraint firstItem="HrG-8Y-RQf" firstAttribute="leading" secondItem="Qno-HF-Pho" secondAttribute="trailing" constant="16" id="IDJ-ZU-EQz"/>
-                                    <constraint firstAttribute="bottom" secondItem="HrG-8Y-RQf" secondAttribute="bottom" id="MP7-Lo-rmw"/>
-                                    <constraint firstItem="Qno-HF-Pho" firstAttribute="centerY" secondItem="VpG-gk-hXV" secondAttribute="centerY" id="SOJ-Iu-82B"/>
-                                    <constraint firstItem="kmu-kO-iJr" firstAttribute="leading" secondItem="HrG-8Y-RQf" secondAttribute="trailing" constant="16" id="aMU-zA-Jhd"/>
-                                    <constraint firstAttribute="trailing" secondItem="kmu-kO-iJr" secondAttribute="trailing" id="c64-Fn-OrH"/>
-                                    <constraint firstItem="kmu-kO-iJr" firstAttribute="centerY" secondItem="VpG-gk-hXV" secondAttribute="centerY" id="k0D-zy-yvE"/>
-                                    <constraint firstItem="Qno-HF-Pho" firstAttribute="leading" secondItem="VpG-gk-hXV" secondAttribute="leading" id="k6t-8N-R0E"/>
-                                    <constraint firstItem="kmu-kO-iJr" firstAttribute="height" secondItem="VpG-gk-hXV" secondAttribute="height" multiplier="0.8" id="s1I-20-DQQ"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emergency pincode description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecs-gT-pIJ">
-                                <rect key="frame" x="16" y="276.5" width="382" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" name="CustomTextFieldPlaceholderTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="settings.emergencyPincodeSettingsDescription"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcC-c0-3HK">
-                                <rect key="frame" x="0.0" y="790" width="414" height="72"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="72" id="txb-Bt-Tek"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Clear all data">
-                                    <color key="titleColor" systemColor="systemRedColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="lzButtonTitle" value="settings.clearAllDataButtonTitle"/>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lpF-8v-guz" userLabel="WrongAttemptsContainer">
-                                <rect key="frame" x="16" y="317.5" width="382" height="50"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of wrong attempts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1H-Gi-5wG">
-                                        <rect key="frame" x="0.0" y="0.0" width="302" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" name="CustomPrimaryTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="settings.secureDeletionTitle"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcm-uh-PnD" userLabel="TextButton">
-                                        <rect key="frame" x="318" y="8" width="64" height="34"/>
-                                        <color key="backgroundColor" name="CustomButtonBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="64" id="Avk-lt-k6N"/>
-                                        </constraints>
-                                        <color key="tintColor" name="CustomPrimaryTextColor"/>
-                                        <inset key="imageEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
-                                        <state key="normal" title="—">
-                                            <color key="titleColor" name="CustomPrimaryTextColor"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" name="CustomButtonHighlightedBackgroundColor"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layerCornerRadius">
-                                                <real key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="Hcm-uh-PnD" firstAttribute="centerY" secondItem="lpF-8v-guz" secondAttribute="centerY" id="6TO-t4-myw"/>
-                                    <constraint firstAttribute="bottom" secondItem="Hcm-uh-PnD" secondAttribute="bottom" constant="8" id="Fok-vn-Ikv"/>
-                                    <constraint firstItem="H1H-Gi-5wG" firstAttribute="leading" secondItem="lpF-8v-guz" secondAttribute="leading" id="IqR-Yk-xSC"/>
-                                    <constraint firstItem="Hcm-uh-PnD" firstAttribute="top" secondItem="lpF-8v-guz" secondAttribute="top" constant="8" id="P0C-sg-FZZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="Hcm-uh-PnD" secondAttribute="trailing" id="SI7-LX-dfZ"/>
-                                    <constraint firstItem="Hcm-uh-PnD" firstAttribute="leading" secondItem="H1H-Gi-5wG" secondAttribute="trailing" constant="16" id="gfF-TN-N7N"/>
-                                    <constraint firstAttribute="bottom" secondItem="H1H-Gi-5wG" secondAttribute="bottom" id="lq4-3O-xnA"/>
-                                    <constraint firstItem="H1H-Gi-5wG" firstAttribute="top" secondItem="lpF-8v-guz" secondAttribute="top" id="mtm-AU-yPq"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secure deletion description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ntx-4M-jDa">
-                                <rect key="frame" x="16" y="371.5" width="382" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" name="CustomTextFieldPlaceholderTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="settings.secureDeletionDescription"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
+                                <viewLayoutGuide key="contentLayoutGuide" id="GdO-va-gP7"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="VIC-lJ-bUF"/>
+                            </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMY-Go-4N6" userLabel="PickerViewContainer">
                                 <rect key="frame" x="0.0" y="724" width="414" height="172"/>
                                 <subviews>
@@ -221,6 +326,12 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="172"/>
                                         <color key="backgroundColor" name="CustomMemoEntrySplitterColor"/>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOr-Hf-suQ">
+                                        <rect key="frame" x="16" y="5.5" width="33" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPb-3t-jA6">
                                         <rect key="frame" x="374" y="0.0" width="32" height="32"/>
                                         <constraints>
@@ -244,12 +355,14 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="qPb-3t-jA6" secondAttribute="trailing" constant="8" id="4mX-90-NMV"/>
                                     <constraint firstAttribute="height" constant="172" id="G7i-w0-7OQ"/>
+                                    <constraint firstItem="EOr-Hf-suQ" firstAttribute="leading" secondItem="TMY-Go-4N6" secondAttribute="leading" constant="16" id="KL6-jF-py3"/>
                                     <constraint firstItem="CDt-Yi-8ps" firstAttribute="top" secondItem="TMY-Go-4N6" secondAttribute="top" id="Mbq-PP-W7f"/>
                                     <constraint firstAttribute="trailing" secondItem="oTp-HI-s2c" secondAttribute="trailing" id="bYt-qG-lXw"/>
                                     <constraint firstAttribute="bottom" secondItem="CDt-Yi-8ps" secondAttribute="bottom" id="c30-Mf-Gg3"/>
                                     <constraint firstItem="CDt-Yi-8ps" firstAttribute="leading" secondItem="TMY-Go-4N6" secondAttribute="leading" id="dtO-Un-Ihe"/>
                                     <constraint firstItem="oTp-HI-s2c" firstAttribute="leading" secondItem="TMY-Go-4N6" secondAttribute="leading" id="elE-pV-Jne"/>
                                     <constraint firstAttribute="trailing" secondItem="CDt-Yi-8ps" secondAttribute="trailing" id="lcu-fI-Rtd"/>
+                                    <constraint firstItem="EOr-Hf-suQ" firstAttribute="centerY" secondItem="qPb-3t-jA6" secondAttribute="centerY" id="r5P-Yi-JZ3"/>
                                     <constraint firstItem="oTp-HI-s2c" firstAttribute="top" secondItem="qPb-3t-jA6" secondAttribute="bottom" id="rOo-7C-G9c"/>
                                     <constraint firstAttribute="bottom" secondItem="oTp-HI-s2c" secondAttribute="bottom" id="sfF-1x-Gl5"/>
                                     <constraint firstItem="qPb-3t-jA6" firstAttribute="top" secondItem="TMY-Go-4N6" secondAttribute="top" id="vN1-9l-YwV"/>
@@ -259,30 +372,13 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Ntx-4M-jDa" firstAttribute="trailing" secondItem="Sja-q1-gUE" secondAttribute="trailing" id="3jM-Pn-RR8"/>
-                            <constraint firstItem="Sja-q1-gUE" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="16" id="3ny-l1-qOd"/>
-                            <constraint firstItem="lcC-c0-3HK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="4dj-bU-cgt"/>
-                            <constraint firstItem="C54-O0-dlf" firstAttribute="trailing" secondItem="Sja-q1-gUE" secondAttribute="trailing" id="8rw-Q9-bor"/>
-                            <constraint firstItem="VpG-gk-hXV" firstAttribute="top" secondItem="C54-O0-dlf" secondAttribute="bottom" constant="24" id="AaR-bk-VIw"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="lcC-c0-3HK" secondAttribute="bottom" id="CUg-q6-8hh"/>
-                            <constraint firstItem="VpG-gk-hXV" firstAttribute="trailing" secondItem="Sja-q1-gUE" secondAttribute="trailing" id="JHO-3k-fhw"/>
-                            <constraint firstItem="C54-O0-dlf" firstAttribute="leading" secondItem="Sja-q1-gUE" secondAttribute="leading" id="KQ1-7Z-tSF"/>
-                            <constraint firstItem="lpF-8v-guz" firstAttribute="top" secondItem="ecs-gT-pIJ" secondAttribute="bottom" constant="24" id="NSt-Vp-nrc"/>
-                            <constraint firstItem="ecs-gT-pIJ" firstAttribute="top" secondItem="VpG-gk-hXV" secondAttribute="bottom" constant="4" id="QZe-am-qUr"/>
+                            <constraint firstItem="PWF-qy-dGa" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="5Ib-Qg-UXz"/>
+                            <constraint firstItem="PWF-qy-dGa" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="AAB-pb-Dt0"/>
                             <constraint firstItem="TMY-Go-4N6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Rzd-0m-oDQ"/>
-                            <constraint firstItem="lpF-8v-guz" firstAttribute="trailing" secondItem="Sja-q1-gUE" secondAttribute="trailing" id="SAI-dS-lP2"/>
-                            <constraint firstItem="ecs-gT-pIJ" firstAttribute="trailing" secondItem="Sja-q1-gUE" secondAttribute="trailing" id="ZKt-Da-60H"/>
-                            <constraint firstItem="C54-O0-dlf" firstAttribute="top" secondItem="Sja-q1-gUE" secondAttribute="bottom" constant="4" id="cRc-Ah-Xfn"/>
-                            <constraint firstItem="lpF-8v-guz" firstAttribute="leading" secondItem="Sja-q1-gUE" secondAttribute="leading" id="ceY-Gh-ox4"/>
-                            <constraint firstItem="ecs-gT-pIJ" firstAttribute="leading" secondItem="Sja-q1-gUE" secondAttribute="leading" id="mcW-SJ-McK"/>
+                            <constraint firstAttribute="trailing" secondItem="PWF-qy-dGa" secondAttribute="trailing" id="cQF-Xy-Jjw"/>
+                            <constraint firstAttribute="bottom" secondItem="PWF-qy-dGa" secondAttribute="bottom" id="hwE-gy-dwz"/>
                             <constraint firstItem="TMY-Go-4N6" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="nXw-lQ-nRv"/>
-                            <constraint firstItem="Ntx-4M-jDa" firstAttribute="leading" secondItem="Sja-q1-gUE" secondAttribute="leading" id="nZa-9I-xyL"/>
                             <constraint firstAttribute="bottom" secondItem="TMY-Go-4N6" secondAttribute="bottom" id="oIQ-0u-VUv"/>
-                            <constraint firstItem="VpG-gk-hXV" firstAttribute="leading" secondItem="Sja-q1-gUE" secondAttribute="leading" id="pEK-Zu-N0E"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lcC-c0-3HK" secondAttribute="trailing" id="skK-ot-5My"/>
-                            <constraint firstItem="Sja-q1-gUE" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="32" id="uGc-dx-W3n"/>
-                            <constraint firstItem="Ntx-4M-jDa" firstAttribute="top" secondItem="lpF-8v-guz" secondAttribute="bottom" constant="4" id="yAu-ho-TVB"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Sja-q1-gUE" secondAttribute="trailing" constant="16" id="zhG-Tl-tFY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GkZ-hC-8g0">
@@ -293,6 +389,8 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="lzTitle" value="settings.navigationBarTitle"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="changeAutoLockTimeoutButton" destination="qub-wz-fa0" id="rHz-2D-L3e"/>
+                        <outlet property="changeAutoLockTimeoutTitleLabel" destination="zml-qj-hvs" id="ayR-9v-vj8"/>
                         <outlet property="changeEmergencyPincodeButton" destination="kmu-kO-iJr" id="ho3-vp-uwz"/>
                         <outlet property="changeSecurityPincodeButton" destination="Ca3-zI-bcs" id="MBS-jk-UAL"/>
                         <outlet property="changeWrongAttemptsCountButton" destination="Hcm-uh-PnD" id="0QJ-T8-9VO"/>
@@ -304,6 +402,7 @@
                         <outlet property="pickerView" destination="oTp-HI-s2c" id="cA4-7H-ChR"/>
                         <outlet property="pickerViewBottomConstraint" destination="oIQ-0u-VUv" id="Gzg-SQ-Nd9"/>
                         <outlet property="pickerViewHeightConstraint" destination="G7i-w0-7OQ" id="zsR-gl-nSh"/>
+                        <outlet property="pickerViewTitleLabel" destination="EOr-Hf-suQ" id="yuJ-Ob-hS2"/>
                         <outlet property="securityPincodeSwitch" destination="Foc-sa-5v8" id="Ox0-ab-dx7"/>
                     </connections>
                 </viewController>
@@ -334,7 +433,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
